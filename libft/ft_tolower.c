@@ -10,3 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
+
+int ft_tolower(int c)
+{
+    if (c >= 'A' && c <= 'Z')
+        return (c + 32);
+}
+
+/* int main() {
+    char c = 'Z';
+    printf("The lowercase equivalent of %c is %c\n", c, ft_tolower(c));
+    return 0;
+} */
