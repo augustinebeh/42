@@ -27,9 +27,7 @@ int ft_atoi(char *s)
     if (s[i] == '-' || s[i] == '+')
     {
         if (s[i] == '-')
-        {
             sign = sign * -1;
-        }
         i++;
     }
     while (s[i] >= '0' && s[i] <= '9')
