@@ -20,14 +20,12 @@ char *ft_strrchr(const char *str, int c)
 {
     int i;
     int j;
-    int k;
     int len;
 
     j = 0;
     i = strlen(str);
-    k = 0;
     len = strlen(str);
-    char *str2 = (char *)malloc(sizeof(char) * (len + 2));
+    char *str2 = (char *)malloc(sizeof(char) * (len + 1));
     while (i >= 0)
     {
         if (str[i] == c)
@@ -37,13 +35,14 @@ char *ft_strrchr(const char *str, int c)
         }
         i--;
     }
+    i = 0;
     while (j <= len)
     {
-        str2[k] = str[j];
+        str2[i] = str[j];
         j++;
-        k++;
+        i++;
     }
-    str2[k] = '\0';
+    str2[i] = '\0';
     return (str2);
 }
 
