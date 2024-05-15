@@ -18,8 +18,16 @@ int ft_toupper(int c)
         return (c - 32);
 }
 
-/* int main() {
-    char c = 'z';
-    printf("The Uppercase equivalent of %c is %c\n", c, ft_toupper(c));
-    return 0;
-} */
+// int main() {
+//     char *c = "DhI2wBe3d%";
+//     int i = 0;
+//     printf("The input is:  %s\nThe output is: ", c);
+    
+//     while (c[i] != '\0')
+//     {
+//         printf("%c", ft_toupper(c[i]));
+//         i++;
+//     }
+//     printf("\n");
+//     return 0;
+// }
