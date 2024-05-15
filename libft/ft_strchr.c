@@ -27,7 +27,7 @@ char *ft_strchr(const char *s, int c)
 }
 
 // alternate method to achieve the same result
-/* char *ft_strchr(const char *s, int c)
+/*  char *ft_strchr(const char *s, int c)
 {
     int i;
     int j;
@@ -51,9 +51,9 @@ char *ft_strchr(const char *s, int c)
         return((char *)s);
     else
         return(0);
-} 
+} */
 
-int main(int argc, char **argv)
+/* int main(int argc, char **argv)
 {
     if (argc != 3 || argv[2][1] != '\0')
         printf("----------------------ERROR---------------------\n");
@@ -65,11 +65,13 @@ int main(int argc, char **argv)
         str = ft_strchr(argv[1], argv[2][0]);
         str2 = strchr(argv[1], argv[2][0]);
         printf("------------------------------------------------\n");
-        printf("Input String = %s\n", argv[1]);
-        printf("Input tofind char: %s\n", argv[2]);
+        printf("Input String : %s\n", argv[1]);
+        printf("Char to find : %s\n", argv[2]);
         printf("---------------------\n");
-        printf("After ft_strrchr: %p\n", str);
-        printf("After real strrchr: %p\n", str2);
+        printf("After ft_strrchr   : %s\n", str);
+        printf("After ft_strrchr(address)   : %p\n", str);
+        printf("After real strrchr : %s\n", str2);
+        printf("After real strrchr(address) : %p\n", str2);
         printf("------------------------------------------------\n");
     }
-}*/
+} */
