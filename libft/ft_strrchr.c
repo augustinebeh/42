@@ -20,33 +20,31 @@ char *ft_strrchr(const char *str, int c)
 {
     int i;
     int j;
-    int len;
+    int k;
 
-    j = 0;
-    i = strlen(str);
-    len = strlen(str);
-    char *str2 = (char *)malloc(sizeof(char) * (len + 1));
-    while (i >= 0)
+    i = 0;
+    k = 0;
+    while (str[i])
+        i++;
+    while (i + 1 > 0)
     {
         if (str[i] == c)
         {
             j = i;
+            k++;
             break;
         }
         i--;
     }
-    i = 0;
-    while (j <= len)
-    {
-        str2[i] = str[j];
-        j++;
-        i++;
-    }
-    str2[i] = '\0';
-    return (str2);
+    while (j-- > 0)
+        str++;
+    if (k > 0)
+        return((char *)str);
+    else
+        return(0);
 }
 
-/* int main(int argc, char **argv)
+int main(int argc, char **argv)
 {
     if (argc != 3 || argv[2][1] != '\0')
         printf("----------------------ERROR---------------------\n");
@@ -58,11 +56,13 @@ char *ft_strrchr(const char *str, int c)
         str = ft_strrchr(argv[1], argv[2][0]);
         str2 = strrchr(argv[1], argv[2][0]);
         printf("------------------------------------------------\n");
-        printf("Input String = %s\n", argv[1]);
-        printf("Input tofind char: %s\n", argv[2]);
+        printf("Input String : %s\n", argv[1]);
+        printf("Char to find : %s\n", argv[2]);
         printf("---------------------\n");
-        printf("After ft_strrchr: %s\n", str);
+        printf("After ft_strrchr  : %s\n", str);
+        printf("After ft_strrchr(address)  : %p\n", str);
         printf("After real strrchr: %s\n", str2);
+        printf("After real strrchr(address): %p\n", str2);
         printf("------------------------------------------------\n");
     }
-} */
+}
