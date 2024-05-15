@@ -44,7 +44,7 @@ char *ft_strrchr(const char *str, int c)
         return(0);
 }
 
-int main(int argc, char **argv)
+/* int main(int argc, char **argv)
 {
     if (argc != 3 || argv[2][1] != '\0')
         printf("----------------------ERROR---------------------\n");
@@ -65,4 +65,4 @@ int main(int argc, char **argv)
         printf("After real strrchr(address): %p\n", str2);
         printf("------------------------------------------------\n");
     }
-}
+} */
