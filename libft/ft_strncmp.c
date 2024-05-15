@@ -31,19 +31,7 @@ int ft_strncmp(const char *s1, const char *s2, size_t n)
     }
 }
 
-// int ft_strncmp(const char *s1, const char *s2, size_t n)
-// {
-//     int i;
-    
-//     i = 0;
-//     if (!n)
-//         return (0);
-//     while (s1[i] && s1[i] == s2[i] && i -1 < n)
-//         i++;
-//     return (s1[i] - s2[i]);
-// }
-
-int main(int argc, char **argv)
+/*int main(int argc, char **argv)
 {
     if (argc != 4)
         printf("----------------------ERROR---------------------\n");
@@ -63,4 +51,4 @@ int main(int argc, char **argv)
         printf("After real strncmp: %d\n", str2);
         printf("------------------------------------------------\n");
     }
-}
+}*/
