@@ -32,7 +32,7 @@ char *ft_strdup(const char *s)
 {
     if (argc == 2)
     {   
-        printf("Input  : %s\n", argv[1]);
+        printf("Input   : %s\n", argv[1]);
         char* i;
         i = ft_strdup(argv[1]);
         if (i == NULL)
@@ -40,7 +40,7 @@ char *ft_strdup(const char *s)
             printf("Memory allocation failed\n");
             return 1;
         }
-        printf("Input  : %s\n", i);
+        printf("Output  : %s\n", i);
         free(i);
         return 0;
     }
