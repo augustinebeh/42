@@ -51,7 +51,6 @@ void *ft_memcpy(void *dest, const void *src, size_t n)
     else
     {
         size_t len = strlen(argv[1]);
-        size_t len2 = strlen(argv[3]);
         char *d = malloc(sizeof(char) * (len + 1));
         if (!d)
         {
