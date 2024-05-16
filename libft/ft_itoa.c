@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 04:22:22 by abeh              #+#    #+#             */
-/*   Updated: 2024/05/17 04:37:39 by abeh             ###   ########.fr       */
+/*   Updated: 2024/05/17 05:14:08 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ char *ft_itoa(int n)
 {
     char *result1;
     int result;
-    int i;
     int j;
     int len;
     int len2;
@@ -55,13 +54,11 @@ char *ft_itoa(int n)
     len = ft_intlen(result);
     len2 = len;           
     result1 = malloc(sizeof(char) * len + 1);
-    i = 0;
     while (len + 1 + j > 0)   // add j to this equation to increment result1 further back by 1
     {
         result1++;
         len--;
     }
-    
     *result1 = '\0';
     result1--;
     while (result != 0)
@@ -75,9 +72,7 @@ char *ft_itoa(int n)
         }
     }
     if (j == 1)               //if input is negative, add "-"
-    {
         *result1 = '-';
-    }
     return (result1);
 }
 
