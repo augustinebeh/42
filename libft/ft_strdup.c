@@ -28,7 +28,7 @@ char *ft_strdup(const char *s)
     return str;
 }
 
-int main(int argc, char **argv)
+/* int main(int argc, char **argv)
 {
     if (argc == 2)
     {   
@@ -46,4 +46,4 @@ int main(int argc, char **argv)
     }
     else
         printf("----------------------ERROR---------------------\n");
-}
+} */
