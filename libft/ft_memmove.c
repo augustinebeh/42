@@ -40,6 +40,7 @@ void *ft_memmove(void *dest, const void *src, size_t len)
         dest_char[i] = temp[i];     // Put the value of temp into dest
         i++;
     }
+    free(temp);                    // Free the temp memory space
     return (dest_char);
 }
 
@@ -79,4 +80,4 @@ void *ft_memmove(void *dest, const void *src, size_t len)
         free(s);
         return 0;
     }
-} */
+}*/
