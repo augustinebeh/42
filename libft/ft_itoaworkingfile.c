@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_itoaworkingfile.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
+/*   By: abeh <abeh@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 04:22:22 by abeh              #+#    #+#             */
-/*   Updated: 2024/05/17 12:26:34 by abeh             ###   ########.fr       */
+/*   Updated: 2024/05/17 15:29:42 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int ft_intlen(int p)
     return (i);
 }
 // main code to test ft_intlen
-/* int main(void)
+/*  int main(void)
 {
     int y = intlen(12123123);
     printf("value of y = %d\n", y);
