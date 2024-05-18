@@ -38,7 +38,7 @@ void		*ft_memset(void *ptr, int c, size_t len)
     return(ptr);
 }
 
-int main()
+/* int main()
 {
     int *array;
     size_t nmemb = 3;
@@ -89,4 +89,4 @@ int main()
     }
     free(array);
     return 0;
-}
+} */
