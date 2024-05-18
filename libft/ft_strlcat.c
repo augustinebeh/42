@@ -11,29 +11,30 @@
 /* ************************************************************************** */
 
 #include <string.h>
+#include <bsd/string.h> // to use strlcat original function **gcc ft_strlcat.c -o ft_strlcat -lbsd
 #include <stdio.h>
 #include <stdlib.h>
 // STRLCAT        -  Concatenates src behind dst. The concatenation should not exceed the input size(3rd variable).
 // RETURN VALUES  -
-//                  If size is empty, return => length of src
-//                  If size is larger than the length of dst, return => length of src + length of dst 
-//                  If size is smaller than the length of dst, return => length of src + size
+//                  If size is empty, return => (length of src)
+//                  If size is larger than the length of dst, return => (length of src + length of dst)
+//                  If size is smaller than the length of dst, return => (length of src + size)
 
 size_t ft_strlcat(char *dst, const char *src, size_t size) 
 {
     size_t dstlen = strlen(dst);
     size_t srclen = strlen(src);
     size_t i = 0;
-    size_t j = 0;
+    size_t totallen;
+    totallen = dstlen + srclen;
 
     if (size <= dstlen)
         return (srclen + size); 
     
-    while (src[i] != '\0' && j < size - dstlen - 1)
+    while (src[i] != '\0' && i < size - dstlen - 1)
     {
-        dst[dstlen +i] = src[i];
+        dst[dstlen + i] = src[i];
         i++;
-        j++;
     }
     dst[dstlen + i] = '\0';
     return (srclen + dstlen);
