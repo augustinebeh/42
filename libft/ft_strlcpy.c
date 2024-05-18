@@ -34,7 +34,7 @@ int ft_strlcpy(char *dst, const char *src, size_t size)
 // Main code to test ft_strlcpy function |
 //----------------------------------------
 
-int main(int argc, char *argv[])
+/* int main(int argc, char *argv[])
 {
     if (argc != 4)
         printf("ERROR\n");
@@ -68,4 +68,4 @@ int main(int argc, char *argv[])
         }
         return (0);
     }
-}
+} */
