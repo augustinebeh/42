@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 04:24:07 by abeh              #+#    #+#             */
-/*   Updated: 2024/05/20 03:38:02 by abeh             ###   ########.fr       */
+/*   Updated: 2024/05/20 03:55:00 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ char	**ft_split(char const *s, char c)
 	return (0);
 } */
 
-int main(int argc, char **argv)
+/* int main(int argc, char **argv)
 {
     int i;
     char *str = argv[1];
@@ -128,4 +128,4 @@ int main(int argc, char **argv)
     }
     printf("-----------------------------\n");
     return(0);
-}
+} */
