@@ -11,8 +11,8 @@
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include <string.h>
 #include <stdlib.h>
+#include <string.h>
 
 // Counts the number of delimiter
 size_t	ft_delimiter_counter(char *s, char delimiter)
@@ -66,8 +66,8 @@ char	**ft_split(char const *s, char c)
 	size_t	j;
 	char	**strarray;
 
-	strarray = (char **)malloc
-		(((ft_delimiter_counter((char *)s, c) + 1)) * sizeof(char *));
+	strarray = (char **)malloc(((ft_delimiter_counter((char *)s, c) + 1))
+			* sizeof(char *));
 	if (strarray == NULL)
 		return (NULL);
 	i = 0;
@@ -106,12 +106,13 @@ char	**ft_split(char const *s, char c)
 	return (0);
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
     int i;
-    char *str = argv[1];
-
+	char	*str;
     char **strarray;
+
+    str = argv[1];
     strarray = ft_split(str, argv[2][0]);
     i = 0;
     printf("-----------------------------\n");
