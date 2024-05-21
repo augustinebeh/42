@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 03:12:38 by abeh              #+#    #+#             */
-/*   Updated: 2024/05/21 21:52:40 by abeh             ###   ########.fr       */
+/*   Updated: 2024/05/21 23:13:47 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int main(void)
     t_list *head;
     t_list *node1;
     t_list *node2;
-    t_list *lastnode;
+    t_list *current;
     // creation of a few nodes.
     head = malloc(sizeof(t_list));
     head->content = "*contents of the first node*";
@@ -36,5 +36,12 @@ int main(void)
     node2->next = NULL;
     // prints the last node of the list using ft_lstlast function
     printf("The content of the last node is: %s\n", (char *)ft_lstlast(head)->content);
+    current = head;
+    while (current)
+    {
+        t_list *next = current->next;
+        free(current);
+        current = next;
+    }
     return (0);
 }
