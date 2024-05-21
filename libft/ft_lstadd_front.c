@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 03:11:52 by abeh              #+#    #+#             */
-/*   Updated: 2024/05/21 21:16:25 by abeh             ###   ########.fr       */
+/*   Updated: 2024/05/21 22:43:35 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,7 @@ int main()
 {
     // Initialize two nodes with some data
     t_list *node1;
-    t_list *node2 = malloc(sizeof(t_list));
-    t_list *list; 
+    t_list *node2;
     
     node1 = malloc(sizeof(t_list));
     node2 = malloc(sizeof(t_list));
@@ -47,12 +46,13 @@ int main()
 
     // Free the memory allocated for the nodes
     current = node1;
-    while (current!= NULL)
+    while (current->next)
     {
         t_list *next = current->next;
         free(current);
         current = next;
     }
+    free(current);
 
     return 0;
 }
