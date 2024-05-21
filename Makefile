@@ -50,12 +50,17 @@ SRCS =  ft_memset.c			\
 
 OBJS = $(SRCS:.c=.o)
 
+RM			=	rm -f
+
 CFLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	ar rcs $@ $^
+$(NAME):	$(OBJ)
+	@ar rcs $@ $(OBJ)
+	@echo "$(NAME) created"
+	@ranlib $@
+	@echo "$(NAME) indexed"
 
 .c.o:
 	gcc $(CFLAGS) -c $< -o $@
@@ -67,3 +72,10 @@ fclean: clean
 	rm -f *~
 
 re: fclean all
+
+git:
+	git add .
+	git commit -m "$m"
+	git push origin main
+
+.PHONY: all, clean, fclean, re
