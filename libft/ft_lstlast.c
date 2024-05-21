@@ -6,10 +6,35 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 03:12:38 by abeh              #+#    #+#             */
-/*   Updated: 2024/05/21 14:35:16 by abeh             ###   ########.fr       */
+/*   Updated: 2024/05/21 21:52:40 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list *ft_lstlast(t_list *lst);
+t_list *ft_lstlast(t_list *lst)
+{
+    while (lst->next)
+        lst = lst->next;
+    return(lst);
+}   
+int main(void)
+{
+    t_list *head;
+    t_list *node1;
+    t_list *node2;
+    t_list *lastnode;
+    // creation of a few nodes.
+    head = malloc(sizeof(t_list));
+    head->content = "*contents of the first node*";
+    node1 = malloc(sizeof(t_list));
+    node1->content = "*contents of the middle node";
+    head->next = node1;
+    node2 = malloc(sizeof(t_list));
+    node2->content = "*contents of the last node*";
+    node1->next = node2;
+    node2->next = NULL;
+    // prints the last node of the list using ft_lstlast function
+    printf("The content of the last node is: %s\n", (char *)ft_lstlast(head)->content);
+    return (0);
+}
