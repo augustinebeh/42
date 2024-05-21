@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 03:12:24 by abeh              #+#    #+#             */
-/*   Updated: 2024/05/21 21:29:45 by abeh             ###   ########.fr       */
+/*   Updated: 2024/05/21 23:18:47 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,13 @@ int main(void)
 
     // Print the result
     printf("There are %d nodes in the list.\n", size);
-
+    
+    t_list *current = head;
+    while (current)
+    {
+        t_list *next = current->next;
+        free(current);
+        current = next;   
+    }
     return 0;
 }
