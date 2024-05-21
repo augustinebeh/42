@@ -6,27 +6,29 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 03:13:03 by abeh              #+#    #+#             */
-/*   Updated: 2024/05/22 06:47:51 by abeh             ###   ########.fr       */
+/*   Updated: 2024/05/22 06:50:12 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 // function pointer
-void del(void *content)
+void	del(void *content)
 {
-    if(content)
-    {
-        content = NULL;
-    }
+	if (content)
+	{
+		content = NULL;
+	}
 }
-void ft_lstdelone(t_list *lst, void (*del)(void*))
+
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-    if (lst!= NULL)
-    {
-        del(lst->content);
-        free(lst);
-    }
-} 
+	if (lst != NULL)
+	{
+		del(lst->content);
+		free(lst);
+	}
+}
 /* void print_list(t_list *lst)
 {
     while (lst!= NULL)
@@ -35,7 +37,7 @@ void ft_lstdelone(t_list *lst, void (*del)(void*))
         lst = lst->next;
     }
 }
-int main(void)
+int	main(void)
 {
     t_list *head;
     t_list *node1;
@@ -77,5 +79,5 @@ int main(void)
         current = next;
     }
 
-    return 0;
+    return (0);
 } */
