@@ -6,8 +6,10 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 03:13:47 by abeh              #+#    #+#             */
-/*   Updated: 2024/05/21 14:07:33 by abeh             ###   ########.fr       */
+/*   Updated: 2024/05/21 14:35:19 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 t_list *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));

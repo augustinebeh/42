@@ -6,8 +6,10 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 03:11:52 by abeh              #+#    #+#             */
-/*   Updated: 2024/05/21 03:12:01 by abeh             ###   ########.fr       */
+/*   Updated: 2024/05/21 14:35:02 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 void ft_lstadd_front(t_list **lst, t_list *new);
