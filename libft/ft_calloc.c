@@ -25,8 +25,8 @@ void		*ft_memset(void *ptr, int c, size_t len)
     return(ptr);
 }
 // BASICALLY, CALLOC IS MALLOC BUT MEMSETS THE ALLOCATED MEMORY TO "0"
- void *ft_calloc(size_t nmemb, size_t size)
- {
+void *ft_calloc(size_t nmemb, size_t size)
+{
     void *ptr;
     size_t i;
     if (nmemb == 0 || size == 0)        //returns NULL if either variable is 0
