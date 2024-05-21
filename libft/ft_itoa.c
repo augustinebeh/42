@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abeh <abeh@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 05:01:04 by abeh              #+#    #+#             */
-/*   Updated: 2024/05/17 15:24:15 by abeh             ###   ########.fr       */
+/*   Updated: 2024/05/22 04:32:30 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ char	*ft_itoa(int n)
 		return (ft_itoa_positive(n));
 }
 
-int	main(int argc, char **argv)
+/* int	main(int argc, char **argv)
 {
 	char*hehe;
 
@@ -102,3 +102,4 @@ int	main(int argc, char **argv)
 	}
 	return (0);
 }
+ */
