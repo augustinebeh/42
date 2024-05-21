@@ -15,16 +15,16 @@
 #include <unistd.h>
 #include <string.h>
 
- char *ft_strnstr(const char *haystack, const char *needle, long int n)
+ char *ft_strnstr(const char *pile, const char *gem, long int n)
  {
     int i;
-    const char *p = haystack;
-    const char *q = needle;
+    const char *p = pile;
+    const char *q = gem;
    
     if (n == 0)
         return (NULL);
-    if (!*needle)
-        return ((char *)haystack);
+    if (!*gem)
+        return ((char *)pile);
     while (*p && q[i] != '\0')
     {
         if (*p == q[i] && n > 0)
