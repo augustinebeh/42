@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 04:24:23 by abeh              #+#    #+#             */
-/*   Updated: 2024/05/20 23:15:27 by abeh             ###   ########.fr       */
+/*   Updated: 2024/05/22 00:17:03 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ char		*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	unsigned int	i;
 	char			*str;
 
+	if (!s || !f)
+        return (NULL);
 	i = 0;
 	str = malloc(sizeof(char) * (strlen(s)) + 1);
 	if (str == NULL)
