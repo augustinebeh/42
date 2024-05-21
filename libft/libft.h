@@ -6,11 +6,11 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 13:45:18 by abeh              #+#    #+#             */
-/*   Updated: 2024/05/21 16:27:48 by abeh             ###   ########.fr       */
+/*   Updated: 2024/05/21 16:52:12 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
+# ifndef LIBFT_H
 # define LIBFT_H
 # include <stdio.h>
 # include <stdlib.h>
