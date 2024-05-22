@@ -6,13 +6,11 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 04:24:07 by abeh              #+#    #+#             */
-/*   Updated: 2024/05/20 03:55:00 by abeh             ###   ########.fr       */
+/*   Updated: 2024/05/22 23:44:31 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
+#include "libft.h"
 
 // Counts the number of substrings in the original string
 size_t	ft_number_of_substring(char *s, char delimiter)
@@ -20,8 +18,8 @@ size_t	ft_number_of_substring(char *s, char delimiter)
 	size_t	count;
 
 	count = 1;
-    if (s[0] == delimiter)
-        count = 0;
+	if (s[0] == delimiter)
+		count = 0;
 	while (*s)
 	{
 		if (*s == delimiter && *(s + 1) != delimiter && *(s + 1))
@@ -68,7 +66,8 @@ char	**ft_split(char const *s, char c)
 	size_t	j;
 	char	**strarray;
 
-	strarray = (char **)malloc((ft_number_of_substring((char *)s, c)) * sizeof(char *));
+	strarray = (char **)malloc((ft_number_of_substring((char *)s, c))
+			* sizeof(char *));
 	if (strarray == NULL)
 		return (NULL);
 	i = 0;
@@ -93,7 +92,7 @@ char	**ft_split(char const *s, char c)
 	char	*str;
 	char	**strarray;
 
-	str = "aa....ee";
+	str = ".we..wish...you....a.....merry......christmas....   ";
 	strarray = ft_split(str, '.');
 	i = 0;
 	printf("-----------------------------\n");
@@ -107,9 +106,9 @@ char	**ft_split(char const *s, char c)
 	printf("-----------------------------\n");
 	free(strarray);
 	return (0);
-} */
+}
 
-/* int main(int argc, char **argv)
+int main(int argc, char **argv)
 {
     int i;
     char *str = argv[1];
@@ -120,7 +119,8 @@ char	**ft_split(char const *s, char c)
     printf("-----------------------------\n");
     printf("The Input is: %s\n", argv[1]);
     printf("The Delimiter is: %s\n", argv[2]);
-    printf("Number of substrings: %ld\n", (ft_number_of_substring((char *)str, argv[2][0])));
+    printf("Number of substrings: %ld\n", (ft_number_of_substring((char *)str,
+				argv[2][0])));
     while (i < (ft_number_of_substring((char *)str, argv[2][0])))
     {
         printf("The %d element in the array is: %s\n", i, strarray[i]);
