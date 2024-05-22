@@ -6,13 +6,11 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 04:24:23 by abeh              #+#    #+#             */
-/*   Updated: 2024/05/22 17:11:06 by abeh             ###   ########.fr       */
+/*   Updated: 2024/05/22 17:23:43 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include "libft.h"
 
 char	f_function(unsigned int a, char b);
 
