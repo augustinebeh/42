@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 03:12:38 by abeh              #+#    #+#             */
-/*   Updated: 2024/05/21 23:13:47 by abeh             ###   ########.fr       */
+/*   Updated: 2024/05/22 23:21:13 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_list *ft_lstlast(t_list *lst)
         lst = lst->next;
     return(lst);
 }   
-int main(void)
+/* int main(void)
 {
     t_list *head;
     t_list *node1;
@@ -44,4 +44,4 @@ int main(void)
         current = next;
     }
     return (0);
-}
+} */
