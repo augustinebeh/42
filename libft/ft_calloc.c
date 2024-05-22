@@ -10,32 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-// remove this memset function for submission.
-void		*ft_memset(void *ptr, int c, size_t len)
-{
-    size_t		i;                  // to match with size_t len
-    i = 0;                          
-    while (i < len)
-    {
-        ((char *)ptr)[i] = c;       // cast char* to void
-        i++;
-    }
-    return(ptr);
-}
+#include "libft.h"
+
 // BASICALLY, CALLOC IS MALLOC BUT MEMSETS THE ALLOCATED MEMORY TO "0"
-void *ft_calloc(size_t nmemb, size_t size)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-    void *ptr;
-    size_t i;
-    if (nmemb == 0 || size == 0)        //returns NULL if either variable is 0
-        return (NULL);
-    ptr = malloc(nmemb * size);         //allocates memory for nmemb * size
-    if (ptr == NULL)                    //returns NULL if malloc allocation fails
-        return (NULL);
-    ft_memset(ptr, 0, nmemb * size);    //sets all bytes to 0
-    return(ptr);
+	void	*ptr;
+	size_t	i;
+
+	if (nmemb == 0 || size == 0)
+		return (NULL);
+	ptr = malloc(nmemb * size);
+	if (ptr == NULL)
+		return (NULL);
+	ft_memset(ptr, 0, nmemb * size);
+	return (ptr);
 }
 
 /* int main()
@@ -88,5 +77,5 @@ void *ft_calloc(size_t nmemb, size_t size)
         i++;
     }
     free(array);
-    return 0;
+    return (0);
 } */
