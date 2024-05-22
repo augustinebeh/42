@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 03:12:51 by abeh              #+#    #+#             */
-/*   Updated: 2024/05/21 23:11:34 by abeh             ###   ########.fr       */
+/*   Updated: 2024/05/22 23:13:29 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,47 +24,63 @@ void ft_lstadd_back(t_list **lst, t_list *new)
     temp->next = new;
     new->next = NULL;
 }
-int main(void)
+/* static void print_list(t_list *lst)
 {
-    t_list *head;
-    t_list *body1;
-    t_list *body2;
-    t_list *tail;
-    t_list *toadd;
-    
-    head = malloc(sizeof(t_list));
-    head->content = "head";
-    body1 = malloc(sizeof(t_list));
-    body1->content = "body1";
-    head->next = body1;
-    body2 = malloc(sizeof(t_list));
-    body2->content = "body2";
-    body1->next = body2;
-    tail = malloc(sizeof(t_list));
-    tail->content = "tail";
-    body2->next = tail;
-    tail->next = NULL;
-    
-    toadd = malloc(sizeof(t_list));
-    toadd->content = "toadd";
-    toadd->next = NULL;
+    int i;
 
-    ft_lstadd_back(&head, toadd);
-    t_list *current;
-    current = head;
-    int i = 1;
-    while (current != NULL)
+    i = 1;
+    while (lst!= NULL)
     {
-        printf("Content in node %d is: %s\n", i, (char *)current->content);
-        current = current->next;
+        printf("Content of node %d is: %s\n", i, (char *)lst->content);
+        lst = lst->next;
         i++;
     }
-    current = head;
-    while (current)
-    {
-        t_list *next = current->next;
-        free(current);
-        current = next;
-    }
-    return 0;
 }
+
+int	main(void)
+{
+	t_list *head;
+	t_list *body;
+	t_list *body2;
+	t_list *tail;
+	t_list *toadd;
+
+	head = malloc(sizeof(t_list));
+	body = malloc(sizeof(t_list));
+	tail = malloc(sizeof(t_list));
+	toadd = malloc(sizeof(t_list));
+    
+	head->content = "head";
+	body->content = "body";
+	tail->content = "tail";
+	head->next = body;
+	body->next = tail;
+	tail->next = NULL;
+
+	toadd->content = "new node";
+	toadd->next = NULL;
+    
+    printf("----------------------------\n");
+    printf("-------INTITIAL NODES-------\n");
+    printf("----------------------------\n");
+    
+    print_list(head);
+    
+    printf("----------------------------\n");
+    printf("----NODES AFTER FUNCTION----\n");
+    printf("----------------------------\n");
+
+	ft_lstadd_back(&head, toadd);
+	t_list *current;
+	print_list(head);
+    printf("----------------------------\n");
+
+	current = head;
+	while (current)
+	{
+		t_list *next = current->next;
+		free(current);
+		current = next;
+	}
+	return (0);
+} */
