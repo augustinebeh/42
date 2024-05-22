@@ -6,14 +6,14 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 04:24:07 by abeh              #+#    #+#             */
-/*   Updated: 2024/05/22 23:44:31 by abeh             ###   ########.fr       */
+/*   Updated: 2024/05/22 23:46:35 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 // Counts the number of substrings in the original string
-size_t	ft_number_of_substring(char *s, char delimiter)
+static size_t	ft_number_of_substring(char *s, char delimiter)
 {
 	size_t	count;
 
@@ -29,7 +29,7 @@ size_t	ft_number_of_substring(char *s, char delimiter)
 	return (count);
 }
 
-size_t	ft_lenofnextsubstring(const char *str, char delimiter)
+static size_t	ft_lenofnextsubstring(const char *str, char delimiter)
 {
 	size_t	i;
 
@@ -39,7 +39,7 @@ size_t	ft_lenofnextsubstring(const char *str, char delimiter)
 	return (i);
 }
 
-char	*ft_substring_creater(const char *s, size_t element, char c)
+static char	*ft_substring_creater(const char *s, size_t element, char c)
 {
 	size_t	len;
 	size_t	i;
@@ -86,7 +86,7 @@ char	**ft_split(char const *s, char c)
 	return (strarray);
 }
 
-/* int	main(void)
+/*int	main(void)
 {
 	size_t	i;
 	char	*str;
