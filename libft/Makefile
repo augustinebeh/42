@@ -12,7 +12,7 @@
 
 NAME = libft.a
 
-SRCS =  ft_memset.c			\
+SOURCE =  ft_memset.c			\
 		ft_bzero.c			\
 		ft_memcpy.c			\
 		ft_memccpy.c		\
@@ -47,8 +47,11 @@ SRCS =  ft_memset.c			\
 		ft_putendl_fd.c		\
 		ft_putnbr_fd.c
 
+HEADERS = includes
 
-OBJS = $(SRCS:.c=.o)
+OBJS = 	$(SOURCE:.c=.o)
+
+CC = gcc
 
 RM			=	rm -f
 
@@ -69,7 +72,8 @@ clean:
 	rm -f $(OBJS) $(NAME)
 
 fclean: clean
-	rm -f *~
+	@rm -f $(NAME)
+	@echo "$(NAME) deleted"
 
 re: fclean all
 
