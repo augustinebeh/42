@@ -6,12 +6,11 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 22:06:07 by abeh              #+#    #+#             */
-/*   Updated: 2024/05/14 22:06:07 by abeh             ###   ########.fr       */
+/*   Updated: 2024/05/22 22:39:13 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
+#include "libft.h"
 
 int	ft_atoi(char *c)
 {
