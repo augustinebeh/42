@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 22:35:11 by abeh              #+#    #+#             */
-/*   Updated: 2024/05/27 02:21:47 by abeh             ###   ########.fr       */
+/*   Updated: 2024/05/27 06:08:06 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,17 @@
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	size_t	i;
+	size_t	srclen;
 
-	i = 0;
-	if (size == 0)
-		return (0);
-	while (src[i] != '\0' && i < size - 1)
+	srclen = ft_strlen(src);
+	if (srclen + 1 < size)
+		ft_memcpy(dst, src, srclen + 1);
+	else if (size != 0)
 	{
-		dst[i] = src[i];
-		i++;
+		ft_memcpy(dst, src, size - 1);
+		dst[size - 1] = 0;
 	}
-	dst[i] = '\0';
-	return (i);
+	return (srclen);
 }
 
 //----------------------------------------

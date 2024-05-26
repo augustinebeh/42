@@ -6,23 +6,20 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 04:24:34 by abeh              #+#    #+#             */
-/*   Updated: 2024/05/26 00:29:58 by abeh             ###   ########.fr       */
+/*   Updated: 2024/05/27 06:09:45 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// Function that applies a function to each character in a string
 void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
 	unsigned int	i;
 
-	if (!s)
-		return ;
 	i = 0;
 	while (s[i])
 	{
-		f(i, s + i);
+		(*f)(i, &s[i]);
 		i++;
 	}
 }
