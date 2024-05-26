@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 22:35:16 by abeh              #+#    #+#             */
-/*   Updated: 2024/05/14 22:35:16 by abeh             ###   ########.fr       */
+/*   Updated: 2024/05/27 05:39:32 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
-	while (0 < n--)
+	while (i < n)
 	{
 		if (s1[i] == '\0' && s2[i] == '\0')
 			return (0);
@@ -26,9 +26,10 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 		else
 			i++;
 	}
+	return (0);
 }
 
-/*int main(int argc, char **argv)
+/* int main(int argc, char **argv)
 {
     if (argc != 4)
         printf("----------------------ERROR---------------------\n");
@@ -48,4 +49,4 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
         printf("After real strncmp: %d\n", str2);
         printf("------------------------------------------------\n");
     }
-}*/
+} */

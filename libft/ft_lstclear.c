@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 03:13:24 by abeh              #+#    #+#             */
-/*   Updated: 2024/05/27 02:16:22 by abeh             ###   ########.fr       */
+/*   Updated: 2024/05/27 05:46:12 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	while (current != NULL)
 	{
 		next_lst = current->next;
-		del_content(current);
+		del(current);
 		current = next_lst;
 	}
 	*lst = NULL;
 }
 
-static void	del_content(void *content)
+/* static void	del_content(void *content)
 {
 	if (content)
 		free(content);
@@ -42,7 +42,7 @@ static void	print_list(t_list *lst)
 	}
 }
 
-/* int main() {
+int main() {
   t_list *list = NULL;
   t_list *node1 = malloc(sizeof(t_list));
   t_list *node2 = malloc(sizeof(t_list));

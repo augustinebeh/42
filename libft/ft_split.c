@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 04:24:07 by abeh              #+#    #+#             */
-/*   Updated: 2024/05/22 23:46:35 by abeh             ###   ########.fr       */
+/*   Updated: 2024/05/27 05:55:22 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ char	**ft_split(char const *s, char c)
 	return (strarray);
 }
 
-/*int	main(void)
+/* int	main(void)
 {
 	size_t	i;
 	char	*str;

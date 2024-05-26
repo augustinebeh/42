@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 22:34:50 by abeh              #+#    #+#             */
-/*   Updated: 2024/05/19 02:28:10 by abeh             ###   ########.fr       */
+/*   Updated: 2024/05/27 05:43:39 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*ptr;
-	size_t	i;
 
 	if (nmemb == 0 || size == 0)
 		return (NULL);

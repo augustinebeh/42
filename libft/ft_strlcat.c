@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 22:35:10 by abeh              #+#    #+#             */
-/*   Updated: 2024/05/14 22:35:10 by abeh             ###   ########.fr       */
+/*   Updated: 2024/05/27 05:41:21 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,10 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	size_t	dstlen;
 	size_t	srclen;
 	size_t	i;
-	size_t	totallen;
 
 	dstlen = strlen(dst);
 	srclen = strlen(src);
 	i = 0;
-	totallen = dstlen + srclen;
 	if (size <= dstlen)
 		return (srclen + size);
 	while (src[i] != '\0' && i < size - dstlen - 1)
@@ -60,8 +58,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
         printf("======================\n");
         i = ft_strlcat(dst, src, size);
         printf("dst after ft_strlcat : %s\n", dst);
-        printf("return (of ft_strlcat : %d\n", i));
+        printf("return (of ft_strlcat : %d\n", i);
         return (0);
     }
-}
- */
+} */
