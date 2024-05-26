@@ -6,25 +6,25 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 03:12:24 by abeh              #+#    #+#             */
-/*   Updated: 2024/05/21 23:18:47 by abeh             ###   ########.fr       */
+/*   Updated: 2024/05/27 02:09:15 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_lstsize(t_list *lst)
+int	ft_lstsize(t_list *lst)
 {
-    size_t i;
-    
-    i = 0;
-    while (lst)
-    {
-        i++;
-        lst = lst->next;
-    }
-    return(i);
+	size_t	i;
+
+	i = 0;
+	while (lst)
+	{
+		i++;
+		lst = lst->next;
+	}
+	return (i);
 }
-int main(void)
+/* int main(void)
 {
     // Create nodes for the linked list
     t_list *head = malloc(sizeof(t_list));
@@ -50,5 +50,5 @@ int main(void)
         free(current);
         current = next;   
     }
-    return 0;
-}
+    return (0);
+} */

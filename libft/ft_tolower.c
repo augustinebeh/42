@@ -6,16 +6,17 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 22:35:19 by abeh              #+#    #+#             */
-/*   Updated: 2024/05/14 22:35:19 by abeh             ###   ########.fr       */
+/*   Updated: 2024/05/27 02:43:13 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
 int	ft_tolower(int c)
 {
 	if (c >= 'A' && c <= 'Z')
 		return (c + 32);
+    return(c);
 }
 
 /* int main() {

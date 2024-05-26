@@ -6,17 +6,17 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 22:34:56 by abeh              #+#    #+#             */
-/*   Updated: 2024/05/14 22:34:56 by abeh             ###   ########.fr       */
+/*   Updated: 2024/05/27 02:12:43 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
-int ft_isascii(int c)
+int	ft_isascii(int c)
 {
-    if (c >= 0 && c<= 127)
-        return (1);
-    return (0);
+	if (c >= 0 && c <= 127)
+		return (1);
+	return (0);
 }
 
 /* int main(int argc, char **argv)
@@ -28,7 +28,9 @@ int ft_isascii(int c)
     else
     {
         printf("------------------------------------------------\n");
-        printf("Input value = %s\nYes = (1) No = (0): %d\n", argv[1], ft_isascii(argv[1][0]));
+        printf("Input value = %s\nYes = (1) No = (0): %d\n", argv[1],
+		ft_isascii(argv[1][0]));
+[1], ft_isascii(argv[1][0]));
         printf("------------------------------------------------\n");
     }
 } */

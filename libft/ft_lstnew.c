@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 03:08:24 by abeh              #+#    #+#             */
-/*   Updated: 2024/05/21 23:14:08 by abeh             ###   ########.fr       */
+/*   Updated: 2024/05/27 02:02:41 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_list	*ft_lstnew(void *content)
 	return (newnode);
 }
 
-int main()
+/* int main()
 {
     t_list *node = ft_lstnew("Hello, world!");
 
@@ -39,4 +39,4 @@ int main()
     free(node);
 
     return (0);
-}
+} */

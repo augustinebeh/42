@@ -6,21 +6,21 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 03:11:52 by abeh              #+#    #+#             */
-/*   Updated: 2024/05/21 22:43:35 by abeh             ###   ########.fr       */
+/*   Updated: 2024/05/27 02:19:44 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_lstadd_front(t_list **lst, t_list *new)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-    if (!lst)
-        return;
-    new->next = *lst;
-    *lst = new;
+	if (!lst)
+		return ;
+	new->next = *lst;
+	*lst = new;
 }
 
-int main()
+/* int main()
 {
     // Initialize two nodes with some data
     t_list *node1;
@@ -54,5 +54,5 @@ int main()
     }
     free(current);
 
-    return 0;
-}
+    return (0);
+} */

@@ -10,76 +10,83 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft.a
-
-SOURCE =  ft_memset.c			\
-		ft_bzero.c			\
-		ft_memcpy.c			\
-		ft_memccpy.c		\
-		ft_memmove.c 		\
-		ft_memchr.c			\
-		ft_memcmp.c			\
-		ft_strlen.c			\
-		ft_isalpha.c 		\
+SRCS = ft_memset.c		\
+		ft_bzero.c		\
+		ft_memcpy.c		\
+		ft_memmove.c 	\
+		ft_memchr.c		\
+		ft_memcmp.c		\
+		ft_strlen.c		\
+		ft_isalpha.c 	\
 		ft_isdigit.c		\
 		ft_isalnum.c		\
 		ft_isascii.c		\
 		ft_isprint.c		\
 		ft_toupper.c		\
 		ft_tolower.c		\
-		ft_strchr.c			\
+		ft_strchr.c		\
 		ft_strrchr.c		\
 		ft_strncmp.c		\
 		ft_strlcpy.c		\
 		ft_strlcat.c		\
 		ft_strnstr.c		\
-		ft_atoi.c			\
-		ft_calloc.c			\
-		ft_strdup.c			\
-		ft_substr.c			\
-		ft_strjoin.c 		\
+		ft_atoi.c		\
+		ft_calloc.c		\
+		ft_strdup.c		\
+		ft_substr.c		\
+		ft_strjoin.c 	\
 		ft_strtrim.c		\
-		ft_split.c			\
-		ft_itoa.c			\
+		ft_split.c		\
+		ft_itoa.c		\
 		ft_strmapi.c		\
-		ft_putchar_fd.c		\
-		ft_putstr_fd.c		\
-		ft_putendl_fd.c		\
+		ft_putchar_fd.c	\
+		ft_putstr_fd.c	\
+		ft_putendl_fd.c	\
 		ft_putnbr_fd.c
 
-HEADERS = includes
+SRCSB =	ft_lstnew.c			\
+		ft_lstadd_front.c	\
+		ft_lstsize.c		\
+		ft_lstlast.c		\
+		ft_lstadd_back.c	\
+		ft_lstclear.c		\
+		ft_lstdelone.c		\
+		ft_lstiter.c		\
+		ft_lstmap.c			\
+		$(SRCS)
 
-OBJS = 	$(SOURCE:.c=.o)
+NAME = libft.a
 
-CC = gcc
+OBJS_DIR = objs/
+OBJS = $(SRCS:.c=.o)
+OBJECTS_PREFIXED = $(addprefix $(OBJS_DIR), $(OBJS))
 
-RM			=	rm -f
+OBJSB = $(SRCSB:.c=.o)
+OBJECTS_BONUS_PREFIXED = $(addprefix $(OBJS_DIR), $(OBJSB))
 
-CFLAGS = -Wall -Wextra -Werror
+CC = clang
+
+CC_FLAGS = -Wall -Wextra -Werror
+
+$(OBJS_DIR)%.o : %.c libft.h
+	@mkdir -p $(OBJS_DIR)
+	@echo "Compiling: $<"
+	@clang $(CC_FLAGS) -c $< -o $@
+
+$(NAME): $(OBJECTS_PREFIXED)
+	@ar r $(NAME) $(OBJECTS_PREFIXED)
+	@echo "Libft Done !"
 
 all: $(NAME)
 
-$(NAME):	$(OBJ)
-	@ar rcs $@ $(OBJ)
-	@echo "$(NAME) created"
-	@ranlib $@
-	@echo "$(NAME) indexed"
-
-.c.o:
-	gcc $(CFLAGS) -c $< -o $@
-
 clean:
-	rm -f $(OBJS) $(NAME)
+	rm -rf $(OBJS_DIR)
 
 fclean: clean
-	@rm -f $(NAME)
-	@echo "$(NAME) deleted"
+	rm -f $(NAME)
 
 re: fclean all
 
-git:
-	git add .
-	git commit -m "$m"
-	git push origin main
-
-.PHONY: all, clean, fclean, re
+bonus: $(OBJECTS_BONUS_PREFIXED)
+	@ar r $(NAME) $(OBJECTS_BONUS_PREFIXED)
+	@echo "Libft Bonus Done !"

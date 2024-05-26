@@ -10,28 +10,27 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <stddef.h>
+#include "libft.h"
 
-void *ft_memchr(const void *s, int c, size_t n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-    const unsigned char *p = s;
-    if (n > 0)
-    {
-        while (n > 0 && *p != (unsigned char)c)
-        {
-            p++;
-            n--;
-        }
-        return (void *)p;
-    }
-    else
-        return (0);
+	const unsigned char	*p;
+
+	p = s;
+	if (n > 0)
+	{
+		while (n > 0 && *p != (unsigned char)c)
+		{
+			p++;
+			n--;
+		}
+		return ((void *)p);
+	}
+	else
+		return (0);
 }
-    
-int main(int argc, char **argv)
+
+/* int main(int argc, char **argv)
 {
     if (argc != 4)
         printf("-----------------ErRoR----------------\n");
@@ -52,4 +51,4 @@ int main(int argc, char **argv)
 
         return(0);
     }
-}
+} */

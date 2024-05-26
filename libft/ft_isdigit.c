@@ -10,13 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
-int ft_isdigit(int c)
+int	ft_isdigit(int c)
 {
-    if (c >= '0' && c<= '9')
-        return (1);
-    return (0);
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
 }
 
 /* int main(int argc, char **argv)
@@ -28,7 +28,8 @@ int ft_isdigit(int c)
     else
     {
         printf("------------------------------------------------\n");
-        printf("Input value = %s\nYes = (1) No = (0): %d\n", argv[1], ft_isdigit(argv[1][0]));
+        printf("Input value = %s\nYes = (1) No = (0): %d\n", argv[1],
+		ft_isdigit(argv[1][0]));
         printf("------------------------------------------------\n");
     }
 } */

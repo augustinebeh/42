@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 22:04:50 by abeh              #+#    #+#             */
-/*   Updated: 2024/05/22 22:40:08 by abeh             ###   ########.fr       */
+/*   Updated: 2024/05/27 02:33:41 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	size_t			i;
 	unsigned char	*str;
 
 	str = (unsigned char *)s;

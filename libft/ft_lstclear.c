@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 03:13:24 by abeh              #+#    #+#             */
-/*   Updated: 2024/05/23 00:19:53 by abeh             ###   ########.fr       */
+/*   Updated: 2024/05/27 02:16:22 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	t_list *current;
-	t_list *next_lst;
+	t_list	*current;
+	t_list	*next_lst;
 
 	current = *lst;
 	while (current != NULL)
@@ -27,22 +27,22 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	*lst = NULL;
 }
 
-void del_content(void *content) 
+static void	del_content(void *content)
 {
-    if(content)
-        free(content);
+	if (content)
+		free(content);
 }
 
-void print_list(t_list *lst)
+static void	print_list(t_list *lst)
 {
-    while (lst!= NULL)
-    {
-        printf("%s\n", (char *)lst->content);
-        lst = lst->next;
-    }
+	while (lst != NULL)
+	{
+		printf("%s\n", (char *)lst->content);
+		lst = lst->next;
+	}
 }
 
-int main() {
+/* int main() {
   t_list *list = NULL;
   t_list *node1 = malloc(sizeof(t_list));
   t_list *node2 = malloc(sizeof(t_list));
@@ -74,5 +74,5 @@ int main() {
     current = current->next;
   }
 
-  return 0;
-}
+  return (0);
+} */

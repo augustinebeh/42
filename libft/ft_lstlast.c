@@ -12,12 +12,12 @@
 
 #include "libft.h"
 
-t_list *ft_lstlast(t_list *lst)
+t_list	*ft_lstlast(t_list *lst)
 {
-    while (lst->next)
-        lst = lst->next;
-    return(lst);
-}   
+	while (lst->next)
+		lst = lst->next;
+	return (lst);
+}
 /* int main(void)
 {
     t_list *head;
@@ -35,7 +35,8 @@ t_list *ft_lstlast(t_list *lst)
     node1->next = node2;
     node2->next = NULL;
     // prints the last node of the list using ft_lstlast function
-    printf("The content of the last node is: %s\n", (char *)ft_lstlast(head)->content);
+    printf("The content of the last node is: %s\n",
+		(char *)ft_lstlast(head)->content);
     current = head;
     while (current)
     {

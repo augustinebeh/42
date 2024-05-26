@@ -6,42 +6,38 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 22:35:18 by abeh              #+#    #+#             */
-/*   Updated: 2024/05/14 22:35:18 by abeh             ###   ########.fr       */
+/*   Updated: 2024/05/27 02:45:16 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <stdio.h>
+#include "libft.h"
 
-char *ft_strrchr(const char *str, int c)
+char	*ft_strrchr(const char *str, int c)
 {
-    int i;
-    int j;
-    int k;
+	int	i;
+	int	j;
+	int	k;
 
-    i = 0;
-    k = 0;
-    while (str[i])
-        i++;
-    while (i + 1 > 0)
-    {
-        if (str[i] == c)
-        {
-            j = i;
-            k++;
-            break;
-        }
-        i--;
-    }
-    while (j-- > 0)
-        str++;
-    if (k > 0)
-        return((char *)str);
-    else
-        return(0);
+	i = 0;
+	k = 0;
+	while (str[i])
+		i++;
+	while (i + 1 > 0)
+	{
+		if (str[i] == c)
+		{
+			j = i;
+			k++;
+			break ;
+		}
+		i--;
+	}
+	while (j-- > 0)
+		str++;
+	if (k > 0)
+		return ((char *)str);
+	else
+		return (0);
 }
 
 /* int main(int argc, char **argv)

@@ -10,22 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
+#include "libft.h"
 
-void *ft_memcpy(void *dest, const void *src, size_t n)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-    size_t i;
+	size_t	i;
 
-    i = 0;
-    while (src && i < n)
-    {
-        ((char *)dest)[i] = ((char *)src)[i];
-        i++;
-    }
-    return (dest);
+	i = 0;
+	while (src && i < n)
+	{
+		((char *)dest)[i] = ((char *)src)[i];
+		i++;
+	}
+	return (dest);
 }
 
 //alternative method to obtain same result
@@ -40,7 +37,7 @@ void *ft_memcpy(void *dest, const void *src, size_t n)
         cdest[i] = csrc[i];
 
     //Return the destination address
-    return dest;
+    return (dest);
 } */
 
 //main file for manual testcases. argc based on number of input variables
@@ -55,14 +52,14 @@ void *ft_memcpy(void *dest, const void *src, size_t n)
         if (!d)
         {
             fprintf(stderr, "Memory allocation failed for d\n");
-            return 1;
+            return (1);
         }
 
         char *s = malloc(sizeof(char) * (len + 1));
         if (!s)
         {
             fprintf(stderr, "Memory allocation failed for s\n");
-            return 1;
+            return (1);
         }
         strcpy(d, argv[1]);
         strcpy(s, argv[2]);
@@ -77,6 +74,6 @@ void *ft_memcpy(void *dest, const void *src, size_t n)
         printf("----------------------------------------\n");
         free(d);
         free(s);    
-        return 0;
+        return (0);
     }
 } */

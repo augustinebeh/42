@@ -6,14 +6,11 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 05:01:04 by abeh              #+#    #+#             */
-/*   Updated: 2024/05/22 04:32:30 by abeh             ###   ########.fr       */
+/*   Updated: 2024/05/27 02:03:39 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
+#include "libft.h"
 
 int	ft_intlen(int p)
 {

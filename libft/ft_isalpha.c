@@ -10,14 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
-int ft_isalpha(int c)
+int	ft_isalpha(int c)
 {
-    if ((c >= 'a' && c<= 'z') 
-    || (c >= 'A' && c <= 'Z'))
-        return (1);
-    return (0);
+	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+		return (1);
+	return (0);
 }
 
 /* int main(int argc, char **argv)
@@ -29,7 +28,8 @@ int ft_isalpha(int c)
     else
     {
         printf("------------------------------------------------\n");
-        printf("Input value = %s\nYes = (1) No = (0): %d\n", argv[1], ft_isalpha(argv[1][0]));
+        printf("Input value = %s\nYes = (1) No = (0): %d\n", argv[1],
+		ft_isalpha(argv[1][0]));
         printf("------------------------------------------------\n");
     }
 } */

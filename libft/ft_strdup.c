@@ -10,22 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
+#include "libft.h"
 
-char *ft_strdup(const char *s)
+char	*ft_strdup(const char *s)
 {
-    int len;
-    char* str;
+	int		len;
+	char	*str;
 
-    len = strlen(s);
-    str = (char *) malloc(sizeof(char) * len + 1);
-    if (str == NULL)
-        return NULL;
-    strcpy(str, s);
-    return str;
+	len = strlen(s);
+	str = (char *)malloc(sizeof(char) * len + 1);
+	if (str == NULL)
+		return (NULL);
+	strcpy(str, s);
+	return (str);
 }
 
 /* int main(int argc, char **argv)
@@ -38,11 +35,11 @@ char *ft_strdup(const char *s)
         if (i == NULL)
         {
             printf("Memory allocation failed\n");
-            return 1;
+            return (1);
         }
         printf("Output  : %s\n", i);
         free(i);
-        return 0;
+        return (0);
     }
     else
         printf("----------------------ERROR---------------------\n");

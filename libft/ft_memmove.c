@@ -6,44 +6,42 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 22:35:04 by abeh              #+#    #+#             */
-/*   Updated: 2024/05/17 01:13:04 by abeh             ###   ########.fr       */
+/*   Updated: 2024/05/27 02:39:37 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
+#include "libft.h"
 
-// PURPOSE OF DOING THIS MEMMOVE IS TO ENSURE THAT IN A CASE
+void    *ft_memmove(void *dst, const void *src, size_t len)
+{
+    char    *c_src;
+    char    *c_dst;
+    size_t    i;
+    
+    if (!dst && !src)
+        return (NULL);
+    c_src = (char *) src;
+    c_dst = (char *) dst;
+    i = 0;
+    if (c_dst > c_src)
+        while (len-- > 0)
+            c_dst[len] = c_src[len];
+    else
+    {
+        while (i++ < len)
+            c_dst[i] = c_src[i];
+    }
+    return (dst);
+}
+
+/* // PURPOSE OF DOING THIS MEMMOVE IS TO ENSURE THAT IN A CASE
 // MEMORY BLOCKS OVERLAP. Example: 
 //                 [---- dest ----]
 //         [---- src ---]    
 //
 // PASTING SRC TO THE FRONT OF DEST WILL DESTROY THE 2ND HALF OF DEST
 // ANOTHER WAY TO DO IT IS TO COPY FROM THE BACK
-// 
-void *ft_memmove(void *dest, const void *src, size_t len)
-{
-    char *dest_char = (char *)dest; // Cast char* to void dest & throw the value into dest_char
-    char *src_char = (char *)src;   // Cast char* to void src & throw the value into src_char
-    char *temp = malloc(len);       // Allocate a temporary memory space to temp
-    int i = 0;
-    while (i < len)
-    {
-        temp[i] = src_char[i];      // Put the value of src into temp
-        i++;
-    }
-    i = 0;
-    while (i < len)
-    {
-        dest_char[i] = temp[i];     // Put the value of temp into dest
-        i++;
-    }
-    free(temp);                    // Free the temp memory space
-    return (dest_char);
-}
-
+//  */
 /* int main(int argc, char **argv)
 {
     if (argc != 4)
@@ -55,14 +53,14 @@ void *ft_memmove(void *dest, const void *src, size_t len)
         if (!d)
         {
             fprintf(stderr, "Memory allocation failed for d\n");
-            return 1;
+            return (1);
         }
 
         char *s = malloc(sizeof(char) * (len + 1));
         if (!s)
         {
             fprintf(stderr, "Memory allocation failed for s\n");
-            return 1;
+            return (1);
         }
         strcpy(d, argv[1]);
         strcpy(s, argv[2]);
@@ -78,6 +76,6 @@ void *ft_memmove(void *dest, const void *src, size_t len)
         printf("----------------------------------------\n");
         free(d);
         free(s);
-        return 0;
+        return (0);
     }
 }*/
