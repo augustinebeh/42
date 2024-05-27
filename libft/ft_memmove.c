@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 22:35:04 by abeh              #+#    #+#             */
-/*   Updated: 2024/05/27 21:23:04 by abeh             ###   ########.fr       */
+/*   Updated: 2024/05/28 03:46:06 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,22 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	unsigned char	*temp_src;
-	unsigned char	*temp_dst;
-	size_t			i;
+	unsigned char	*d;
+	unsigned char	*s;
 
-	if (!dst && !src)
-		return (NULL);
-	temp_src = (unsigned char *)src;
-	temp_dst = (unsigned char *)dst;
-	i = 0;
-	if (temp_dst > temp_src)
-		while (len-- > 0)
-			temp_dst[len] = temp_src[len];
+	d = (unsigned char *)dst;
+	s = (unsigned char *)src;
+	if (d < s)
+	{
+		while (len--)
+			*d++ = *s++;
+	}
 	else
 	{
-		while (i++ < len)
-			temp_dst[i] = temp_src[i];
+		d += len;
+		s += len;
+		while (len--)
+			*--d = *--s;
 	}
 	return (dst);
 }

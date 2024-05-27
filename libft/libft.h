@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 13:45:18 by abeh              #+#    #+#             */
-/*   Updated: 2024/05/28 03:40:20 by abeh             ###   ########.fr       */
+/*   Updated: 2024/05/28 03:58:20 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
+# include <limits.h>
 # include <unistd.h>
 
 typedef struct s_list

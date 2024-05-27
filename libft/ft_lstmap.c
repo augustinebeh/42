@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 03:13:47 by abeh              #+#    #+#             */
-/*   Updated: 2024/05/27 05:50:50 by abeh             ###   ########.fr       */
+/*   Updated: 2024/05/28 03:55:21 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,22 @@
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*new_list;
-	t_list	*object;
+	t_list	*current;
+	t_list	*new_lst;
 
 	if (!lst || !f || !del)
 		return (NULL);
-	new_list = NULL;
-	while (lst)
+	new_lst = NULL;
+	while (lst != NULL)
 	{
-		object = ft_lstnew(f(lst->content));
-		if (!object)
+		current = ft_lstnew(f(lst->content));
+		if (current == NULL)
 		{
-			ft_lstclear(&new_list, del);
+			ft_lstclear(&new_lst, del);
 			return (NULL);
 		}
-		ft_lstadd_back(&new_list, object);
+		ft_lstadd_back(&new_lst, current);
 		lst = lst->next;
 	}
-	return (new_list);
+	return (new_lst);
 }

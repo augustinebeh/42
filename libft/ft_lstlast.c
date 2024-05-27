@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 03:12:38 by abeh              #+#    #+#             */
-/*   Updated: 2024/05/22 23:21:13 by abeh             ###   ########.fr       */
+/*   Updated: 2024/05/28 03:50:38 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,12 @@
 
 t_list	*ft_lstlast(t_list *lst)
 {
-	while (lst->next)
+	if (!lst)
+		return (NULL);
+	while (lst->next != NULL)
+	{
 		lst = lst->next;
+	}
 	return (lst);
 }
 /* int main(void)
