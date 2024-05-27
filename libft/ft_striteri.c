@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 04:24:34 by abeh              #+#    #+#             */
-/*   Updated: 2024/05/27 06:09:45 by abeh             ###   ########.fr       */
+/*   Updated: 2024/05/27 16:33:05 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 
 int	main(void)
 {
-	char str[] = "I!NRZJ&`W^";
+	char str[] = "Hfnos1&^w{vo-";
 	void (*f)(unsigned int, char *);
     
 	f = f_function;

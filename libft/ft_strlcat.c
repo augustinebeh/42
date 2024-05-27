@@ -6,32 +6,31 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 22:35:10 by abeh              #+#    #+#             */
-/*   Updated: 2024/05/27 05:41:21 by abeh             ###   ########.fr       */
+/*   Updated: 2024/05/27 21:14:48 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	size_t	dstlen;
-	size_t	srclen;
-	size_t	i;
+	size_t	c;
+	size_t	d;
 
-	dstlen = strlen(dst);
-	srclen = strlen(src);
-	i = 0;
-	if (size <= dstlen)
-		return (srclen + size);
-	while (src[i] != '\0' && i < size - dstlen - 1)
+	if (dstsize <= ft_strlen(dst))
+		return (dstsize + ft_strlen(src));
+	c = ft_strlen(dst);
+	d = 0;
+	while (src[d] != '\0' && c + 1 < dstsize)
 	{
-		dst[dstlen + i] = src[i];
-		i++;
+		dst[c] = src[d];
+		c++;
+		d++;
 	}
-	if (dstlen < size)
-		dst[dstlen + i] = '\0';
-	return (srclen + dstlen);
+	dst[c] = '\0';
+	return (ft_strlen(dst) + ft_strlen(&src[d]));
 }
+
 //----------------------------------------
 // Main code to test ft_strlcat function |
 //----------------------------------------
@@ -57,8 +56,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
         printf("Input size: %d\n", atoi(argv[3]));
         printf("======================\n");
         i = ft_strlcat(dst, src, size);
-        printf("dst after ft_strlcat : %s\n", dst);
-        printf("return (of ft_strlcat : %d\n", i);
+        printf("dst after ft_strlcat   : %s\n", dst);
+        printf("return (of ft_strlcat) : %d\n", i);
         return (0);
     }
 } */

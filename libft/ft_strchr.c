@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 22:35:06 by abeh              #+#    #+#             */
-/*   Updated: 2024/05/14 22:35:06 by abeh             ###   ########.fr       */
+/*   Updated: 2024/05/27 06:16:34 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,41 +14,21 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	while (*s)
+	unsigned int	i;
+	char			find;
+
+	find = (char)c;
+	i = 0;
+	while (s[i])
 	{
-		if (*s == (char)c)
-			return ((char *)s);
-		s++;
+		if (s[i] == find)
+			return ((char *)&s[i]);
+		i++;
 	}
-	return (0);
+	if (s[i] == find)
+		return ((char *)&s[i]);
+	return (NULL);
 }
-
-// alternate method to achieve the same result
-/*  char *ft_strchr(const char *s, int c)
-{
-    int i;
-    int j;
-    int k;
-
-    i = 0;
-    k = 0;
-    while (s[i] != '\0')
-    {
-        if (s[i] == c)
-        {
-            j = i;
-            k++;
-            break ;
-        }
-        i++;
-    }
-    while (j-- > 0)
-        s++;
-    if (k > 0)
-        return((char *)s);
-    else
-        return(0);
-} */
 
 /* int main(int argc, char **argv)
 {

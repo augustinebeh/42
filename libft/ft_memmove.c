@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 22:35:04 by abeh              #+#    #+#             */
-/*   Updated: 2024/05/27 02:39:37 by abeh             ###   ########.fr       */
+/*   Updated: 2024/05/27 21:23:04 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,34 +14,26 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	char	*c_src;
-	char	*c_dst;
-	size_t	i;
+	unsigned char	*temp_src;
+	unsigned char	*temp_dst;
+	size_t			i;
 
 	if (!dst && !src)
 		return (NULL);
-	c_src = (char *)src;
-	c_dst = (char *)dst;
+	temp_src = (unsigned char *)src;
+	temp_dst = (unsigned char *)dst;
 	i = 0;
-	if (c_dst > c_src)
+	if (temp_dst > temp_src)
 		while (len-- > 0)
-			c_dst[len] = c_src[len];
+			temp_dst[len] = temp_src[len];
 	else
 	{
 		while (i++ < len)
-			c_dst[i] = c_src[i];
+			temp_dst[i] = temp_src[i];
 	}
 	return (dst);
 }
 
-/* // PURPOSE OF DOING THIS MEMMOVE IS TO ENSURE THAT IN A CASE
-// MEMORY BLOCKS OVERLAP. Example: 
-//                 [---- dest ----]
-//         [---- src ---]    
-//
-// PASTING SRC TO THE FRONT OF DEST WILL DESTROY THE 2ND HALF OF DEST
-// ANOTHER WAY TO DO IT IS TO COPY FROM THE BACK
-//  */
 /* int main(int argc, char **argv)
 {
     if (argc != 4)

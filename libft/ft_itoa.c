@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 05:01:04 by abeh              #+#    #+#             */
-/*   Updated: 2024/05/27 05:57:51 by abeh             ###   ########.fr       */
+/*   Updated: 2024/05/27 21:17:35 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static int	ft_intlen(int p)
 	return (i);
 }
 
-char	*ft_itoa_positive(int n)
+static char	*ft_itoa_positive(int n)
 {
 	char	*res;
 	int		len;
@@ -51,7 +51,7 @@ char	*ft_itoa_positive(int n)
 	return (res);
 }
 
-char	*ft_itoa_negative(int n)
+static char	*ft_itoa_negative(int n)
 {
 	char	*res;
 	int		len;
@@ -85,9 +85,9 @@ char	*ft_itoa(int n)
 
 /* int	main(int argc, char **argv)
 {
-	char*hehe;
+	char* hehe;
 
-	hehe = ft_itoa(argv[1]);
+	hehe = ft_itoa(atoi(argv[1]));
 	if (argc != 2)
 	{
 		printf("----------------------ERROR---------------------\n");
@@ -98,5 +98,4 @@ char	*ft_itoa(int n)
 		printf("The output is: %s\n", hehe);
 	}
 	return (0);
-}
- */
+} */
