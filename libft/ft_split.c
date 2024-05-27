@@ -6,13 +6,12 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 04:24:07 by abeh              #+#    #+#             */
-/*   Updated: 2024/05/27 05:55:22 by abeh             ###   ########.fr       */
+/*   Updated: 2024/05/28 04:28:01 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// Counts the number of substrings in the original string
 static size_t	ft_number_of_substring(char *s, char delimiter)
 {
 	size_t	count;
@@ -66,7 +65,7 @@ char	**ft_split(char const *s, char c)
 	size_t	j;
 	char	**strarray;
 
-	strarray = (char **)malloc((ft_number_of_substring((char *)s, c))
+	strarray = (char **)malloc((ft_number_of_substring((char *)s, c) + 1)
 			* sizeof(char *));
 	if (strarray == NULL)
 		return (NULL);
@@ -108,7 +107,7 @@ char	**ft_split(char const *s, char c)
 	return (0);
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
     int i;
     char *str = argv[1];

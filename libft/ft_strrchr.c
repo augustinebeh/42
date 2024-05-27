@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 22:35:18 by abeh              #+#    #+#             */
-/*   Updated: 2024/05/27 05:35:43 by abeh             ###   ########.fr       */
+/*   Updated: 2024/05/28 04:24:09 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,30 +15,15 @@
 char	*ft_strrchr(const char *str, int c)
 {
 	int	i;
-	int	j;
-	int	k;
 
-	i = 0;
-	j = 0;
-	k = 0;
-	while (str[i])
-		i++;
-	while (i + 1 > 0)
+	i = strlen(str);
+	while (i >= 0)
 	{
-		if (str[i] == c)
-		{
-			j = i;
-			k++;
-			break ;
-		}
+		if (str[i] == (char)c)
+			return ((char *)str + i);
 		i--;
 	}
-	while (j-- > 0)
-		str++;
-	if (k > 0)
-		return ((char *)str);
-	else
-		return (0);
+	return (0);
 }
 
 /* int main(int argc, char **argv)
