@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 03:12:51 by abeh              #+#    #+#             */
-/*   Updated: 2024/05/27 02:19:25 by abeh             ###   ########.fr       */
+/*   Updated: 2024/05/28 04:03:07 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,13 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*temp;
 
-	if (!*lst || new == NULL)
+	if (new == NULL)
 		return ;
+	if (*lst == NULL)
+	{
+		*lst = new;
+		return ;
+	}
 	temp = *lst;
 	while (temp->next)
 		temp = temp->next;

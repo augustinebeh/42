@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 04:23:56 by abeh              #+#    #+#             */
-/*   Updated: 2024/05/28 03:54:07 by abeh             ###   ########.fr       */
+/*   Updated: 2024/05/28 04:08:33 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,24 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	elefromfront;
 	size_t	elefromback;
 
+	if (s1 == NULL || set == NULL)
+		return (NULL);
 	elefromfront = front_set(s1, set);
 	elefromback = back_set(s1, set);
-	len = elefromfront + elefromback + 1;
-	str = malloc(sizeof(char) * len + 1);
+	len = strlen(s1) - elefromfront - (strlen(s1) - elefromback);
+	if (len < 0)
+		len = 0;
+	str = malloc(sizeof(char) * (len + 1));
 	if (str == NULL)
 		return (NULL);
 	i = 0;
-	while (elefromfront <= elefromback)
+	while (elefromfront < elefromback)
 	{
 		str[i] = s1[elefromfront];
 		elefromfront++;
 		i++;
 	}
+	str[i] = '\0';
 	return (str);
 }
 
@@ -48,12 +53,11 @@ static size_t	front_set(char const *s, char const *set)
 	while (*s != '\0')
 	{
 		i = 0;
-		while (s[counter] != set[i] && set[i])
+		while (set[i] != '\0' && s[counter] != set[i])
 			i++;
-		if (s[counter] == set[i])
-			counter++;
 		if (set[i] == '\0')
-			return (counter);
+			break ;
+		counter++;
 	}
 	return (counter);
 }
@@ -64,17 +68,16 @@ static size_t	back_set(char const *s, char const *set)
 	size_t	counter;
 
 	counter = strlen(s) - 1;
-	while (*s != '\0')
+	while (counter >= 0)
 	{
 		i = 0;
-		while (s[counter] != set[i] && set[i])
+		while (set[i] != '\0' && s[counter] != set[i])
 			i++;
-		if (s[counter] == set[i])
-			counter--;
-		else
-			return (counter);
+		if (set[i] == '\0')
+			break ;
+		counter--;
 	}
-	return (counter);
+	return (counter + 1);
 }
 
 /* int main(void)
