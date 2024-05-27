@@ -27,7 +27,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (ft_strdup(""));
 	if (len == 0)
 		return (ft_strdup(""));
-	str = malloc((sizeof(char))* (len + 1));
+	str = malloc((sizeof(char)) * (len + 1));
 	if (!str)
 		return (NULL);
 	while (j < len && start + j < slength)
@@ -68,7 +68,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 }
 
 // For debugging purposes
-int main(void)
+int	main(void)
 {
     char *str;
     unsigned int start;
