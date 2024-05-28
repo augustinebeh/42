@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 03:12:51 by abeh              #+#    #+#             */
-/*   Updated: 2024/05/28 04:03:07 by abeh             ###   ########.fr       */
+/*   Updated: 2024/05/29 06:04:42 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,19 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 		return ;
 	}
 	temp = *lst;
-	while (temp->next)
+	while (temp->next != NULL)
 		temp = temp->next;
-	temp->next = new;
-	new->next = NULL;
+	if (new->next != NULL)
+	{
+		temp->next = new;
+		while (temp->next != NULL)
+			temp = temp->next;
+	}
+	else
+	{
+		temp->next = new;
+		new->next = NULL;
+	}
 }
 /* static void print_list(t_list *lst)
 {
