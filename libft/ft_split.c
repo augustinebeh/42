@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 04:24:07 by abeh              #+#    #+#             */
-/*   Updated: 2024/05/29 00:33:40 by abeh             ###   ########.fr       */
+/*   Updated: 2024/05/29 03:37:18 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static size_t	ft_number_of_substring(char *s, char delimiter)
 	return (count);
 }
 
-static size_t	ft_lenofnextsubstring(const char *str, char delimiter)
+static size_t	ft_len_of_next_substring(const char *str, char delimiter)
 {
 	size_t	i;
 
@@ -41,10 +41,13 @@ static size_t	ft_lenofnextsubstring(const char *str, char delimiter)
 static char	*ft_substring_creater(const char *s, size_t element, char c)
 {
 	size_t	len;
+	char * ss;
 
-	len = ft_lenofnextsubstring(&s[element], c);
-	return (ft_substr(s + element, 0, len));
-}
+	len = ft_len_of_next_substring(&s[element], c);
+	ss = (ft_substr(s + element, 0, len));
+	return(ss);
+	
+}	
 
 char	**ft_split(char const *s, char c)
 {
@@ -52,6 +55,12 @@ char	**ft_split(char const *s, char c)
 	size_t	j;
 	char	**strarray;
 
+	if (s == NULL || *s == '\0')
+	{
+		strarray = (char **)malloc(sizeof(char *));
+		strarray[0] = NULL;
+		return (strarray);
+	}
 	strarray = (char **)malloc((ft_number_of_substring((char *)s, c) + 1)
 			* sizeof(char *));
 	if (strarray == NULL)
@@ -72,30 +81,30 @@ char	**ft_split(char const *s, char c)
 	return (strarray);
 }
 
+// int	main(void)
+// {
+// 	size_t	i;
+// 	char c = '^';
+// 	char	*str;
+// 	char	**strarray;
+
+// 	str = "^^^1^^2a,^^^^3^^^^--h^^^^";
+// 	strarray = ft_split(str, c);
+// 	i = 0;
+// 	printf("-----------------------------\n");
+// 	printf("The Input is: %s\n", str);
+// 	printf("The Delimiter is: %c\n", c);
+// 	while (i < (ft_number_of_substring((char *)str, c)))
+// 	{
+// 		printf("The %ld element in the array is: %s\n", i, strarray[i]);
+// 		free(strarray[i]);
+// 		i++;
+// 	}
+// 	printf("-----------------------------\n");
+// 	free(strarray);
+// 	return (0);
+// }
 /*
-int	main(void)
-{
-	size_t	i;
-	char	*str;
-	char	**strarray;
-
-	str = "hello!";
-	strarray = ft_split(str, ' ');
-	i = 0;
-	printf("-----------------------------\n");
-	printf("The Input is: %s\n", str);
-	printf("The Delimiter is: .\n");
-	while (i < (ft_number_of_substring((char *)str, '.')))
-	{
-		printf("The %ld element in the array is: %s\n", i, strarray[i]);
-		free(strarray[i]);
-		i++;
-	}
-	printf("-----------------------------\n");
-	free(strarray);
-	return (0);
-}
-
 int	main(int argc, char **argv)
 {
 	char	*str;
