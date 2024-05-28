@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
+/*   By: abeh <abeh@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 03:13:24 by abeh              #+#    #+#             */
-/*   Updated: 2024/05/28 04:35:52 by abeh             ###   ########.fr       */
+/*   Updated: 2024/05/28 22:24:32 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,8 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 	}
 }
 
-/* static void	del_content(void *content)
+/*static void	del_content(void *content)
 {
-	if (content)
 		free(content);
 }
 
@@ -58,10 +57,7 @@ int main() {
 
   printf("Before clearing the list:\n");
   t_list *current = list;
-  while (current) {
-    printf("Node content: %s\n", (char*)current->content);
-    current = current->next;
-  }
+  print_list(current);
 
   ft_lstclear(&list, del_content);
 

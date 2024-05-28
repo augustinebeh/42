@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
+/*   By: abeh <abeh@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 04:23:56 by abeh              #+#    #+#             */
-/*   Updated: 2024/05/28 04:08:33 by abeh             ###   ########.fr       */
+/*   Updated: 2024/05/28 21:01:43 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ char	*ft_strtrim(char const *s1, char const *set)
 	if (s1 == NULL || set == NULL)
 		return (NULL);
 	elefromfront = front_set(s1, set);
+	if (elefromfront == strlen(s1))
+		return (ft_strdup(""));
 	elefromback = back_set(s1, set);
 	len = strlen(s1) - elefromfront - (strlen(s1) - elefromback);
-	if (len < 0)
-		len = 0;
 	str = malloc(sizeof(char) * (len + 1));
 	if (str == NULL)
 		return (NULL);
@@ -68,7 +68,7 @@ static size_t	back_set(char const *s, char const *set)
 	size_t	counter;
 
 	counter = strlen(s) - 1;
-	while (counter >= 0)
+	while (counter > 0)
 	{
 		i = 0;
 		while (set[i] != '\0' && s[counter] != set[i])
@@ -106,7 +106,7 @@ int	main(int argc, char **argv)
     size_t bs = back_set(s, set);
     char *str = ft_strtrim(s, set);
     
-    printf("the return (value of front_set: %ld\n", fs));
-    printf("the return (value of back_set: %ld\n", bs));
-    printf("the return (value of ft_strtrim: %s\n", str));
-} */
+    printf("the return (value of front_set: %ld\n", fs);
+    printf("the return (value of back_set: %ld\n", bs);
+    printf("the return (value of ft_strtrim: %s\n", str);
+}*/

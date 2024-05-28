@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
+/*   By: abeh <abeh@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 03:13:47 by abeh              #+#    #+#             */
-/*   Updated: 2024/05/28 13:56:50 by abeh             ###   ########.fr       */
+/*   Updated: 2024/05/28 17:52:46 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		if (current == NULL)
 		{
 			ft_lstclear(&new_lst, del);
-			del(lst->content);
 			return (NULL);
 		}
 		ft_lstadd_back(&new_lst, current);

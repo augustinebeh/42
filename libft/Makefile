@@ -48,7 +48,7 @@ SRCS = ft_memset.c			\
 SRCSBONUS =	ft_lstnew.c		\
 		ft_lstadd_front.c	\
 		ft_lstsize.c		\
-		ft_lstlast.c		\
+		ft_lstlast.c			\
 		ft_lstadd_back.c	\
 		ft_lstclear.c		\
 		ft_lstdelone.c		\
@@ -65,14 +65,14 @@ OBJECTS_PREFIXED = $(addprefix $(OBJS_DIR), $(OBJS))
 OBJSB = $(SRCSBONUS:.c=.o)
 OBJECTS_BONUS_PREFIXED = $(addprefix $(OBJS_DIR), $(OBJSB))
 
-CC = clang
+CC = cc
 
 CC_FLAGS = -Wall -Wextra -Werror
 
 $(OBJS_DIR)%.o : %.c libft.h
 	@mkdir -p $(OBJS_DIR)
 	@echo "Compiling: $<"
-	@clang $(CC_FLAGS) -c $< -o $@
+	$(CC) $(CC_FLAGS) -c $< -o $@
 
 $(NAME): $(OBJECTS_PREFIXED)
 	@ar r $(NAME) $(OBJECTS_PREFIXED)

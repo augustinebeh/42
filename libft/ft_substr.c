@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
+/*   By: abeh <abeh@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 04:22:57 by abeh              #+#    #+#             */
-/*   Updated: 2024/05/28 05:32:57 by abeh             ###   ########.fr       */
+/*   Updated: 2024/05/28 22:50:59 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (str);
 }
 
-/* int	main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	char			*input;
 	char			*str;
@@ -48,7 +48,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	if (argc != 4)
 	{
-		printf("-----ERROR-----");
+		printf("\n-----ERROR-----\n");
 		return (0);
 	}
 	else
@@ -57,16 +57,16 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		start = atoi(argv[2]);
 		len = atoi(argv[3]);
 		str = ft_substr(input, start, len);
-		printf("---------------\n");
+		printf("\n---------------\n");
 		printf("Input : %s\n", input);
 		printf("Start : %i\n", start);
 		printf("Length: %ld\n", len);
 		printf("---------------\n");
-		printf("Result of ft_substr: %s\n", str);
+		printf("Result of ft_substr: %s\n\n", str);
 		return (0);
 	}
 }
-
+/*
 // For debugging purposes
 int	main(void)
 {

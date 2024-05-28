@@ -3,29 +3,44 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
+/*   By: abeh <abeh@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 22:35:04 by abeh              #+#    #+#             */
-/*   Updated: 2024/05/27 02:22:40 by abeh             ###   ########.fr       */
+/*   Updated: 2024/05/28 18:49:11 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+// void	*ft_memset(void *ptr, int c, size_t len)
+// {
+// 	size_t	i;
+
+// 	i = 0;
+// 	while (i < len)
+// 	{
+// 		((char *)ptr)[i] = c;
+// 		i++;
+// 	}
+// 	return (ptr);
+// }
+
 void	*ft_memset(void *ptr, int c, size_t len)
 {
-	size_t	i;
+	unsigned char	*pointer;
+	size_t			i;
 
 	i = 0;
+	pointer = ptr;
 	while (i < len)
 	{
-		((char *)ptr)[i] = c;
+		pointer[i] = (unsigned char)c;
 		i++;
 	}
 	return (ptr);
 }
 
-/* int main(int argc, char **argv)
+/*xiint main(int argc, char **argv)
 {
     if (argc != 4)
     {
@@ -55,4 +70,4 @@ void	*ft_memset(void *ptr, int c, size_t len)
         printf("--------------------------\n");
         return (0);
     }
-} */
+}*/
