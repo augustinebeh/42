@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 04:22:57 by abeh              #+#    #+#             */
-/*   Updated: 2024/05/28 22:50:59 by abeh             ###   ########.fr       */
+/*   Updated: 2024/05/29 02:18:58 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (str);
 }
 
-int	main(int argc, char **argv)
+/*int	main(int argc, char **argv)
 {
 	char			*input;
 	char			*str;
@@ -66,7 +66,7 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 }
-/*
+
 // For debugging purposes
 int	main(void)
 {

@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 04:24:07 by abeh              #+#    #+#             */
-/*   Updated: 2024/05/28 22:19:15 by abeh             ###   ########.fr       */
+/*   Updated: 2024/05/29 00:33:40 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,25 +41,9 @@ static size_t	ft_lenofnextsubstring(const char *str, char delimiter)
 static char	*ft_substring_creater(const char *s, size_t element, char c)
 {
 	size_t	len;
-	size_t	i;
-	char	*substring;
 
 	len = ft_lenofnextsubstring(&s[element], c);
-	substring = malloc((len + 1) * sizeof(char));
-	if (!substring)
-	{
-		free(substring);
-		return (NULL);
-	}
-	i = 0;
-	while (s[element] && s[element] != c)
-	{
-		substring[i] = s[element];
-		i++;
-		element++;
-	}
-	substring[i] = '\0';
-	return (substring);
+	return (ft_substr(s + element, 0, len));
 }
 
 char	**ft_split(char const *s, char c)
@@ -114,13 +98,11 @@ int	main(void)
 
 int	main(int argc, char **argv)
 {
-	int		i;
 	char	*str;
 	char	**strarray;
 
 	str = argv[1];
 	strarray = ft_split(str, argv[2][0]);
-	i = 0;
 	printf("-----------------------------\n");
 	printf("The Input is: %s\n", argv[1]);
 	printf("The Delimiter is: %s\n", argv[2]);
