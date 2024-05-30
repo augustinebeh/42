@@ -1,2 +1,1 @@
-
-![paco --strict](https://github.com/augustinebeh/42/assets/56052915/814ea14a-b1e0-49d3-8733-77cbb7e16058)
+![image](https://github.com/augustinebeh/42/assets/56052915/55039bb3-2f41-4041-8ab4-d848e6aba226)
