@@ -19,7 +19,7 @@ OBJS = $(SRCS:.c=.o)
 LIBFT = ./libft.a
 LIBFT_DIR = ./libft
 
-NAME = ft_printf
+NAME = libftprintf.a
 
 all: $(NAME)
 
