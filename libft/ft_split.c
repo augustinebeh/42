@@ -68,17 +68,17 @@ static char	*create_ss(const char *str, int start, int end)
 	return (word);
 }
 
-static void init_variables(size_t *i, size_t  *j)
+static void	init_variables(size_t *i, size_t *j)
 {
-    *i = 0;
-    *j = 0;
+	*i = 0;
+	*j = 0;
 }
 
 char	**ft_split(const char *s, char c)
 {
 	char	**res;
 	size_t	i;
-	size_t		j;
+	size_t	j;
 	int		s_word;
 
 	init_variables(&i, &j);
