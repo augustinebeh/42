@@ -67,9 +67,11 @@ CC = cc
 
 CC_FLAGS = -Wall -Wextra -Werror
 
+%.o: %.c
+	$(CC) $(CC_FLAGS) -c $? -o $@
 
 $(NAME): $(OBJS)
-	@ar rcs $(NAME) $(OBJS)
+	ar rcs $(NAME) $(OBJS)
 	@echo "Libft Done !"
 
 all: $(NAME)
