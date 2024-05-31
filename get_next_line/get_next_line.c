@@ -3,18 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abeh <abeh@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 22:21:02 by abeh              #+#    #+#             */
-/*   Updated: 2024/06/01 01:42:13 by abeh             ###   ########.fr       */
+/*   Updated: 2024/06/01 03:22:58 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"	
 #include <fcntl.h>
 #include <stdio.h>
-
-#include "get_next_line.h"
 
 char	*get_next_line(int fd)
 {
@@ -24,6 +22,8 @@ char	*get_next_line(int fd)
 	int		i;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
+		return (NULL);
+	if (fcntl(fd, F_GETFL) == -1 || !(fcntl(fd, F_GETFL) & O_RDONLY))
 		return (NULL);
 	i = 0;
 	b = read(fd, &buffer, 1);
@@ -40,7 +40,7 @@ char	*get_next_line(int fd)
 	return (ft_strdup(line));
 }
 
-int	ft_strlen(char *s)
+/* int	ft_strlen(char *s)
 {
 	size_t	i;
 
@@ -97,4 +97,4 @@ int	main(void)
 	close(fd2);
 	close(fd3);
 	return(0);
-}
+} */
