@@ -71,8 +71,9 @@ CC_FLAGS = -Wall -Wextra -Werror
 	$(CC) $(CC_FLAGS) -c $? -o $@
 
 $(NAME): $(OBJS)
-	ar rcs $(NAME) $(OBJS)
-	@echo "Libft Done !"
+	@ar rcs $(NAME) $(OBJS)
+	
+	@echo "\nLibft Created!\n"
 
 all: $(NAME)
 
@@ -80,11 +81,13 @@ clean:
 	rm -rf $(OBJS) $(OBJSB)
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
+	@echo "\nCleaned!\n"
 
 re: fclean $(NAME)
 
 bonus: $(OBJS) $(OBJSB)
 	@ar rcs $(NAME) $(OBJS) $(OBJSB)
+	@echo "\nLibft Bonus Created!\n"
 
 .PHONY: clean fclean re all bonus
