@@ -54,40 +54,35 @@ SRCSBONUS =	ft_lstnew.c		\
 		ft_lstdelone.c		\
 		ft_lstiter.c		\
 		ft_lstmap.c		\
-		$(SRCS)
 
 NAME = libft.a
 
-OBJS_DIR = objs/
 OBJS = $(SRCS:.c=.o)
-OBJECTS_PREFIXED = $(addprefix $(OBJS_DIR), $(OBJS))
 
 OBJSB = $(SRCSBONUS:.c=.o)
-OBJECTS_BONUS_PREFIXED = $(addprefix $(OBJS_DIR), $(OBJSB))
+
+INCLUDES = libft.h
 
 CC = cc
 
 CC_FLAGS = -Wall -Wextra -Werror
 
-$(OBJS_DIR)%.o : %.c libft.h
-	@mkdir -p $(OBJS_DIR)
-	@echo "Compiling: $<"
-	$(CC) $(CC_FLAGS) -c $< -o $@
 
-$(NAME): $(OBJECTS_PREFIXED)
-	@ar r $(NAME) $(OBJECTS_PREFIXED)
+$(NAME): $(OBJS)
+	@ar rcs $(NAME) $(OBJS)
 	@echo "Libft Done !"
 
 all: $(NAME)
 
 clean:
-	rm -rf $(OBJS_DIR)
+	rm -rf $(OBJS) $(OBJSB)
 
 fclean: clean
 	rm -f $(NAME)
 
-re: fclean all
+re: fclean $(NAME)
 
-bonus: $(OBJECTS_BONUS_PREFIXED)
-	@ar r $(NAME) $(OBJECTS_BONUS_PREFIXED)
-	@echo "Libft Bonus Done !"
+bonus: $(OBJS) $(OBJSB)
+	@ar rcs $(NAME) $(OBJS) $(OBJSB)
+
+.PHONY: clean fclean re all bonus
