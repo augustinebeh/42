@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
+/*   By: abeh <abeh@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 22:35:11 by abeh              #+#    #+#             */
-/*   Updated: 2024/05/27 19:09:05 by abeh             ###   ########.fr       */
+/*   Updated: 2024/05/31 16:16:22 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	size_t	srclen;
 
 	i = 0;
-	srclen = strlen(src);
+	srclen = ft_strlen(src);
 	if (size == 0)
 		return (srclen);
 	while (src[i] != '\0' && i < size - 1)

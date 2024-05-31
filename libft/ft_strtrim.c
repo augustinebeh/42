@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 04:23:56 by abeh              #+#    #+#             */
-/*   Updated: 2024/05/28 21:01:43 by abeh             ###   ########.fr       */
+/*   Updated: 2024/05/31 16:17:00 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ char	*ft_strtrim(char const *s1, char const *set)
 	if (s1 == NULL || set == NULL)
 		return (NULL);
 	elefromfront = front_set(s1, set);
-	if (elefromfront == strlen(s1))
+	if (elefromfront == ft_strlen(s1))
 		return (ft_strdup(""));
 	elefromback = back_set(s1, set);
-	len = strlen(s1) - elefromfront - (strlen(s1) - elefromback);
+	len = ft_strlen(s1) - elefromfront - (ft_strlen(s1) - elefromback);
 	str = malloc(sizeof(char) * (len + 1));
 	if (str == NULL)
 		return (NULL);
@@ -67,7 +67,7 @@ static size_t	back_set(char const *s, char const *set)
 	size_t	i;
 	size_t	counter;
 
-	counter = strlen(s) - 1;
+	counter = ft_strlen(s) - 1;
 	while (counter > 0)
 	{
 		i = 0;

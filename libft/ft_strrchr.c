@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
+/*   By: abeh <abeh@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 22:35:18 by abeh              #+#    #+#             */
-/*   Updated: 2024/05/28 04:24:09 by abeh             ###   ########.fr       */
+/*   Updated: 2024/05/31 16:15:24 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	*ft_strrchr(const char *str, int c)
 {
 	int	i;
 
-	i = strlen(str);
+	i = ft_strlen(str);
 	while (i >= 0)
 	{
 		if (str[i] == (char)c)
