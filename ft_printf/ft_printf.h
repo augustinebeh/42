@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*    libftprintf.h                                     :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 04:35:17 by abeh              #+#    #+#             */
-/*   Updated: 2024/05/31 04:46:21 by abeh             ###   ########.fr       */
+/*   Updated: 2024/06/01 12:45:49 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 # define FT_PRINTF_H
 
 # include <stdarg.h>
-# include <stdint.h>
+# include <unistd.h>
+# include <stdio.h>
 
-int	ft_printf(const char *format, ...);
+
 
 #endif

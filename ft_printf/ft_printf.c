@@ -6,20 +6,15 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 23:09:08 by abeh              #+#    #+#             */
-/*   Updated: 2024/06/01 06:39:18 by abeh             ###   ########.fr       */
+/*   Updated: 2024/06/01 13:11:16 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include <stdio.h>
-#include <string.h>
-#include <unistd.h>
+#include "ft_printf.h" 
 
-// counts the number of '%' characters in the string that is followed by a valid
-// character in order determine the number of variables
-
-void	ft_putnbr(int n);
-void	ft_putchar(char c);
+int	ft_putnbr(int nb);
+int	ft_putstr(char *str);
+int	ft_printchar(int c);
 
 static int	n_o_a(char *str)
 {
@@ -49,37 +44,35 @@ static int	n_o_a(char *str)
 	return (count);
 }
 
-void ft_printf(char *placeholders,...)
+int ft_printf(const char *placeholders,...)
 {
     va_list args;
     va_start(args, placeholders);
     int i = 0;
     int k;
+    int counter;
 
     while (placeholders[i])
     {
-        if (placeholders[i] == '%' && placeholders[i+1] == '%')
-        {
-            putchar('%');
-            i = i + 2;
-        }
-        if (placeholders[i] == '%' && placeholders[i+1] != '%')
+        if (placeholders[i] == '%')
         {
             i++;
+            counter++;
             if (placeholders[i] == '%')
             {
                 putchar('%');
                 i++;
+                counter++;
             }
             else if (placeholders[i] == 'c')
             {
                 char argument = va_arg(args, int);
-                putchar(argument);
+                counter = counter + ft_printchar(argument);
             }
-            else if (placeholders[i] == 'd')
+            else if (placeholders[i] == 'd'|| placeholders[i] == 'i')
             {
                 int argument = va_arg(args, int);
-                ft_putnbr(argument);
+                counter = counter + ft_putnbr(argument);
             }
             else if (placeholders[i] == 's')
             {
@@ -87,6 +80,7 @@ void ft_printf(char *placeholders,...)
                 k = 0;
                 while (argument[k])
                     putchar(argument[k++]);
+                    counter ++;
             }
            
         }
@@ -102,28 +96,57 @@ void ft_printf(char *placeholders,...)
 
 int	main(void)
 {
-    printf("Hello! %%%%%% The first 3 letters are: %c, %c, %c.\nMy favourite food is: %s.\nI have $%d left.\n", 'A', 'B', 'C', "Laksa", 3000);
+    printf("Hello! The first 3 letters are: %c, %c, %c.\nMy favourite food is: %s.\nI have $%d left.\n", 'A', 'B', 'C', "Laksa", 3000);
     printf("--------------------\n");
-    ft_printf("Hello! %%%%%% The first 3 letters are: %c, %c, %c.\nMy favourite food is: %s.\nI have $%d left.\n", 'A', 'B', 'C', "Laksa", 3000);
+    ft_printf("Hello! The first 3 letters are: %c, %c, %c.\nMy favourite food is: %s.\nI have $%d left.\n", 'A', 'B', 'C', "Laksa", 3000);
     printf("the number of arguments are: %d\n", n_o_a("Hello! %%%% The first 3 letters are: %c, %c, %c.\nMy favourite food is: %s.\nI have $%d left.\n"));
 
 	return (0);
 }
 
-void	ft_putchar(char c) {
-	write(1, &c, 1);
+int ft_printchar(int c)
+{
+    write(1, &c, 1);
+    return 1;
 }
 
-void	ft_putnbr(int nb) {
+int	ft_putnbr(int nb) 
+{
+    int count = 0;
+    if (nb == -2147483648)
+    {
+        ft_printchar('-');
+        ft_printchar('2');
+        count = 2;
+        nb = 147483648;
+    }
 	if (nb < 0) {
 		putchar('-');
 		nb = -nb;
+        count++;
 	}
 	if (nb >= 10) {
 		ft_putnbr(nb / 10);
 		nb = nb % 10;
 	}
-	if (nb < 10) putchar(nb + 48);
+	if (nb < 10)
+    { 
+        putchar(nb + 48);
+        count++;
+    }
+    return(count);
+}
+
+int	ft_putstr(char *str)
+{
+    int count = 0;
+    while (*str != '\0')
+    {
+        ft_printchar(*str);
+        str++;
+        count++;
+    }
+        return(count);
 }
 // use putchar to write all the characters in the first argument of ft_printf
 //function until it finds a '%' sign.
