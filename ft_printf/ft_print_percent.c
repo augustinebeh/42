@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_print_percent.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/31 04:35:17 by abeh              #+#    #+#             */
-/*   Updated: 2024/06/02 00:54:53 by abeh             ###   ########.fr       */
+/*   Created: 2024/06/02 00:55:44 by abeh              #+#    #+#             */
+/*   Updated: 2024/06/02 00:55:50 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include <stdarg.h>
-# include <unistd.h>
-# include <stdio.h>
-
-int ft_print_percent();
-int ft_print_char(int c);
-int	ft_print_str(char *str);
-int ft_print_nbr(int nb);
-int	ft_print_hex(unsigned int num, const char format);
-
-#endif
+int ft_print_percent()
+{
+	write(1, "%", 1);
+	return (1);
+}
