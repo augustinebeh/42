@@ -6,14 +6,14 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 23:09:08 by abeh              #+#    #+#             */
-/*   Updated: 2024/06/02 01:18:56 by abeh             ###   ########.fr       */
+/*   Updated: 2024/06/02 02:14:08 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h" 
+#include "ft_printf.h"
 
 static int	ft_type(va_list args, const char type);
-static int	n_o_a(char *str);
+// static int	n_o_a(char *str);
 
 int ft_printf(const char *placeholders,...)
 {
@@ -53,13 +53,13 @@ static int	ft_type(va_list args, const char type)
         counter = counter + ft_print_nbr(va_arg(args, int));
     // else if (type == 'p')
     //     counter = counter + ft_print_pointer(va_arg(args, unsigned long long));
-    // else if (type == 'u')
-    //     counter = counter + ft_print_unsigned(va_arg(args, unsigned int));
-    // else if (type == 'x' || type == 'X')
-    //     counter = counter + ft_print_hex(va_arg(args, unsigned int), type);
+    else if (type == 'u')
+        counter = counter + ft_print_unsigned(va_arg(args, unsigned int));
+    else if (type == 'x' || type == 'X')
+        counter = counter + ft_print_hex(va_arg(args, unsigned int), type);
     return (counter);
 }
-static int	n_o_a(char *str)
+/* static int	n_o_a(char *str)
 {
 	int	count;
 	int	i;
@@ -85,26 +85,30 @@ static int	n_o_a(char *str)
 		i++;
 	}
 	return (count);
-}
-int	main(void)
+} */
+/* int	main(void)
 {
     int i;
     int j;
     int k;
-    printf("========================\n");
-    i = printf("|| %d, %d, %d || %c, %c, %c ||\n|| %s || %d ||\n", 1, 2, 3, 'A', 'B', 'C', "strings", 1234567);
-        printf("The return value of printf is: %d\n", i);
+    printf("\n===============================================\n");
+    i = printf("integers || %d, %d, %d || %c, %c, %c || characters\n strings || %s || %u || unsigned ints\n     hex || %x || %X || HEX\n",
+        1, 2, 3, 'A', 'B', 'C', "strings", 1234567, 123456789, 98765432);
+        printf("    The return value of printf is: %d\n", i);
 
-    printf("========================\n");
-    j = ft_printf("|| %d, %d, %d || %c, %c, %c ||\n|| %s || %d ||\n", 1, 2, 3, 'A', 'B', 'C', "strings", 1234567);
-        printf("The return value of ft_printf is: %d\n", j);
+    printf("\n===============================================\n");
+    j = ft_printf("integers || %d, %d, %d || %c, %c, %c || characters\n strings || %s || %u || unsigned ints\n     hex || %x || %X || HEX\n",
+        1, 2, 3, 'A', 'B', 'C', "strings", 1234567, 123456789, 98765432);
+        printf("    The return value of ft_printf is: %d\n", j);
 
-    printf("========================\n");
-    printf("The number of arguments are: %d\n", n_o_a("|| %d, %d, %d || %c, %c, %c ||\n|| %s || %d ||\n"));
-    printf("========================\n");
+    printf("\n===============================================\n");
+    printf("The number of arguments are: %d\n", 
+        n_o_a("integers || %d, %d, %d || %c, %c, %c || characters\n strings || %s || %u || unsigned ints\n     hex || %x || %X || HEX\n"));
+    printf("===============================================\n");
+    printf("The value of int_max is: ");
     k = ft_print_nbr(2147483647);
     printf("\nThe length of the above is: %d\n", k);
-    printf("========================\n");
+    printf("===============================================\n");
 
 	return (0);
-}
+} */

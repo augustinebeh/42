@@ -13,11 +13,18 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS = ft_printf.c
+SRCS = 	ft_printf.c \
+		ft_print_percent.c \
+		ft_print_char.c \
+		ft_print_str.c \
+		ft_print_nbr.c \
+		ft_print_unsigned.c \
+		ft_print_hex.c
+
 OBJS = $(SRCS:.c=.o)
 
-LIBFT = ./libft.a
-LIBFT_DIR = ./libft
+LIBFT = ../libft.a
+LIBFT_DIR = ../libft
 
 NAME = libftprintf.a
 
@@ -33,8 +40,9 @@ $(LIBFT):
 	make -C $(LIBFT_DIR)
 
 clean:
-	rm -f $(OBJS)
-	make -C $(LIBFT_DIR) clean
+	@rm -f $(OBJS)
+	@echo "\n ft_printf Cleaned!\n"
+	make -C $(LIBFT_DIR) fclean
 
 fclean: clean
 	rm -f $(NAME)

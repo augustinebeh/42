@@ -1,39 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_nbr.c                                     :+:      :+:    :+:   */
+/*   ft_print_unsigned.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/02 00:49:02 by abeh              #+#    #+#             */
-/*   Updated: 2024/06/02 02:14:38 by abeh             ###   ########.fr       */
+/*   Created: 2024/06/02 01:27:37 by abeh              #+#    #+#             */
+/*   Updated: 2024/06/02 02:14:04 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	ft_nbr(int nb);
-static int ft_intlen(int nb);
+static void	ft_unsigned(unsigned int nb);
+static int ft_unsigned_len(unsigned int nb);
 
-int ft_print_nbr(int nb)
+int ft_print_unsigned(unsigned int nb)
 {
-    ft_nbr(nb);
-    return(ft_intlen(nb));
+    ft_unsigned(nb);
+    return(ft_unsigned_len(nb));
 }
-static void	ft_nbr(int nb) 
-{  
-    if (nb == -2147483648)
+static void	ft_unsigned(unsigned int nb) 
+{
+	if (nb >= 10) 
     {
-        ft_print_char('-');
-        ft_print_char('2');
-        nb = 147483648;
-    }
-	if (nb < 0) {
-		ft_print_char('-');
-		nb = -nb;
-	}
-	if (nb >= 10) {
-		ft_print_nbr(nb / 10);
+		ft_print_unsigned(nb / 10);
 		nb = nb % 10;
 	}
 	if (nb < 10)
@@ -42,17 +33,13 @@ static void	ft_nbr(int nb)
     }
 }
 
-static int ft_intlen(int nb)
+static int ft_unsigned_len(unsigned int nb)
 {
-    int len = 0;
+    int len;
     
+    len = 0;
     if (nb == 0)
-    return (1);
-    if (nb < 0)
-    {
-        len++;
-        nb = -nb;
-    }
+        return (1);
     while (nb > 0)
     {
         nb = nb / 10;
