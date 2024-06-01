@@ -82,9 +82,10 @@ clean:
 
 fclean: clean
 	@rm -f $(NAME)
-	@echo "\nCleaned!\n"
+	@echo "\n Libft Cleaned!\n"
 
-re: fclean $(NAME)
+re: fclean
+	make $(NAME)
 
 bonus: $(OBJS) $(OBJSB)
 	@ar rcs $(NAME) $(OBJS) $(OBJSB)
