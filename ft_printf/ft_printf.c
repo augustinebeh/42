@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 23:09:08 by abeh              #+#    #+#             */
-/*   Updated: 2024/06/02 04:19:10 by abeh             ###   ########.fr       */
+/*   Updated: 2024/06/02 04:50:12 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,32 +90,28 @@ static int	ft_type(va_list args, const char type)
 
 /* int	main(void)
 {
-    int i;
-    int j;
-    int k;
-    printf("\n===============================================\n");
-    i = printf("integers || %d, %d, %d || %c, %c, %c || characters\n strings ||
-		%s || %u || unsigned ints\n     hex || %x || %X || HEX\n",
-        1, 2, 3, 'A', 'B', 'C', "strings", 1234567, 123456789, 98765432);
-        printf("    The return (value of printf is: %d\n", i));
-        printf("   The pointer address of printf is: %p\n", 333);
+	int	i;
+	int	j;
 
-    ft_printf("\n===============================================\n");
-    j = ft_printf("integers || %d, %d, %d || %c, %c, %c || characters\n strings
-		|| %s || %u || unsigned ints\n     hex || %x || %X || HEX\n",
-        1, 2, 3, 'A', 'B', 'C', "strings", 1234567, 123456789, 98765432);
-        ft_printf("    The return (value of ft_printf is: %d\n", j));
-        ft_printf("   The pointer address of printf is: %p\n", 333);
-
-    printf("\n===============================================\n");
-    printf("The number of arguments are: %d\n",
-        n_o_a("integers || %d, %d, %d || %c, %c, %c || characters\n strings ||
-		%s || %u || unsigned ints\n     hex || %x || %X || HEX\n"));
-    printf("===============================================\n");
-    printf("The value of int_max is: ");
-    k = ft_print_nbr(2147483647);
-    printf("\nThe length of the above is: %d\n", k);
-    printf("===============================================\n");
-
+	printf("\n===============================================\n");
+	printf("              PRINTF   OUTPUTS");
+	printf("\n===============================================\n");
+	i = printf("integers || %d, %d, %d || %c, %c, %c || characters\n", 1, 2, 3,
+			'A', 'B', 'C');
+	i = i + printf(" strings || %s || %u || unsigned ints\n", "strings",
+			4242424);
+	i = i + printf("     hex || %x || %X || HEX  \n", 42424242, 97521595);
+	i = i + printf("   The pointer address of printf is: %p\n", 97521595);
+	printf("    The return (value of printf is: %d\n", i);
+	ft_printf("\n===============================================\n");
+	ft_printf("             FT_PRINTF   OUTPUTS");
+	ft_printf("\n===============================================\n");
+	j = ft_printf("integers || %d, %d, %d || %c, %c, %c || characters\n", 1, 2,
+			3, 'A', 'B', 'C');
+	j = j + ft_printf(" strings || %s || %u || unsigned ints\n", "strings",
+			4242424);
+	j = j + ft_printf("     hex || %x || %X || HEX  \n", 42424242, 97521595);
+	j = j + ft_printf("   The pointer address of printf is: %p\n", 97521595);
+	ft_printf("    The return (value of ft_printf is: %d\n\n", j);
 	return (0);
 } */
