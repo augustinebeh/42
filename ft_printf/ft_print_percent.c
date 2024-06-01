@@ -6,13 +6,13 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 00:55:44 by abeh              #+#    #+#             */
-/*   Updated: 2024/06/02 02:14:00 by abeh             ###   ########.fr       */
+/*   Updated: 2024/06/02 04:17:14 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_print_percent()
+int	ft_print_percent(void)
 {
 	write(1, "%", 1);
 	return (1);

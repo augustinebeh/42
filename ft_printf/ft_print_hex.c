@@ -6,14 +6,14 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/01 20:03:55 by abeh              #+#    #+#             */
-/*   Updated: 2024/06/02 02:13:56 by abeh             ###   ########.fr       */
+/*   Updated: 2024/06/02 04:15:46 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 static void	ft_hex(unsigned int num, const char format);
-static int	ft_hex_len(unsigned	int num);
+static int	ft_hex_len(unsigned int num);
 
 int	ft_print_hex(unsigned int num, const char format)
 {
@@ -23,7 +23,8 @@ int	ft_print_hex(unsigned int num, const char format)
 		ft_hex(num, format);
 	return (ft_hex_len(num));
 }
-static int	ft_hex_len(unsigned	int num)
+
+static int	ft_hex_len(unsigned int num)
 {
 	int	len;
 
@@ -37,6 +38,7 @@ static int	ft_hex_len(unsigned	int num)
 	}
 	return (len);
 }
+
 static void	ft_hex(unsigned int num, const char format)
 {
 	if (num >= 16)
@@ -46,7 +48,7 @@ static void	ft_hex(unsigned int num, const char format)
 	}
 	else
 	{
-		if (num <= 9)
+		if (num < 10)
 			ft_print_char(num + '0');
 		else
 		{
