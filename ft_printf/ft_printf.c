@@ -6,15 +6,68 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 23:09:08 by abeh              #+#    #+#             */
-/*   Updated: 2024/06/01 13:11:16 by abeh             ###   ########.fr       */
+/*   Updated: 2024/06/01 20:49:15 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h" 
 
-int	ft_putnbr(int nb);
-int	ft_putstr(char *str);
-int	ft_printchar(int c);
+#include <unistd.h>
+#include <errno.h>
+int ft_print_percent();
+int ft_print_char(int c);
+int	ft_print_str(char *str);
+int	ft_print_nbr(int nb);
+
+int ft_print_percent()
+{
+	write(1, "%", 1);
+	return (1);
+}
+int ft_print_char(int c)
+{
+    write(1, &c, 1);
+    return(1);
+}
+int	ft_print_str(char *str)
+{
+    int count = 0;
+    while (*str != '\0')
+    {
+        ft_print_char(*str);
+        str++;
+        count++;
+    }
+        return(count);
+}
+int	ft_print_nbr(int nb) 
+{
+    int count = 0;
+    
+    if (nb == -2147483648)
+    {
+        ft_print_char('-');
+        ft_print_char('2');
+        count = count + 2;
+        nb = 147483648;
+    }
+	if (nb < 0) {
+		ft_print_char('-');
+		nb = -nb;
+        count++;
+	}
+	if (nb >= 10) {
+		ft_print_nbr(nb / 10);
+		nb = nb % 10;
+	}
+	if (nb < 10)
+    { 
+        ft_print_char(nb + 48);
+        count++;
+    }
+    return(count);
+}
+
 
 static int	n_o_a(char *str)
 {
@@ -44,55 +97,62 @@ static int	n_o_a(char *str)
 	return (count);
 }
 
+// • %% Prints a percent sign.
+// • %c Prints a single character.
+// • %s Prints a string (as defined by the common C convention).
+// • %p The void * pointer argument has to be printed in hexadecimal format.
+// • %d Prints a decimal (base 10) number.
+// • %i Prints an integer in base 10.
+// • %u Prints an unsigned decimal (base 10) number.
+// • %x Prints a number in hexadecimal (base 16) lowercase format.
+// • %X Prints a number in hexadecimal (base 16) uppercase format.
+
+int	ft_type(va_list args, const char type)
+{  
+    int counter;
+
+    counter = 0;
+    if (type == '%')
+        counter = counter + ft_print_percent();
+    else if (type == 'c')
+        counter = counter + ft_print_char(va_arg(args, int));
+    else if (type == 's')
+        counter = counter + ft_print_str(va_arg(args, char *));
+    else if (type == 'd' || type == 'i')
+        counter = counter + ft_print_nbr(va_arg(args, int));
+    // else if (type == 'p')
+    //     counter = counter + ft_print_pointer(va_arg(args, unsigned long long));
+    // else if (type == 'u')
+    //     counter = counter + ft_print_unsigned(va_arg(args, unsigned int));
+    // else if (type == 'x' || type == 'X')
+    //     counter = counter + ft_print_hex(va_arg(args, unsigned int), type);
+    return (counter);
+}
 int ft_printf(const char *placeholders,...)
 {
     va_list args;
     va_start(args, placeholders);
-    int i = 0;
-    int k;
+    int i;
     int counter;
 
+    i = 0;
+    counter = 0;
     while (placeholders[i])
     {
         if (placeholders[i] == '%')
         {
+            counter = counter + ft_type(args, placeholders[i + 1]);
             i++;
-            counter++;
-            if (placeholders[i] == '%')
-            {
-                putchar('%');
-                i++;
-                counter++;
-            }
-            else if (placeholders[i] == 'c')
-            {
-                char argument = va_arg(args, int);
-                counter = counter + ft_printchar(argument);
-            }
-            else if (placeholders[i] == 'd'|| placeholders[i] == 'i')
-            {
-                int argument = va_arg(args, int);
-                counter = counter + ft_putnbr(argument);
-            }
-            else if (placeholders[i] == 's')
-            {
-                char* argument = va_arg(args, char *);
-                k = 0;
-                while (argument[k])
-                    putchar(argument[k++]);
-                    counter ++;
-            }
-           
         }
         else
         {
-            putchar(placeholders[i]);
+            counter = counter + ft_print_char(placeholders[i]);
         }
         i++;
     }
     va_end(args);
+    return (counter);
 }
-        
 
 int	main(void)
 {
@@ -100,54 +160,12 @@ int	main(void)
     printf("--------------------\n");
     ft_printf("Hello! The first 3 letters are: %c, %c, %c.\nMy favourite food is: %s.\nI have $%d left.\n", 'A', 'B', 'C', "Laksa", 3000);
     printf("the number of arguments are: %d\n", n_o_a("Hello! %%%% The first 3 letters are: %c, %c, %c.\nMy favourite food is: %s.\nI have $%d left.\n"));
-
-	return (0);
+    int i = 0;
+    i = ft_print_nbr(123456789);
+    printf("\n the value of i is: %d\n", i);
+	return (i);
 }
 
-int ft_printchar(int c)
-{
-    write(1, &c, 1);
-    return 1;
-}
-
-int	ft_putnbr(int nb) 
-{
-    int count = 0;
-    if (nb == -2147483648)
-    {
-        ft_printchar('-');
-        ft_printchar('2');
-        count = 2;
-        nb = 147483648;
-    }
-	if (nb < 0) {
-		putchar('-');
-		nb = -nb;
-        count++;
-	}
-	if (nb >= 10) {
-		ft_putnbr(nb / 10);
-		nb = nb % 10;
-	}
-	if (nb < 10)
-    { 
-        putchar(nb + 48);
-        count++;
-    }
-    return(count);
-}
-
-int	ft_putstr(char *str)
-{
-    int count = 0;
-    while (*str != '\0')
-    {
-        ft_printchar(*str);
-        str++;
-        count++;
-    }
-        return(count);
-}
 // use putchar to write all the characters in the first argument of ft_printf
 //function until it finds a '%' sign.
 // once it does find the '%' sign look for the character after the '%' sign to
