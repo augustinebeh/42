@@ -6,24 +6,21 @@
 /*   By: abeh <abeh@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 22:34:50 by abeh              #+#    #+#             */
-/*   Updated: 2024/05/31 16:05:40 by abeh             ###   ########.fr       */
+/*   Updated: 2024/06/02 19:16:40 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// BASICALLY, CALLOC IS MALLOC BUT MEMSETS THE ALLOCATED MEMORY TO "0"
 void	*ft_calloc(size_t nmemb, size_t size)
 {
-	void	*ptr;
+	void	*res;
 
-	if (nmemb != 0 && size == 0)
-		return (NULL);
-	ptr = malloc(nmemb * size);
-	if (ptr == NULL)
-		return (NULL);
-	ft_memset(ptr, 0, nmemb * size);
-	return (ptr);
+	res = (void *)malloc(nmemb * size);
+    if (!res)
+        return (NULL);
+    ft_bzero(res, nmemb * size);
+    return (res);
 }
 
 /* int main()

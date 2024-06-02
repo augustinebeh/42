@@ -6,13 +6,13 @@
 /*   By: abeh <abeh@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 04:24:23 by abeh              #+#    #+#             */
-/*   Updated: 2024/05/31 16:17:12 by abeh             ###   ########.fr       */
+/*   Updated: 2024/06/02 19:17:05 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	f_function(unsigned int a, char b);
+// char	f_function(unsigned int a, char b);
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
