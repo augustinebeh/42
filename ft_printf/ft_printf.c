@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abeh <abeh@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 23:09:08 by abeh              #+#    #+#             */
-/*   Updated: 2024/06/02 22:44:21 by abeh             ###   ########.fr       */
+/*   Updated: 2024/06/03 01:43:57 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ int	main(void)
 	i = i + printf(" strings || %s || %u || unsigned ints\n", "strings",
 			4242424);
 	i = i + printf("     hex || %x || %X || HEX  \n", 42424242, 97521595);
-	i = i + printf("   The pointer address of printf is: %p\n", 97521595);
+	i = i + printf("   The pointer address of printf is: %p\n", NULL);
 	printf("    The return (value of printf is: %d\n", i);
 	ft_printf("\n===============================================\n");
 	ft_printf("             FT_PRINTF   OUTPUTS");
@@ -111,7 +111,7 @@ int	main(void)
 	j = j + ft_printf(" strings || %s || %u || unsigned ints\n", "strings",
 			4242424);
 	j = j + ft_printf("     hex || %x || %X || HEX  \n", 42424242, 97521595);
-	j = j + ft_printf("   The pointer address of printf is: %p\n", 97521595);
+	j = j + ft_printf("   The pointer address of printf is: %p\n", NULL);
 	ft_printf("    The return (value of ft_printf is: %d\n\n", j);
 	return (0);
-} 
+}
