@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 SRCS = 	ft_printf.c \
@@ -24,30 +24,23 @@ SRCS = 	ft_printf.c \
 
 OBJS = $(SRCS:.c=.o)
 
-LIBFT = ../libft.a
-LIBFT_DIR = ../libft
-
+RM	= rm -f
 NAME = libftprintf.a
 
-all: $(NAME)
+all: 		$(NAME)
 
-$(NAME): $(OBJS) $(LIBFT)
-	$(CC) $(CFLAGS) $(OBJS) -L$(LIBFT_DIR) -lft -o $(NAME)
+$(NAME): 	$(OBJS)
+			ar rcs $(NAME) $(OBJS)
+	
 
 .c.o:
-	$(CC) $(CFLAGS) -c $< -o $@
-
-$(LIBFT):
-	make -C $(LIBFT_DIR)
+			$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@rm -f $(OBJS)
-	@echo "\n ft_printf Cleaned!\n"
-	make -C $(LIBFT_DIR) fclean
+			$(RM) $(OBJS)
 
-fclean: clean
-	rm -f $(NAME)
-	make -C $(LIBFT_DIR) fclean
+fclean:		clean
+			$(RM) $(OBJS) $(NAME)
 
-re: fclean
-	make $(NAME)
+re: 		fclean all
+

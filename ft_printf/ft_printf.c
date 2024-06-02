@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
+/*   By: abeh <abeh@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 23:09:08 by abeh              #+#    #+#             */
-/*   Updated: 2024/06/02 04:50:12 by abeh             ###   ########.fr       */
+/*   Updated: 2024/06/02 22:44:21 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ static int	ft_type(va_list args, const char type)
 // 	return (count);
 // }
 
-/* int	main(void)
+int	main(void)
 {
 	int	i;
 	int	j;
@@ -114,4 +114,4 @@ static int	ft_type(va_list args, const char type)
 	j = j + ft_printf("   The pointer address of printf is: %p\n", 97521595);
 	ft_printf("    The return (value of ft_printf is: %d\n\n", j);
 	return (0);
-} */
+} 
