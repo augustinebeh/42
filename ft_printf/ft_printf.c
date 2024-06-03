@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 23:09:08 by abeh              #+#    #+#             */
-/*   Updated: 2024/06/03 21:56:29 by abeh             ###   ########.fr       */
+/*   Updated: 2024/06/03 21:59:30 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int	ft_printf(const char *placeholders, ...)
 	int		i;
 	int		counter;
 	int		error;
-	
 
 	va_start(args, placeholders);
 	i = 0;
@@ -95,41 +94,39 @@ static int	ft_type(va_list args, const char type, int *error)
 // 	return (count);
 // }
 
-int	main(void)
-{
-	int	i;
-	int	j;
-	int x = 123;
-	char *str;
+// int	main(void)
+// {
+// 	int	i;
+// 	int	j;
+// 	int x = 123;
+// 	char *str;
 
-	str = NULL;
-	printf("\n===============================================\n");
-	printf("              PRINTF   OUTPUTS");
-	printf("\n===============================================\n");
-	i = printf("integers || %d, %d, %d || %c, %c, %c || characters\n", 1, 2, 3,
-			'A', 'B', 'C');
-	i = i + printf(" strings || %s  || %u || unsigned ints\n", str,
-			4242424);
-	i = i + printf("     hex || %x || %X || HEX  \n", 42424242, 97521595);
-	i = i + printf(" The pointer address of printf ||\n");
-	i = i + printf("                          NULL || %p\n", NULL);
-	i = i + printf("                 Address of x  ||%p\n", (void *)&x);
-	// i + i + printf(" %i %i %i %i %i %i %i\n", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42);
-	printf("  The return value of printf is : %d \n", i);
-	
-	ft_printf("\n===============================================\n");
-	ft_printf("             FT_PRINTF   OUTPUTS");
-	ft_printf("\n===============================================\n");
-	j = ft_printf("integers || %d, %d, %d || %c, %c, %c || characters\n", 1, 2,
-			3, 'A', 'B', 'C');
-	j = j + ft_printf(" strings || %s  || %u || unsigned ints\n", str,
-			4242424);
-	j = j + ft_printf("     hex || %x || %X || HEX  \n", 42424242, 97521595);
-	j = j + ft_printf(" The pointer address of printf ||\n");
-	j = j + ft_printf("                          NULL || %p\n", NULL);
-	j = j + ft_printf("                  Address of x ||%p\n", (void *)&x);
-	// j + j + ft_printf(" %i %i %i %i %i %i %i\n", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42);
-	ft_printf("  The return value of printf is : %d \n", j);
+// 	str = NULL;
+// 	printf("\n===============================================\n");
+// 	printf("              PRINTF   OUTPUTS");
+// 	printf("\n===============================================\n");
+// 	i = printf("integers || %d, %d, %d || %c, %c, %c || characters\n", 1, 2, 3,
+// 			'A', 'B', 'C');
+// 	i = i + printf(" strings || %s  || %u || unsigned ints\n", str,
+// 			4242424);
+// 	i = i + printf("     hex || %x || %X || HEX  \n", 42424242, 97521595);
+// 	i = i + printf(" The pointer address of printf ||\n");
+// 	i = i + printf("                          NULL || %p\n", NULL);
+// 	i = i + printf("                 Address of x  ||%p\n", (void *)&x);
+// 	printf("  The return (value of printf is : %d \n", i));
 
-	return (0);
-}
+// 	ft_printf("\n===============================================\n");
+// 	ft_printf("             FT_PRINTF   OUTPUTS");
+// 	ft_printf("\n===============================================\n");
+// 	j = ft_printf("integers || %d, %d, %d || %c, %c, %c || characters\n", 1, 2,
+// 			3, 'A', 'B', 'C');
+// 	j = j + ft_printf(" strings || %s  || %u || unsigned ints\n", str,
+// 			4242424);
+// 	j = j + ft_printf("     hex || %x || %X || HEX  \n", 42424242, 97521595);
+// 	j = j + ft_printf(" The pointer address of printf ||\n");
+// 	j = j + ft_printf("                          NULL || %p\n", NULL);
+// 	j = j + ft_printf("                  Address of x ||%p\n", (void *)&x);
+// 	ft_printf("  The return (value of printf is : %d \n", j));
+
+// 	return (0);
+// }
