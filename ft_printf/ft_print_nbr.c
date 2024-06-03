@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_nbr.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
+/*   By: abeh <abeh@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 00:49:02 by abeh              #+#    #+#             */
-/*   Updated: 2024/06/02 04:16:33 by abeh             ###   ########.fr       */
+/*   Updated: 2024/06/03 18:54:30 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ static int	ft_intlen(int nb);
 int	ft_print_nbr(int nb)
 {
 	ft_nbr(nb);
+	if (nb == -2147483648)
+		return(11);
 	return (ft_intlen(nb));
 }
 
@@ -64,3 +66,13 @@ static int	ft_intlen(int nb)
 	}
 	return (len);
 }
+// #include <limits.h>
+
+// int main(void)
+// {
+// 	int a = ft_printf("BBBBBBBBBBBBBBBBBB: %d\n", INT_MIN);
+// 	int b = printf("BBBBBBBBBBBBBBBBBB: %d\n", INT_MIN);
+
+// 	printf("a: %d\n", a);
+// 	printf("b: %d\n", b);
+// }

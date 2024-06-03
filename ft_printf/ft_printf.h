@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
+/*   By: abeh <abeh@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 04:35:17 by abeh              #+#    #+#             */
-/*   Updated: 2024/06/02 03:40:29 by abeh             ###   ########.fr       */
+/*   Updated: 2024/06/03 20:56:43 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdarg.h>
 # include <stdint.h>
 # include <stdio.h>
+# include <limits.h>
 # include <unistd.h>
 
 int	ft_printf(const char *placeholders, ...);
