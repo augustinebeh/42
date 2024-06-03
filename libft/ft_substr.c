@@ -6,14 +6,11 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 04:22:57 by abeh              #+#    #+#             */
-/*   Updated: 2024/05/29 05:02:01 by abeh             ###   ########.fr       */
+/*   Updated: 2024/06/04 00:26:22 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-// FT_SUBSTR PRODUCES A SUBSTRING FROM A STRING STARTING FROM "START"
-// ONLY TO A MAXIMUM LENGTH "LEN" OF THE SUBSTRING.
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {

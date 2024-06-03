@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abeh <abeh@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 22:35:03 by abeh              #+#    #+#             */
-/*   Updated: 2024/05/31 16:01:37 by abeh             ###   ########.fr       */
+/*   Updated: 2024/06/04 00:24:59 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,21 +28,6 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	}
 	return (dest);
 }
-
-//alternative method to obtain same result
-/* void *ft_memcpy(void *dest, const void *src, size_t n)
-{
-    // Typecast src and dest addresses to (char *)
-    char *csrc = (char *)src;
-    char *cdest = (char *)dest;
-
-    // Copy contents of src[] to dest[]
-    for (int i=0; i<n; i++)
-        cdest[i] = csrc[i];
-
-    //Return the destination address
-    return (dest);
-} */
 
 //main file for manual testcases. argc based on number of input variables
 /* int main(int argc, char **argv)
@@ -72,12 +57,12 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
         printf("Input               : %s\n", argv[1]);
         printf("----------------------------------------\n");
         printf("Output(ft_memcpy)   : %s\n", d);
-        
+
         memcpy(d, s, atoi(argv[3]));
         printf("Output(memcpy)      : %s\n", d);
         printf("----------------------------------------\n");
         free(d);
-        free(s);    
+        free(s);
         return (0);
     }
 } */
