@@ -6,38 +6,65 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 22:21:02 by abeh              #+#    #+#             */
-/*   Updated: 2024/06/01 03:22:58 by abeh             ###   ########.fr       */
+/*   Updated: 2024/06/04 00:47:20 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"	
+#include "get_next_line.h"
 #include <fcntl.h>
 #include <stdio.h>
 
-char	*get_next_line(int fd)
-{
-	char	buffer;
-	char	line[8000000];
-	int		b;
-	int		i;
+static char *static_line = NULL;
+static size_t static_size = 0;
+static size_t static_index = 0;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (NULL);
-	if (fcntl(fd, F_GETFL) == -1 || !(fcntl(fd, F_GETFL) & O_RDONLY))
-		return (NULL);
-	i = 0;
-	b = read(fd, &buffer, 1);
-	while (b > 0)
-	{
-		line[i++] = buffer;
-		if (buffer == '\n')
-			break ;
-		b = read(fd, &buffer, 1);
-	}
-	line[i] = '\0';
-	if (b <= 0 && i == 0)
-		return (NULL);
-	return (ft_strdup(line));
+char *get_next_line(int fd)
+{
+    char buffer;
+    char *line;
+    ssize_t bytes_read;
+    size_t i;
+
+    if (fd < 0 || BUFFER_SIZE <= 0)
+        return (NULL);
+    if (fcntl(fd, F_GETFL) == -1 || !(fcntl(fd, F_GETFL) & O_RDONLY))
+        return (NULL);
+    if (static_line == NULL) {
+        static_line = calloc(BUFFER_SIZE + 1, sizeof(char));
+        if (static_line == NULL)
+            return (NULL);
+        static_size = BUFFER_SIZE;
+        static_index = 0;
+    }
+    line = static_line;
+    i = static_index;
+    while (1) {
+        bytes_read = read(fd, &buffer, 1);
+        if (bytes_read <= 0)
+            break;
+        line[i++] = buffer;
+        if (buffer == '\n')
+            break;
+        if (i == static_size) {
+            static_size += BUFFER_SIZE;
+            static_line = realloc(static_line, static_size + 1);
+            if (static_line == NULL)
+                return (NULL);
+        }
+    }
+    if (i == 0 && bytes_read <= 0) {
+        free(static_line);
+        static_line = NULL;
+        return (NULL);
+    }
+    line[i] = '\0';
+    static_index = i;
+    if (bytes_read <= 0) {
+        line = ft_strdup(static_line);
+        free(static_line);
+        static_line = NULL;
+    }
+    return (line);
 }
 
 /* int	ft_strlen(char *s)
@@ -67,34 +94,43 @@ char	*ft_strdup(char *s)
 		i++;
 	}
 	return (str);
-}
-
-int	main(void)
-{
-	char	*line;
-	int		i;
-	int		fd1;
-	int		fd2;
-	int		fd3;
-	fd1 = open("tests/test.txt", O_RDONLY);
-	fd2 = open("tests/test2.txt", O_RDONLY);
-	fd3 = open("tests/test3.txt", O_RDONLY);
-	i = 1;
-	while (i < 7)
-	{
-		line = get_next_line(fd1);
-		printf("line [%02d]: %s", i, line);
-		free(line);
-		line = get_next_line(fd2);
-		printf("line [%02d]: %s", i, line);
-		free(line);
-		line = get_next_line(fd3);
-		printf("line [%02d]: %s", i, line);
-		free(line);
-		i++;
-	}
-	close(fd1);
-	close(fd2);
-	close(fd3);
-	return(0);
 } */
+
+int main()
+{
+    int fd1, fd2, fd3;
+    char *line;
+
+    fd1 = open("tests/test.txt", O_RDONLY);
+    fd2 = open("tests/test2.txt", O_RDONLY);
+    fd3 = open("tests/test3.txt", O_RDONLY);
+
+    if (fd1 < 0 || fd2 < 0 || fd3 < 0) {
+        perror("open");
+        return 1;
+    }
+
+    printf("Testing file 1:\n");
+    while ((line = get_next_line(fd1)) != NULL) {
+        printf("%s", line);
+        free(line);
+    }
+
+    printf("\nTesting file 2:\n");
+    while ((line = get_next_line(fd2)) != NULL) {
+        printf("%s", line);
+        free(line);
+    }
+
+    printf("\nTesting file 3:\n");
+    while ((line = get_next_line(fd3)) != NULL) {
+        printf("%s", line);
+        free(line);
+    }
+
+    close(fd1);
+    close(fd2);
+    close(fd3);
+
+    return 0;
+}
