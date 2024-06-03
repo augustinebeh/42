@@ -10,37 +10,44 @@
 #                                                                              #
 # **************************************************************************** #
 
+NAME = libftprintf.a
+
 CC = cc
+
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS = 	ft_printf.c \
-		ft_print_percent.c \
-		ft_print_char.c \
-		ft_print_str.c \
-		ft_print_nbr.c \
-		ft_print_pointer.c \
-		ft_print_unsigned.c \
+SRCS = 	ft_printf.c 			\
+		ft_print_percent.c 		\
+		ft_print_char.c			\
+		ft_print_str.c 			\
+		ft_print_nbr.c 			\
+		ft_print_pointer.c 		\
+		ft_print_unsigned.c 		\
 		ft_print_hex.c
 
 OBJS = $(SRCS:.c=.o)
 
 RM	= rm -f
-NAME = libftprintf.a
+
 
 all: 		$(NAME)
 
 $(NAME): 	$(OBJS)
-			ar rcs $(NAME) $(OBJS)
-	
+			@ar rcs $(NAME) $(OBJS)
+
 
 .c.o:
 			$(CC) $(CFLAGS) -c $< -o $@
 
-clean:
-			$(RM) $(OBJS)
 
-fclean:		clean
-			$(RM) $(OBJS) $(NAME)
+clean:
+			@$(RM) $(OBJS)
+			@echo "\n	all .o files  removed!\n"
+
+fclean:
+			@$(RM) $(OBJS) $(NAME)
+			@echo "\nall .o files  removed!"
+			@echo "libftprintf.a removed!\n"
 
 re: 		fclean all
 
