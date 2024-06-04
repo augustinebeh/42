@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 22:21:03 by abeh              #+#    #+#             */
-/*   Updated: 2024/06/01 02:50:58 by abeh             ###   ########.fr       */
+/*   Updated: 2024/06/04 09:20:10 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <unistd.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1000000
+#  define BUFFER_SIZE 1111
 # endif
 
 int		ft_strlen(char *str);
