@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 22:21:02 by abeh              #+#    #+#             */
-/*   Updated: 2024/06/06 06:11:48 by abeh             ###   ########.fr       */
+/*   Updated: 2024/06/06 06:28:38 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,15 +145,10 @@ char *get_next_line(int fd)
 
 	if (balance == NULL)
 		balance = ft_strdup("");
-
-
 	front_line = ft_strdup("");
-
 	buffer = (char*)malloc((BUFFER_SIZE + 1) * (sizeof(char)));
 	if (!buffer)
-	{
 		return (NULL);
-	}
 	if (fd < 0 || BUFFER_SIZE <= 0)
 	{
 		free(buffer);
@@ -195,6 +190,7 @@ char *get_next_line(int fd)
 			if (ft_strchr(balance, '\n') == NULL)
 				return_line = ft_strjoin(balance, return_line);
 			return_line = ft_strjoin(return_line, front_line);
+			free(front_line);
 
 			balance = ft_strchr(buffer, '\n');
 			*balance++;
