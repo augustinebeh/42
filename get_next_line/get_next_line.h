@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 22:21:03 by abeh              #+#    #+#             */
-/*   Updated: 2024/06/05 04:08:52 by abeh             ###   ########.fr       */
+/*   Updated: 2024/06/05 22:37:53 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,8 @@
 #  define BUFFER_SIZE 10
 # endif
 
-size_t	ft_strlen(char *s);
-char	*ft_strchr(char *s, int c);
-char	*ft_strjoin(char *left_str, char *buff);
-char	*ft_line(char *str);
-char	*ft_next_str(char *str);
-char	*ft_read(int fd, char *str);
 char	*get_next_line(int fd);
+char	*ft_strchr(const char *s, int c);
+char	*ft_strjoin(const char *s1, const char *s2);
 
 #endif
