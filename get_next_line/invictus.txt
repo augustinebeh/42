@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    invictus.txt                                       :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/06/06 20:23:01 by abeh              #+#    #+#              #
+#    Updated: 2024/06/06 20:23:03 by abeh             ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 Out of the night that covers me,
 Black as the pit from pole to pole,
 I thank whatever gods may be
@@ -17,3 +29,4 @@ It matters not how strait the gate,
 How charged with punishments the scroll,
 I am the master of my fate:
 I am the captain of my soul.
+.

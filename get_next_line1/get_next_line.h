@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 22:21:03 by abeh              #+#    #+#             */
-/*   Updated: 2024/06/06 19:08:43 by abeh             ###   ########.fr       */
+/*   Updated: 2024/06/06 20:13:36 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <unistd.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1
+#  define BUFFER_SIZE 1000000
 # endif
 
 char	   *get_next_line(int fd);

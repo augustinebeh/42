@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 22:21:02 by abeh              #+#    #+#             */
-/*   Updated: 2024/06/06 19:12:59 by abeh             ###   ########.fr       */
+/*   Updated: 2024/06/06 20:06:53 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -160,8 +160,11 @@ char *get_next_line(int fd)
 		}
 		buffer[bytes_read] = '\0';
 		balance = ft_strjoin(balance, buffer);
+		free(buffer);
+		buffer = (char*)malloc((BUFFER_SIZE + 1) * (sizeof(char)));
+		if (buffer == NULL)
+			return (NULL);
 	}
-	// free(buffer);
 	if (ft_strchr(balance, '\n') != NULL)
 	{
 		return_line = ft_splitter_front(balance);
