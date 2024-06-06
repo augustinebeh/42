@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 22:21:03 by abeh              #+#    #+#             */
-/*   Updated: 2024/06/06 15:55:46 by abeh             ###   ########.fr       */
+/*   Updated: 2024/06/06 17:42:35 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <unistd.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 42
+#  define BUFFER_SIZE 1
 # endif
 
 char	   *get_next_line(int fd);
@@ -30,5 +30,8 @@ char	*ft_strdup(const char *s);
 int fl_len(char *buffer);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
+char *ft_splitter_front(char *balance);
+char *ft_splitter_back(char *balance);
 
 #endif
+//10326810000
