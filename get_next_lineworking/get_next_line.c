@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 22:21:02 by abeh              #+#    #+#             */
-/*   Updated: 2024/06/06 17:53:04 by abeh             ###   ########.fr       */
+/*   Updated: 2024/06/06 19:12:59 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,7 +136,6 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	return (srclen);
 }
 
-
 char *get_next_line(int fd)
 {
 	static char *balance = NULL;
@@ -161,8 +160,8 @@ char *get_next_line(int fd)
 		}
 		buffer[bytes_read] = '\0';
 		balance = ft_strjoin(balance, buffer);
-
 	}
+	// free(buffer);
 	if (ft_strchr(balance, '\n') != NULL)
 	{
 		return_line = ft_splitter_front(balance);
@@ -173,14 +172,16 @@ char *get_next_line(int fd)
 
 char *ft_splitter_front(char *balance)
 {
-	char *return_line;
+	char *temp;
 	int i;
 	i = 0;
 	while (balance[i] != '\n' && balance[i])
 	i++;
 	if (balance[i++] == '\n')
-		return_line = ft_substr(balance, 0, i);
-	return (return_line);
+	{
+		temp = ft_substr(balance, 0, i);
+	}
+	return (temp);
 }
 
 char *ft_splitter_back(char *balance)
@@ -225,6 +226,7 @@ int main()
          break;
       }
       printf("line[%d]: %s", (i + 1), line);
+		free(line);
       i++;
    }
    close(fd);
