@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 22:21:02 by abeh              #+#    #+#             */
-/*   Updated: 2024/06/07 04:31:15 by abeh             ###   ########.fr       */
+/*   Updated: 2024/06/07 04:35:12 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,20 +87,6 @@ char	*ft_strdup(const char *s)
 	return (str);
 }
 
-int fl_len(char *buffer)
-{
-	int i;
-
-	i = 0;
-	while (buffer[i] != '\0' && buffer[i] != '\n')
-	{
-		i++;
-	}
-	if (buffer[i] == '\n')
-		i++;
-	return(i);
-}
-
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*substr;
@@ -136,72 +122,41 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	return (srclen);
 }
 
+void	ft_bzero(void *s, size_t n)
+{
+	unsigned char	*str;
+
+	str = (unsigned char *)s;
+	while (n--)
+		*str++ = '\0';
+}
+
 char *get_next_line(int fd)
 {
 	static char *balance = NULL;
-	char *return_line;
+	ssize_t read_bytes;
+	char *temp;
 	char *buffer;
-	ssize_t bytes_read;
 
 	if (balance == NULL)
 		balance = ft_strdup("");
 	buffer = (char*)malloc((BUFFER_SIZE + 1) * (sizeof(char)));
-	if (buffer == NULL)
-		return (NULL);
-	while (ft_strchr(balance, '\n') == NULL)
+	while (read_bytes = read(fd, buffer, BUFFER_SIZE))
 	{
-		bytes_read = read(fd, buffer, BUFFER_SIZE);
-		if (bytes_read == 0)
-			return NULL;
-		if (bytes_read == -1)
+		if(read_bytes <= 0)
 		{
 			free(buffer);
 			return (NULL);
 		}
-		buffer[bytes_read] = '\0';
 		balance = ft_strjoin(balance, buffer);
-		free(buffer);
-		buffer = (char*)malloc((BUFFER_SIZE + 1) * (sizeof(char)));
-		if (buffer == NULL)
-			return (NULL);
 	}
-	if (ft_strchr(balance, '\n') != NULL)
+	while (ft_strchr(balance, '\n'))
 	{
-		return_line = ft_splitter_front(balance);
-		balance = ft_splitter_back(balance);
-	}
-	return(return_line);
+		buffer = ft_substr(balance, 0, (ft_strchr(balance, '\n') -	balance + 1));
+		balance = ft_strdup(ft_strchr(balance, '\n') + 1);
+		return (buffer);
+		}
 }
-
-char *ft_splitter_front(char *balance)
-{
-	char *temp;
-	int i;
-	i = 0;
-	while (balance[i] != '\n' && balance[i])
-	i++;
-	if (balance[i++] == '\n')
-	{
-		temp = ft_substr(balance, 0, i);
-	}
-	return (temp);
-}
-
-char *ft_splitter_back(char *balance)
-{
-	char *temp;
-	int i;
-	i = 0;
-	while (balance[i] != '\n' && balance[i])
-	i++;
-	if (balance[i++] == '\n')
-	{
-		temp = ft_substr(balance, i, ft_strlen(balance) - i);
-		free(balance);
-	}
-	return (temp);
-}
-
 
 int main()
 {
