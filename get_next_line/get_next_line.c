@@ -6,90 +6,14 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 22:21:02 by abeh              #+#    #+#             */
-/*   Updated: 2024/06/09 02:12:33 by abeh             ###   ########.fr       */
+/*   Updated: 2024/06/09 05:34:23 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
 static char	*ft_creator(int fd, char *left_c, char *buffer);
-
 static char	*ft_truncator(char *line_buffer);
-
-size_t	ft_strlen(const char *s)
-{
-	size_t	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
-
-char	*ft_strjoin(char const *s1, char const *s2)
-{
-	char			*str;
-	unsigned int	i;
-	unsigned int	j;
-
-	i = 0;
-	j = 0;
-	if (s1 == NULL || s2 == NULL)
-		return (NULL);
-	str = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
-	if (str == NULL)
-		return (NULL);
-	while (s1[i])
-	{
-		str[i] = s1[i];
-		i++;
-	}
-	while (s2[j])
-	{
-		str[i] = s2[j];
-		j++;
-		i++;
-	}
-	str[i] = '\0';
-	return (str);
-}
-
-char	*ft_strchr(const char *s, int c)
-{
-	unsigned int	i;
-	char			find;
-
-	find = (char)c;
-	i = 0;
-	while (s[i])
-	{
-		if (s[i] == find)
-			return ((char *)&s[i]);
-		i++;
-	}
-	if (s[i] == find)
-		return ((char *)&s[i]);
-	return (NULL);
-}
-
-char	*ft_strdup(const char *s)
-{
-	size_t	len;
-	char	*str;
-	size_t	i;
-
-	i = 0;
-	len = ft_strlen(s);
-	str = (char *)malloc(sizeof(char) * (len + 1));
-	if (str == NULL)
-		return (NULL);
-	while (i <= len)
-	{
-		str[i] = s[i];
-		i++;
-	}
-	return (str);
-}
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
@@ -108,32 +32,15 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (substr);
 }
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
-{
-	size_t	i;
-	size_t	srclen;
-
-	i = 0;
-	srclen = ft_strlen(src);
-	if (size == 0)
-		return (srclen);
-	while (src[i] != '\0' && i < size - 1)
-	{
-		dst[i] = src[i];
-		i++;
-	}
-	dst[i] = '\0';
-	return (srclen);
-}
-
 char	*get_next_line(int fd)
 {
 	static char	*b;
-	char		*r;
 	char		*buffer;
+	char		*r;
 
-	buffer = (char *)malloc((BUFFER_SIZE - BUFFER_SIZE + 1) * sizeof(char));
+	buffer = (char *)malloc((BUFFER_SIZE + 1) * sizeof(char));
 	if (fd < 0 || BUFFER_SIZE <= 0 || fcntl(fd, F_GETFL) == -1)
+
 	{
 		free(b);
 		free(buffer);
@@ -206,7 +113,7 @@ static char	*ft_creator(int fd, char *b, char *buffer)
 	return (b);
 }
 
-int	main(void)
+/* int	main(void)
 {
 	int		fd;
 	char	*line;
@@ -231,10 +138,13 @@ int	main(void)
 			close(fd);
 			break ;
 		}
-		printf("line[%d]: %s", (i + 1), line);
+		if(i+1 <10)
+			printf("line[0%d]:  %s", (i + 1), line);
+		else
+			printf("line[%d]:  %s", (i + 1), line);
 		free(line);
 		i++;
 	}
 	close(fd);
 	return (0);
-}
+} */
