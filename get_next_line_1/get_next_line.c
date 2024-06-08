@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 22:21:02 by abeh              #+#    #+#             */
-/*   Updated: 2024/06/07 04:35:12 by abeh             ###   ########.fr       */
+/*   Updated: 2024/06/06 07:32:03 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,18 @@ char	*ft_strdup(const char *s)
 	return (str);
 }
 
+int fl_len(char *buffer)
+{
+	int i;
+
+	i = 0;
+	while (buffer[i] != '\0' && buffer[i] != '\n')
+	{
+		i++;
+	}
+	return(i);
+}
+
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*substr;
@@ -122,41 +134,73 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	return (srclen);
 }
 
-void	ft_bzero(void *s, size_t n)
-{
-	unsigned char	*str;
-
-	str = (unsigned char *)s;
-	while (n--)
-		*str++ = '\0';
-}
 
 char *get_next_line(int fd)
 {
 	static char *balance = NULL;
-	ssize_t read_bytes;
-	char *temp;
+	char *front_line;
+	char *return_line;
 	char *buffer;
+	ssize_t bytes_read;
 
 	if (balance == NULL)
 		balance = ft_strdup("");
+	front_line = ft_strdup("");
 	buffer = (char*)malloc((BUFFER_SIZE + 1) * (sizeof(char)));
-	while (read_bytes = read(fd, buffer, BUFFER_SIZE))
+	if (!buffer)
+		return (NULL);
+	if (fd < 0 || BUFFER_SIZE <= 0)
 	{
-		if(read_bytes <= 0)
-		{
-			free(buffer);
-			return (NULL);
-		}
-		balance = ft_strjoin(balance, buffer);
+		free(buffer);
+		free(balance);
+		balance = NULL;
+		buffer = NULL;
+		return (NULL);
 	}
-	while (ft_strchr(balance, '\n'))
+	return_line = ft_strdup("");
+	while (ft_strchr(buffer, '\n') == NULL)
 	{
-		buffer = ft_substr(balance, 0, (ft_strchr(balance, '\n') -	balance + 1));
-		balance = ft_strdup(ft_strchr(balance, '\n') + 1);
-		return (buffer);
+		if (ft_strchr(balance, '\n') == NULL)
+		{
+			bytes_read = read(fd, buffer, BUFFER_SIZE);
+
+			if (bytes_read < 0)
+			{
+				free(buffer);
+				free(balance);
+				balance = NULL;
+				buffer = NULL;
+				return (NULL);
+			}
+			else if (bytes_read == 0)
+				return NULL;
+			buffer[bytes_read] = '\0';
 		}
+		else
+			buffer = balance;
+		int count;
+
+		count = 1;
+
+		if (ft_strchr(buffer, '\n') != NULL)
+		{
+			count = count + fl_len(buffer);
+			front_line = ft_substr(buffer, 0, count);
+			front_line[count] = '\0';
+			if (ft_strchr(balance, '\n') == NULL)
+				return_line = ft_strjoin(balance, return_line);
+			return_line = ft_strjoin(return_line, front_line);
+			free(front_line);
+
+			balance = ft_strchr(buffer, '\n');
+			*balance++;
+		}
+		else
+			return_line = ft_strjoin(return_line, buffer);
+	}
+	return(return_line);
 }
+
 
 int main()
 {
@@ -172,7 +216,7 @@ int main()
       return (1);
    }
    i = 0;
-   nth_line = 42;
+   nth_line = 20;
    printf("\n");
    while (i < nth_line)
    {
@@ -184,10 +228,9 @@ int main()
          break;
       }
       printf("line[%d]: %s", (i + 1), line);
-		free(line);
+      free(line);
       i++;
    }
    close(fd);
    return (0);
 }
-

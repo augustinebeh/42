@@ -6,15 +6,11 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 22:21:02 by abeh              #+#    #+#             */
-/*   Updated: 2024/06/09 02:12:33 by abeh             ###   ########.fr       */
+/*   Updated: 2024/06/08 16:11:44 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-static char	*ft_creator(int fd, char *left_c, char *buffer);
-
-static char	*ft_truncator(char *line_buffer);
 
 size_t	ft_strlen(const char *s)
 {
@@ -126,115 +122,72 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	return (srclen);
 }
 
-char	*get_next_line(int fd)
+void	ft_bzero(void *s, size_t n)
 {
-	static char	*b;
-	char		*r;
-	char		*buffer;
+	unsigned char	*str;
 
-	buffer = (char *)malloc((BUFFER_SIZE - BUFFER_SIZE + 1) * sizeof(char));
-	if (fd < 0 || BUFFER_SIZE <= 0 || fcntl(fd, F_GETFL) == -1)
-	{
-		free(b);
-		free(buffer);
-		b = NULL;
-		buffer = NULL;
-		return (NULL);
-	}
-	if (!buffer)
-		return (NULL);
-	r = ft_creator(fd, b, buffer);
-	free(buffer);
-	buffer = NULL;
-	if (!r)
-		return (NULL);
-	b = ft_truncator(r);
-	return (r);
+	str = (unsigned char *)s;
+	while (n--)
+		*str++ = '\0';
 }
 
-// Function purpose:
-//	1. return the leftover portion of the string
-// 2. truncate after the first '\n'
-static char	*ft_truncator(char *r)
+char *get_next_line(int fd)
 {
-	char	*b;
-	ssize_t	i;
+	static char *balance = NULL;
+	ssize_t read_bytes;
+	char *temp;
+	char *buffer;
 
-	i = 0;
-	while (r[i] != '\n' && r[i] != '\0')
-		i++;
-	if (r[i] == 0 || r[1] == 0)
-		return (NULL);
-	b = ft_substr(r, i + 1, ft_strlen(r) - i);
-	if (*b == '\0')
+	if (balance == NULL)
+		balance = ft_strdup("");
+	buffer = (char*)malloc((BUFFER_SIZE + 1) * (sizeof(char)));
+	while (read_bytes = read(fd, buffer, BUFFER_SIZE))
 	{
-		free(b);
-		b = NULL;
-	}
-	r[i + 1] = '\0';
-	return (b);
-}
-
-// Function purpose:
-// keep reading until we find a '\n' character
-static char	*ft_creator(int fd, char *b, char *buffer)
-{
-	ssize_t	br;
-	char	*t;
-
-	br = 1;
-	while (br > 0)
-	{
-		br = read(fd, buffer, BUFFER_SIZE);
-		if (br == -1)
+		if(read_bytes <= 0)
 		{
-			free(b);
+			free(buffer);
 			return (NULL);
 		}
-		else if (br == 0)
-			break ;
-		buffer[br] = '\0';
-		if (b == NULL)
-			b = ft_strdup("");
-		t = b;
-		b = ft_strjoin(t, buffer);
-		free(t);
-		t = NULL;
-		if (ft_strchr(buffer, '\n'))
-			break ;
+		balance = ft_strjoin(balance, buffer);
 	}
-	return (b);
-}
-
-int	main(void)
-{
-	int		fd;
-	char	*line;
-	int		i;
-	int		n;
-
-	fd = open("invictus.txt", O_RDONLY);
-	if (fd == -1)
+	while (ft_strchr(balance, '\n'))
 	{
-		perror("open");
-		return (1);
-	}
-	i = 0;
-	n = 42;
-	printf("\n");
-	while (i < n)
-	{
-		line = get_next_line(fd);
-		if (line == NULL)
-		{
-			printf("\n");
-			close(fd);
-			break ;
+		buffer = ft_substr(balance, 0, (ft_strchr(balance, '\n') -	balance + 1));
+		balance = ft_strdup(ft_strchr(balance, '\n') + 1);
+		return (buffer);
 		}
-		printf("line[%d]: %s", (i + 1), line);
-		free(line);
-		i++;
-	}
-	close(fd);
-	return (0);
 }
+
+int main()
+{
+   int fd;
+   char *line;
+   int i;
+	int	nth_line;
+
+   fd = open("invictus.txt", O_RDONLY);
+   if (fd == -1)
+   {
+      perror("open");
+      return (1);
+   }
+   i = 0;
+   nth_line = 42;
+   printf("\n");
+   while (i < 11111)
+   {
+      line = get_next_line(fd);
+      if (line == NULL)
+      {
+         printf("\n");
+         close(fd);
+         break;
+      }
+      printf("line[%d]: %s", (i + 1), line);
+		free(line);
+      i++;
+   }
+   close(fd);
+   return (0);
+}
+
