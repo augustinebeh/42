@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 22:21:02 by abeh              #+#    #+#             */
-/*   Updated: 2024/06/09 17:13:18 by abeh             ###   ########.fr       */
+/*   Updated: 2024/06/10 04:51:28 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,13 @@
 static char	*ft_creator(int fd, char *left_c, char *buffer);
 static char	*ft_truncator(char *line_buffer);
 
-
-void	ft_memdel(void **s)
+void	ft_strdel(char **s)
 {
-	if (s != NULL)
+	if (s != NULL && *s != NULL)
 	{
 		free(*s);
 		*s = NULL;
 	}
-}
-
-void	ft_strdel(char **s)
-{
-	if (s != NULL && *s != NULL)
-		ft_memdel((void **)s);
 }
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
@@ -105,7 +98,7 @@ static char	*ft_creator(int fd, char *b, char *buffer)
 		if (br == -1)
 			ft_strdel(&b);
 		else if (br == 0)
-			break;
+			break ;
 		buffer[br] = '\0';
 		if (b == NULL)
 			b = ft_strdup("");
@@ -113,9 +106,9 @@ static char	*ft_creator(int fd, char *b, char *buffer)
 		b = ft_strjoin(t, buffer);
 		ft_strdel(&t);
 		if (ft_strchr(buffer, '\n'))
-			break;
+			break ;
 	}
-	return(b);
+	return (b);
 }
 
 // int	main(void)
