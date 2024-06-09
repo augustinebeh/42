@@ -1,6 +1,6 @@
 42 Projects Tracker
 
-libft           | submitted
-ft_printf       | submitted
-get_next_line	  | on-going
-exam_questions	|	practicing
+libft           | submitted \n
+ft_printf       | submitted \n
+get_next_line	  | on-going \n 
+exam_questions	|	practicing \n
