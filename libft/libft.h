@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 13:45:18 by abeh              #+#    #+#             */
-/*   Updated: 2024/06/08 14:52:30 by abeh             ###   ########.fr       */
+/*   Updated: 2024/06/10 05:23:52 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,12 @@ int					ft_toupper(int c);
 int					ft_tolower(int c);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
 void				ft_bzero(void *s, size_t n);
-void				ft_memrem(void **s);
 void				*ft_memset(void *ptr, int c, size_t len);
 void				*ft_memcpy(void *dest, const void *src, size_t n);
 void				*ft_memmove(void *dst, const void *src, size_t len);
 void				*ft_memchr(const void *s, int c, size_t n);
+void				ft_memdel(void **s);
+
 void				*ft_calloc(size_t nmemb, size_t size);
 char				*ft_itoa(int n);
 char				*ft_strchr(const char *s, int c);
