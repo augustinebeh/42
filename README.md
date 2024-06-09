@@ -1,6 +1,7 @@
-42 Projects Tracker
-
-libft           | submitted \n
-ft_printf       | submitted \n
-get_next_line	  | on-going \n 
-exam_questions	|	practicing \n
+# 42 Projects Milestone Tracker
+## Milestone 1
+    libft            | submitted
+## Milestone 2
+    ft_printf        | submitted
+    get_next_line	 | on-going 
+    
