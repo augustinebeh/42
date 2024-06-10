@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 22:21:02 by abeh              #+#    #+#             */
-/*   Updated: 2024/06/10 04:51:36 by abeh             ###   ########.fr       */
+/*   Updated: 2024/06/11 01:48:57 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,14 +48,14 @@ char	*get_next_line(int fd)
 	char		*r;
 
 	buffer = (char *)malloc((BUFFER_SIZE + 1) * sizeof(char));
-	if (fd < 0 || BUFFER_SIZE <= 0 || fcntl(fd, F_GETFL) == -1)
+	if (!buffer)
+		return (NULL);
+	if (fd < 0 || BUFFER_SIZE <= 0)
 	{
 		ft_strdel(&b);
 		ft_strdel(&buffer);
 		return (NULL);
 	}
-	if (!buffer)
-		return (NULL);
 	r = ft_creator(fd, b, buffer);
 	ft_strdel(&buffer);
 	if (!r)
@@ -64,9 +64,6 @@ char	*get_next_line(int fd)
 	return (r);
 }
 
-// Function purpose:
-//	1. return the leftover portion of the string
-// 2. truncate after the first '\n'
 static char	*ft_truncator(char *r)
 {
 	char	*b;
@@ -84,21 +81,20 @@ static char	*ft_truncator(char *r)
 	return (b);
 }
 
-// Function purpose:
-// keep reading until we find a '\n' character
 static char	*ft_creator(int fd, char *b, char *buffer)
 {
 	ssize_t	br;
 	char	*t;
 
-	br = 1;
-	while (br > 0)
+	if (b != NULL && ft_strchr(b, '\n') != NULL)
+		return (b);
+	while (1)
 	{
 		br = read(fd, buffer, BUFFER_SIZE);
 		if (br == -1)
-			ft_strdel(&b);
+			return NULL;
 		else if (br == 0)
-			break ;
+			break;
 		buffer[br] = '\0';
 		if (b == NULL)
 			b = ft_strdup("");
@@ -106,7 +102,7 @@ static char	*ft_creator(int fd, char *b, char *buffer)
 		b = ft_strjoin(t, buffer);
 		ft_strdel(&t);
 		if (ft_strchr(buffer, '\n'))
-			break ;
+			break;
 	}
 	return (b);
 }
@@ -120,10 +116,7 @@ static char	*ft_creator(int fd, char *b, char *buffer)
 
 // 	fd = open("invictus.txt", O_RDONLY);
 // 	if (fd == -1)
-// 	{
-// 		perror("open");
-// 		return (1);
-// 	}
+// 		printf("error");
 // 	i = 0;
 // 	n = 42;
 // 	printf("\n");
