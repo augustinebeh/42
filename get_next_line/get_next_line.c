@@ -92,9 +92,9 @@ static char	*ft_creator(int fd, char *b, char *buffer)
 	{
 		br = read(fd, buffer, BUFFER_SIZE);
 		if (br == -1)
-			return NULL;
+			return (NULL);
 		else if (br == 0)
-			break;
+			break ;
 		buffer[br] = '\0';
 		if (b == NULL)
 			b = ft_strdup("");
@@ -102,7 +102,7 @@ static char	*ft_creator(int fd, char *b, char *buffer)
 		b = ft_strjoin(t, buffer);
 		ft_strdel(&t);
 		if (ft_strchr(buffer, '\n'))
-			break;
+			break ;
 	}
 	return (b);
 }
