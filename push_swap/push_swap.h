@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reverse_rotate.c                                   :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/12 23:43:26 by abeh              #+#    #+#             */
-/*   Updated: 2024/06/14 01:06:42 by abeh             ###   ########.fr       */
+/*   Created: 2024/06/17 06:45:45 by abeh              #+#    #+#             */
+/*   Updated: 2024/06/19 17:16:14 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/**
- * RRA, RRB, RRR
- *--------------------------------------
- * RRA
- * Shifts all the ints of the stack A down by 1 position. The last int becomes the 1st.
- * RRB
- * Shifts all the ints of the stack B down by 1 position. The last int becomes the 1st.
- * RRR
- * Calls RA & RB simultaneously
- *--------------------------------------
- */
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
+
+#include <limits.h>
+# include <stddef.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <string.h>
+# include <unistd.h>
+
+typedef struct stack_a
+{
+	int num;
+	struct stack_a	*next;
+}					stack_a;
+
+#endif
