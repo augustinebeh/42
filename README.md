@@ -3,5 +3,6 @@
     libft            |  submitted  |
 ## Milestone 2
     ft_printf        |  submitted  |
-    get_next_line	 |  on-going   |
-    
+    get_next_line	 |  submitted  |
+    born2beroot      |  on-going   |
+

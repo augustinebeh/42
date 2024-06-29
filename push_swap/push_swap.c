@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 23:54:38 by abeh              #+#    #+#             */
-/*   Updated: 2024/06/30 03:50:27 by abeh             ###   ########.fr       */
+/*   Updated: 2024/06/30 04:16:01 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,17 +35,19 @@ int main(int ac, char **av)
 	cb = 0;
 	// printf("value of ca is %d, value of cb is %d\n", ca,cb);
 
-	pa(stack_a,stack_b, &ca, &cb);
-	pa(stack_a,stack_b, &ca, &cb);
+	pb(stack_a,stack_b, &ca, &cb);
+	pb(stack_a,stack_b, &ca, &cb);
 	pb(stack_a,stack_b, &ca, &cb);
 	pb(stack_a,stack_b, &ca, &cb);
 	// pb(stack_a,stack_b, &ca, &cb);
+	// pb(stack_a,stack_b, &ca, &cb);
+	// pb(stack_a,stack_b, &ca, &cb);
 	// ra(stack_a,stack_b, &ca, &cb);
-	rb(stack_a,stack_b, &ca, &cb);
+	// rb(stack_a,stack_b, &ca, &cb);
 
 	// printf("value of ca is %d, value of cb is %d\n", ca,cb);
 	// rra(stack_a,stack_b, &ca, &cb);
-	rrb(stack_a,stack_b, &ca, &cb);
+	// rrb(stack_a,stack_b, &ca, &cb);
 	// pb(stack_a,stack_b, &ca, &cb);
 	// pb(stack_a,stack_b, &ca, &cb);
 	// pb(stack_a,stack_b, &ca, &cb);
@@ -53,16 +55,44 @@ int main(int ac, char **av)
 	// printf("value of ca is %d, value of cb is %d\n", ca,cb);
 
 	i = 0;
+	printf("___________\n");
+	printf("__A__|__B__\n");
+	while (i < ca && i < cb)
+	{
+		if (stack_a[i] < 10 && stack_a[i] >= 0)
+			printf("%d    |  %d\n", stack_a[i], stack_b[i]);
+		else if ((stack_a[i] < 100 && stack_a[i] >= 10) || (stack_a[i] < 0 && stack_a[i] > -10))
+			printf("%d   |  %d\n", stack_a[i], stack_b[i]);
+		else if ((stack_a[i] < 1000 && stack_a[i] >= 100) || (stack_a[i] < 10 && stack_a[i] > -100))
+			printf("%d  |  %d\n", stack_a[i], stack_b[i]);
+		else if ((stack_a[i] < 10000 && stack_a[i] >= 1000) || (stack_a[i] < 100 && stack_a[i] > -1000))
+			printf("%d |  %d\n", stack_a[i], stack_b[i]);
+		else if ((stack_a[i] < 100000 && stack_a[i] >= 10000) || (stack_a[i] < 1000 && stack_a[i] > -10000))
+			printf("%d|  %d\n", stack_a[i], stack_b[i]);
+		else
+			printf("%d |  %d\n", stack_a[i], stack_b[i]);
+		i++;
+	}
 	while (i < ca)
 	{
-		printf("line %d of stack_a is: %d\n", i + 1, stack_a[i]);
+		if (stack_a[i] < 10 && stack_a[i] >= 0)
+			printf("%d    |\n", stack_a[i]);
+		else if ((stack_a[i] < 100 && stack_a[i] >= 10) || (stack_a[i] < 0 && stack_a[i] > -10))
+			printf("%d   |\n", stack_a[i]);
+		else if ((stack_a[i] < 1000 && stack_a[i] >= 100) || (stack_a[i] < 10 && stack_a[i] > -100))
+			printf("%d  |\n", stack_a[i]);
+		else if ((stack_a[i] < 10000 && stack_a[i] >= 1000) || (stack_a[i] < 100 && stack_a[i] > -1000))
+			printf("%d |\n", stack_a[i]);
+		else if ((stack_a[i] < 100000 && stack_a[i] >= 10000) || (stack_a[i] < 1000 && stack_a[i] > -10000))
+			printf("%d|\n", stack_a[i]);
+		else
+			printf("%d |\n", stack_a[i]);
+		i++;
+	}
+	while (i < cb)
+	{
+		printf("     |  %d\n", stack_b[i]);
 		i++;
 	}
 	printf("\n");
-	i = 0;
-	while (i < cb)
-	{
-		printf("line %d of stack_b is: %d\n", i + 1, stack_b[i]);
-		i++;
-	}
 }
