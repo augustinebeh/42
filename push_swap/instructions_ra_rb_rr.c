@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ra_rb_rr.c                                         :+:      :+:    :+:   */
+/*   instructions_ra_rb_rr.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 23:43:27 by abeh              #+#    #+#             */
-/*   Updated: 2024/06/30 06:48:42 by abeh             ###   ########.fr       */
+/*   Updated: 2024/06/30 07:58:38 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
  */
 #include "push_swap.h"
 
-void	ra(int *stack_a, int *stack_b, int *ca, int *cb, int flag)
+void	ra(int *stack_a, int *ca, int flag)
 {
 	int	temp;
 	int	i;
@@ -47,7 +47,7 @@ void	ra(int *stack_a, int *stack_b, int *ca, int *cb, int flag)
 	return;
 }
 
-void	rb(int *stack_a, int *stack_b, int *ca, int *cb, int flag)
+void	rb(int *stack_b, int *cb, int flag)
 {
 	int	temp;
 	int	i;
@@ -69,7 +69,7 @@ void	rb(int *stack_a, int *stack_b, int *ca, int *cb, int flag)
 
 void	rr(int *stack_a, int *stack_b, int *ca, int *cb, int flag)
 {
-	ra(stack_a, stack_b, ca, cb, 0);
-	rb(stack_a, stack_b, ca, cb, 0);
+	ra(stack_a, ca, 0);
+	rb(stack_b, cb, 0);
 	printf("rr\n");
 }

@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 23:54:38 by abeh              #+#    #+#             */
-/*   Updated: 2024/06/30 06:54:47 by abeh             ###   ########.fr       */
+/*   Updated: 2024/06/30 07:39:40 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,13 @@ int	main(int ac, char **av)
 	a.size = ac - 1;
 	b.size = 0;
 
-	if (ac == 4)
+	if (has_duplicates(a))
+	{
+		printf("Error, input contains duplicate integers\n");
+		return 0;
+	}
+	if (ac <= 4)
 		swap_algo_three(a, b);
-	else
-		printf("Total inputs is not 3\n");
 }
 	// while (i < a.size && i < b.size)
 	// {
