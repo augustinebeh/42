@@ -6,11 +6,32 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 07:36:20 by abeh              #+#    #+#             */
-/*   Updated: 2024/06/30 07:40:31 by abeh             ###   ########.fr       */
+/*   Updated: 2024/06/30 08:38:13 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static int	ft_isdigit(int c)
+{
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
+}
+
+int	is_valid_int(const char *str)
+{
+	int	i = 0;
+	if (str[0] == '-' || str[0] == '+')
+		i++;
+	while (str[i]!= '\0')
+	{
+		if (!ft_isdigit(str[i]))
+			return 0;
+		i++;
+	}
+	return 1;
+}
 
 int	has_duplicates(stack a)
 {

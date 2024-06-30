@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 06:45:45 by abeh              #+#    #+#             */
-/*   Updated: 2024/06/30 07:59:09 by abeh             ###   ########.fr       */
+/*   Updated: 2024/06/30 08:56:30 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,6 @@ typedef struct {
 	int	size;
 }		stack;
 
-typedef struct {
-    stack a;
-    stack b;
-} double_stack;
 
 # include <limits.h>
 # include <stddef.h>
@@ -34,6 +30,8 @@ int		highest_int(stack a);
 int		lowest_int(stack a);
 int		if_sorted(stack a);
 int		has_duplicates(stack a);
+int	is_valid_int(const char *str);
+
 
 void	swap_algo_three(stack a, stack b);
 

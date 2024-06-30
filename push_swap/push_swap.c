@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 23:54:38 by abeh              #+#    #+#             */
-/*   Updated: 2024/06/30 07:39:40 by abeh             ###   ########.fr       */
+/*   Updated: 2024/06/30 08:36:56 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,33 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+void	init_stack(stack *a, stack *b, int ac, char **av)
+{
+	a->data = malloc(sizeof(int) * (ac - 1));
+	b->data = malloc(sizeof(int) * (ac - 1));
+	int	i = 0;
+	while (i < ac - 1)
+	{
+		if (!is_valid_int(av[i + 1]))
+		{
+			printf("Error, input '%s' is not a valid integer\n", av[i + 1]);
+			free(a->data);
+			free(b->data);
+			exit(1);
+		}
+		a->data[i] = atoi(av[i + 1]);
+		i++;
+	}
+	a->size = ac - 1;
+	b->size = 0;
+}
+
 int	main(int ac, char **av)
 {
 	stack	a;
 	stack	b;
-	int	i;
 
-	a.data = malloc(sizeof(int) * ac - 1);
-	b.data = malloc(sizeof(int) * ac - 1);
-	i = 0;
-	while (i < ac - 1)
-	{
-		a.data[i] = atoi(av[i + 1]);
-		i++;
-	}
-	a.size = ac - 1;
-	b.size = 0;
+	init_stack(&a, &b, ac, av);
 
 	if (has_duplicates(a))
 	{
