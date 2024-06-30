@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 07:36:20 by abeh              #+#    #+#             */
-/*   Updated: 2024/06/30 15:40:17 by abeh             ###   ########.fr       */
+/*   Updated: 2024/06/30 19:36:27 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	has_duplicates(stacks *s)
 		j = i + 1;
 		while (j < s->a.size)
 		{
-			if (s->a.data[i] == s->a.data[j])
+			if (s->a.element[i].data == s->a.element[j].data)
 				return (1);
 			j++;
 		}
@@ -50,11 +50,11 @@ int	highest_int(stack a)
 {
 	int	max;
 
-	max = a.data[0];
+	max = a.element[0].data;
 	for (int i = 1; i < a.size; i++)
 	{
-		if (a.data[i] > max)
-			max = a.data[i];
+		if (a.element[i].data > max)
+			max = a.element[i].data;
 	}
 	return (max);
 }
@@ -63,11 +63,11 @@ int	lowest_int(stack a)
 {
 	int	min;
 
-	min = a.data[0];
+	min = a.element[0].data;
 	for (int i = 1; i < a.size; i++)
 	{
-		if (a.data[i] < min)
-			min = a.data[i];
+		if (a.element[i].data < min)
+			min = a.element[i].data;
 	}
 	return (min);
 }
@@ -79,7 +79,7 @@ int	if_sorted(stack a)
 	sorted = 1;
 	for (int i = 0; i < a.size - 1; i++)
 	{
-		if (a.data[i] > a.data[i + 1])
+		if (a.element[i].data > a.element[i + 1].data)
 		{
 			sorted = 0;
 			break ;

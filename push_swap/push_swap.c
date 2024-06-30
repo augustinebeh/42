@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 23:54:38 by abeh              #+#    #+#             */
-/*   Updated: 2024/06/30 18:41:03 by abeh             ###   ########.fr       */
+/*   Updated: 2024/06/30 22:47:33 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,22 @@
 
 void	init_stack(stacks *s, int ac, char **av)
 {
-	s->a.data = malloc(sizeof(int) * (ac - 1));
-	s->b.data = malloc(sizeof(int) * (ac - 1));
+	s->a.element = malloc(sizeof(elements) * (ac - 1));
+	s->b.element = malloc(sizeof(elements) * (ac - 1));
 	int	i = 0;
 	while (i < ac - 1)
 	{
 		if (!is_valid_int(av[i + 1]))
 		{
 			printf("Error, input '%s' is not a valid integer\n", av[i + 1]);
-			free(s->a.data);
-			free(s->b.data);
+			free(s->a.element);
+			free(s->b.element);
 			exit(1);
 		}
-		s->a.data[i] = atoi(av[i + 1]);
+		s->a.element[i].data = atoi(av[i + 1]);
 		i++;
 	}
+	index_elements(s->a.element, ac - 1);
 	s->a.size = ac - 1;
 	s->b.size = 0;
 }
@@ -47,53 +48,50 @@ int	main(int ac, char **av)
 		swap_algo_three(&s);
 	if (ac == 5)
 		swap_algo_four(&s);
-	return 0;
+	pb(&s);
+	// return 0;
+	int i = 0;
+	printf("___________\n");
+	printf("__A__|__B__\n");
+
+	while (i < s.a.size && i < s.b.size)
+	{
+		if (s.a.element[i].data < 10 && s.a.element[i].data >= 0)
+			printf("%d %d     |  %d %d\n", s.a.element[i].data, s.a.element[i].index, s.b.element[i].data, s.b.element[i].index);
+		else if ((s.a.element[i].data < 100 && s.a.element[i].data >= 10) || (s.a.element[i].data < 0 && s.a.element[i].data > -10))
+			printf("%d %d    |  %d %d\n", s.a.element[i].data, s.a.element[i].index, s.b.element[i].data, s.b.element[i].index);
+		else if ((s.a.element[i].data < 1000 && s.a.element[i].data >= 100) || (s.a.element[i].data < 10 && s.a.element[i].data > -100))
+			printf("%d %d   |  %d %d\n", s.a.element[i].data, s.a.element[i].index, s.b.element[i].data, s.b.element[i].index);
+		else if ((s.a.element[i].data < 10000 && s.a.element[i].data >= 1000) || (s.a.element[i].data < 100 && s.a.element[i].data > -1000))
+			printf("%d %d  |  %d %d\n", s.a.element[i].data, s.a.element[i].index, s.b.element[i].data, s.b.element[i].index);
+		else if ((s.a.element[i].data < 100000 && s.a.element[i].data >= 10000) || (s.a.element[i].data < 1000 && s.a.element[i].data > -10000))
+			printf("%d %d |  %d %d\n", s.a.element[i].data, s.a.element[i].index, s.b.element[i].data, s.b.element[i].index);
+		else
+			printf("%d %d |  %d %d\n", s.a.element[i].data, s.a.element[i].index, s.b.element[i].data, s.b.element[i].index);
+		i++;
+	}
+	 while (i < s.a.size)
+    {
+		if (s.a.element[i].data < 10 && s.a.element[i].data >= 0)
+			printf("%d %d     |\n", s.a.element[i].data, s.a.element[i].index);
+		else if ((s.a.element[i].data < 100 && s.a.element[i].data >= 10) || (s.a.element[i].data < 0 && s.a.element[i].data > -10))
+			printf("%d %d    |\n", s.a.element[i].data, s.a.element[i].index);
+		else if ((s.a.element[i].data < 1000 && s.a.element[i].data >= 100) || (s.a.element[i].data < 10 && s.a.element[i].data > -100))
+			printf("%d %d   |\n", s.a.element[i].data, s.a.element[i].index);
+		else if ((s.a.element[i].data < 10000 && s.a.element[i].data >= 1000) || (s.a.element[i].data < 100 && s.a.element[i].data > -1000))
+			printf("%d %d  |\n", s.a.element[i].data, s.a.element[i].index);
+		else if ((s.a.element[i].data < 10000 && s.a.element[i].data >= 1000) || (s.a.element[i].data < 100 && s.a.element[i].data > -1000))
+			printf("%d %d |\n", s.a.element[i].data, s.a.element[i].index);
+		else
+			printf("%d %d |\n", s.a.element[i].data, s.a.element[i].index);
+		i++;
+	}
+	while (i < s.b.size)
+	{
+		printf("     |  %d %d\n", s.b.element[i].data, s.b.element[i].index);
+		i++;
+	}
 }
-	// while (i < a.size && i < b.size)
-	// {
-	// 	if (a.data[i] < 10 && a.data[i] >= 0)
-	// 		printf("%d    |  %d\n", a.data[i], b.data[i]);
-	// 	else if ((a.data[i] < 100 && a.data[i] >= 10) || (a.data[i] < 0
-	// 				&& a.data[i] > -10))
-	// 		printf("%d   |  %d\n", a.data[i], b.data[i]);
-	// 	else if ((a.data[i] < 1000 && a.data[i] >= 100) || (a.data[i] < 10
-	// 				&& a.data[i] > -100))
-	// 		printf("%d  |  %d\n", a.data[i], b.data[i]);
-	// 	else if ((a.data[i] < 10000 && a.data[i] >= 1000) || (a.data[i] < 100
-	// 				&& a.data[i] > -1000))
-	// 		printf("%d |  %d\n", a.data[i], b.data[i]);
-	// 	else if ((a.data[i] < 100000 && a.data[i] >= 10000)
-	// 			|| (a.data[i] < 1000 && a.data[i] > -10000))
-	// 		printf("%d|  %d\n", a.data[i], b.data[i]);
-	// 	else
-	// 		printf("%d |  %d\n", a.data[i], b.data[i]);
-	// 	i++;
-	// }
-	// while (i < a.size)
-	// {
-	// 	if (a.data[i] < 10 && a.data[i] >= 0)
-	// 		printf("%d    |\n", a.data[i]);
-	// 	else if ((a.data[i] < 100 && a.data[i] >= 10) || (a.data[i] < 0
-	// 				&& a.data[i] > -10))
-	// 		printf("%d   |\n", a.data[i]);
-	// 	else if ((a.data[i] < 1000 && a.data[i] >= 100) || (a.data[i] < 10
-	// 				&& a.data[i] > -100))
-	// 		printf("%d  |\n", a.data[i]);
-	// 	else if ((a.data[i] < 10000 && a.data[i] >= 1000) || (a.data[i] < 100
-	// 				&& a.data[i] > -1000))
-	// 		printf("%d |\n", a.data[i]);
-	// 	else if ((a.data[i] < 100000 && a.data[i] >= 10000)
-	// 			|| (a.data[i] < 1000 && a.data[i] > -10000))
-	// 		printf("%d|\n", a.data[i]);
-	// 	else
-	// 		printf("%d |\n", a.data[i]);
-	// 	i++;
-	// }
-	// while (i < b.size)
-	// {
-	// 	printf("     |  %d\n", b.data[i]);
-	// 	i++;
-	// }
 
 
 
