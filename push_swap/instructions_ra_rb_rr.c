@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 23:43:27 by abeh              #+#    #+#             */
-/*   Updated: 2024/06/30 23:36:41 by abeh             ###   ########.fr       */
+/*   Updated: 2024/06/30 23:41:07 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
  */
 #include "push_swap.h"
 
-void	ra(stacks *s, int flag)
+void	ra(stacks *s)
 {
 	elements	temp;
 	int	i;
@@ -42,8 +42,7 @@ void	ra(stacks *s, int flag)
 		i++;
 	}
 	s->a.element[i] = temp;
-	if (flag == 1)
-		printf("ra\n");
+	printf("ra\n");
 	int k = 0;
 	printf("\na\n");
 	while (k < s->a.size)
@@ -61,7 +60,7 @@ void	ra(stacks *s, int flag)
 	return;
 }
 
-void	rb(stacks *s, int flag)
+void	rb(stacks *s)
 {
 	elements	temp;
 	int	i;
@@ -76,8 +75,7 @@ void	rb(stacks *s, int flag)
 		i++;
 	}
 	s->b.element[i] = temp;
-	if (flag == 1)
-		printf("ra\n");
+	printf("ra\n");
 	int k = 0;
 	printf("\na\n");
 	while (k < s->a.size)
@@ -95,9 +93,9 @@ void	rb(stacks *s, int flag)
 	return;
 }
 
-void	rr(stacks *s, int flag)
+void	rr(stacks *s)
 {
-	ra(s, 0);
-	rb(s, 0);
+	ra(s);
+	rb(s);
 	printf("rr\n");
 }

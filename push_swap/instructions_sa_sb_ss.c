@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 23:43:28 by abeh              #+#    #+#             */
-/*   Updated: 2024/06/30 19:56:49 by abeh             ###   ########.fr       */
+/*   Updated: 2024/06/30 23:44:37 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,14 @@
 */
 #include "push_swap.h"
 
-void	sa(stacks *s, int flag)
+void	sa(stacks *s)
 {
 	int	temp;
 
 	temp = s->a.element[0].data;
 	s->a.element[0].data = s->a.element[1].data;
 	s->a.element[1].data = temp;
-	if (flag == 1)
-		printf("\nsa\n");
+	printf("\nsa\n");
 	int k = 0;
 	printf("\na\n");
 	while (k < s->a.size)
@@ -53,15 +52,14 @@ void	sa(stacks *s, int flag)
 
 }
 
-void	sb(stacks *s, int flag)
+void	sb(stacks *s)
 {
 	int	temp;
 
 	temp = s->b.element[0].data;
 	s->b.element[0].data = s->b.element[1].data;
 	s->b.element[1].data = temp;
-	if (flag == 1)
-		printf("\nsb\n");
+	printf("\nsb\n");
 	int k = 0;
 	printf("\na\n");
 	while (k < s->a.size)
@@ -80,9 +78,9 @@ void	sb(stacks *s, int flag)
 	return;
 }
 
-void	ss(stacks *s, int flag)
+void	ss(stacks *s)
 {
-	sa(s, 0);
-	sb(s, 0);
+	sa(s);
+	sb(s);
 	printf("ss\n");
 }

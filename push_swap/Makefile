@@ -6,7 +6,7 @@
 #    By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/17 06:45:50 by abeh              #+#    #+#              #
-#    Updated: 2024/06/30 23:34:33 by abeh             ###   ########.fr        #
+#    Updated: 2024/06/30 23:58:46 by abeh             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,9 @@ SRCS =  	instructions_pa_pb.c \
 			instructions_sa_sb_ss.c \
 			push_swap_utils.c \
 			push_swap.c \
-			swap_algo_three.c
+			swap_algo_three.c \
+			index_elements.c \
+			mainalgo.c
 
 
 OBJS = ${SRCS:.c=.o}

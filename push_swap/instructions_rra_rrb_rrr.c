@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 23:43:26 by abeh              #+#    #+#             */
-/*   Updated: 2024/06/30 19:33:32 by abeh             ###   ########.fr       */
+/*   Updated: 2024/06/30 23:43:22 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
  *--------------------------------------
  */
 
-void	rra(stacks *s, int flag)
+void	rra(stacks *s)
 {
 	int	temp;
 	int	i;
@@ -45,8 +45,7 @@ void	rra(stacks *s, int flag)
 		i--;
 	}
 	s->a.element[0].data = temp;
-	if (flag == 1)
-		printf("rra\n");
+	printf("rra\n");
 	int k = 0;
 	printf("\na\n");
 	while (k < s->a.size)
@@ -65,14 +64,12 @@ void	rra(stacks *s, int flag)
 	return;
 }
 
-void	rrb(stacks *s, int flag)
+void	rrb(stacks *s)
 {
 	int	temp;
 	int	i;
-	int	j;
 
 	i = 0;
-	j = 0;
 	if (s->b.size < 2)
 		return;
 	while (i < s->b.size)
@@ -84,8 +81,7 @@ void	rrb(stacks *s, int flag)
 		i--;
 	}
 	s->b.element[0].data = temp;
-	if (flag == 1)
-		printf("rrb\n");
+	printf("rrb\n");
 	int k = 0;
 	printf("\na\n");
 	while (k < s->a.size)
@@ -104,10 +100,10 @@ void	rrb(stacks *s, int flag)
 	return;
 }
 
-void	rrr(stacks *s, int flag)
+void	rrr(stacks *s)
 {
-	rra(s, 0);
-	rrb(s, 0);
+	rra(s);
+	rrb(s);
 	printf("rrr\n");
 	return;
 }
