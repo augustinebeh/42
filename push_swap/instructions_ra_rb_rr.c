@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 23:43:27 by abeh              #+#    #+#             */
-/*   Updated: 2024/06/30 07:58:38 by abeh             ###   ########.fr       */
+/*   Updated: 2024/06/30 16:01:47 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,49 +27,51 @@
  */
 #include "push_swap.h"
 
-void	ra(int *stack_a, int *ca, int flag)
+void	ra(stacks *s, int flag)
 {
 	int	temp;
 	int	i;
 
-	if (*ca < 2)
+	if (s->a.size < 2)
 		return;
-	temp = stack_a[0];
+	temp = s->a.data[0];
 	i = 0;
-	while (i < *ca - 1)
+	while (i < s->a.size - 1)
 	{
-		stack_a[i] = stack_a[i + 1];
+		s->a.data[i] = s->a.data[i + 1];
 		i++;
 	}
-	stack_a[i] = temp;
+	s->a.data[i] = temp;
 	if (flag == 1)
 		printf("ra\n");
+	printf("%d\n%d\n%d\n", s->a.data[0], s->a.data[1], s->a.data[2]);
 	return;
 }
 
-void	rb(int *stack_b, int *cb, int flag)
+void	rb(stacks *s, int flag)
 {
 	int	temp;
 	int	i;
 
-	if (*cb < 2)
+	if (s->b.size < 2)
 		return;
-	temp = stack_b[0];
+	temp = s->b.data[0];
 	i = 0;
-	while (i < *cb - 1)
+	while (i < s->b.size - 1)
 	{
-		stack_b[i] = stack_b[i + 1];
+		s->b.data[i] = s->b.data[i + 1];
 		i++;
 	}
-	stack_b[i] = temp;
+	s->b.data[i] = temp;
 	if (flag == 1)
 		printf("ra\n");
+	printf("%d\n%d\n%d\n", s->a.data[0], s->a.data[1], s->a.data[2]);
 	return;
 }
 
-void	rr(int *stack_a, int *stack_b, int *ca, int *cb, int flag)
+void	rr(stacks *s, int flag)
 {
-	ra(stack_a, ca, 0);
-	rb(stack_b, cb, 0);
+	ra(s, 0);
+	rb(s, 0);
 	printf("rr\n");
 }

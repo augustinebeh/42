@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 06:45:45 by abeh              #+#    #+#             */
-/*   Updated: 2024/06/30 08:56:30 by abeh             ###   ########.fr       */
+/*   Updated: 2024/06/30 17:15:07 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,10 @@ typedef struct {
 	int	size;
 }		stack;
 
+typedef struct {
+	stack a;
+	stack b;
+}	stacks;
 
 # include <limits.h>
 # include <stddef.h>
@@ -29,25 +33,27 @@ typedef struct {
 int		highest_int(stack a);
 int		lowest_int(stack a);
 int		if_sorted(stack a);
-int		has_duplicates(stack a);
+int		has_duplicates(stacks *s);
 int	is_valid_int(const char *str);
 
 
-void	swap_algo_three(stack a, stack b);
+void	swap_algo_three(stacks* s);
+void	swap_algo_four(stacks* s);
 
-void	pa(int *stack_a, int *stack_b, int *ca, int *cb);
-void	pb(int *stack_a, int *stack_b, int *ca, int *cb);
 
-void	sa(int *stack_a, int *stack_b, int *ca, int *cb, int flag);
-void	sb(int *stack_a, int *stack_b, int *ca, int *cb, int flag);
-void	ss(int *stack_a, int *stack_b, int *ca, int *cb, int flag);
+void	pa(stacks *s);
+void	pb(stacks *s);
 
-void	ra(int *stack_a, int *ca, int flag);
-void	rb(int *stack_b, int *cb, int flag);
-void	rr(int *stack_a, int *stack_b, int *ca, int *cb, int flag);
+void	sa(stacks *s, int flag);
+void	sb(stacks *s, int flag);
+void	ss(stacks *s, int flag);
 
-void	rra(int *stack_a, int *stack_b, int *ca, int *cb, int flag);
-void	rrb(int *stack_a, int *stack_b, int *ca, int *cb, int flag);
-void	rrr(int *stack_a, int *stack_b, int *ca, int *cb, int flag);
+void	ra(stacks *s, int flag);
+void	rb(stacks *s, int flag);
+void	rr(stacks *s, int flag);
+
+void	rra(stacks *s, int flag);
+void	rrb(stacks *s, int flag);
+void	rrr(stacks *s, int flag);
 
 #endif

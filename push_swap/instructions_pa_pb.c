@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pa_pb.c                                            :+:      :+:    :+:   */
+/*   instructions_pa_pb.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 23:43:24 by abeh              #+#    #+#             */
-/*   Updated: 2024/06/30 06:51:00 by abeh             ###   ########.fr       */
+/*   Updated: 2024/06/30 16:40:04 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 #include "push_swap.h"
 
-void	pa(int *stack_a, int *stack_b, int *ca, int *cb)
+void	pa(stacks *s)
 {
 	int	temp;
 	int	i;
@@ -29,28 +29,43 @@ void	pa(int *stack_a, int *stack_b, int *ca, int *cb)
 
 	i = 0;
 	j = 0;
-	if (*cb < 1)
+	if (s->b.size < 1)
 		return ;
-	*ca = *ca + 1;
-	*cb = *cb - 1;
-	temp = stack_b[i];
-	while (i < *cb)
+	s->a.size = s->a.size + 1;
+	s->b.size = s->b.size - 1;
+	temp = s->b.data[i];
+	while (i < s->b.size)
 	{
-		stack_b[i] = stack_b[i + 1];
+		s->b.data[i] = s->b.data[i + 1];
 		i++;
 	}
-	while (j < *ca)
+	while (j < s->a.size)
 		j++;
 	while (j > 0)
 	{
-		stack_a[j] = stack_a[j - 1];
+		s->a.data[j] = s->a.data[j - 1];
 		j--;
 	}
+	s->a.data[j] = temp;
+
+	int k = 0;
 	printf("pa\n");
-	stack_a[j] = temp;
+	printf("\na\n");
+	while (k < s->a.size)
+	{
+		printf("%d\n", s->a.data[k]);
+		k++;
+	}
+	k = 0;
+	printf("\nb\n");
+	while (k < s->b.size)
+	{
+		printf("%d\n", s->b.data[k]);
+		k++;
+	}
 }
 
-void	pb(int *stack_a, int *stack_b, int *ca, int *cb)
+void	pb(stacks *s)
 {
 	int	temp;
 	int	i;
@@ -58,23 +73,38 @@ void	pb(int *stack_a, int *stack_b, int *ca, int *cb)
 
 	i = 0;
 	j = 0;
-	if (*ca < 1)
+	if (s->a.size < 1)
 		return ;
-	*cb = *cb + 1;
-	*ca = *ca - 1;
-	temp = stack_a[i];
-	while (i < *ca)
+	s->b.size = s->b.size + 1;
+	s->a.size = s->a.size - 1;
+	temp = s->a.data[i];
+	while (i < s->a.size)
 	{
-		stack_a[i] = stack_a[i + 1];
+		s->a.data[i] = s->a.data[i + 1];
 		i++;
 	}
-	while (j < *cb)
+	while (j < s->b.size)
 		j++;
 	while (j > 0)
 	{
-		stack_b[j] = stack_b[j - 1];
+		s->b.data[j] = s->b.data[j - 1];
 		j--;
 	}
-	stack_b[j] = temp;
+	s->b.data[j] = temp;
+	int k = 0;
 	printf("pb\n");
+	printf("\na\n");
+	while (k < s->a.size)
+	{
+		printf("%d\n", s->a.data[k]);
+		k++;
+	}
+	k = 0;
+	printf("\nb\n");
+
+	while (k < s->b.size)
+	{
+		printf("%d\n", s->b.data[k]);
+		k++;
+	}
 }

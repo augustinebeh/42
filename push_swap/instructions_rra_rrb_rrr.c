@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rra_rrb_rrr.c                                      :+:      :+:    :+:   */
+/*   instructions_rra_rrb_rrr.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 23:43:26 by abeh              #+#    #+#             */
-/*   Updated: 2024/06/30 06:49:15 by abeh             ###   ########.fr       */
+/*   Updated: 2024/06/30 16:34:40 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,29 +28,44 @@
  *--------------------------------------
  */
 
-void	rra(int *stack_a, int *stack_b, int *ca, int *cb, int flag)
+void	rra(stacks *s, int flag)
 {
 	int	temp;
 	int	i;
 
 	i = 0;
-	if (*ca < 2)
+	if (s->a.size < 2)
 		return;
-	while (i < *ca)
+	while (i < s->a.size)
 		i++;
-	temp = stack_a[i - 1];
+	temp = s->a.data[i - 1];
 	while (0 < i)
 	{
-		stack_a[i] = stack_a[i - 1];
+		s->a.data[i] = s->a.data[i - 1];
 		i--;
 	}
-	stack_a[0] = temp;
+	s->a.data[0] = temp;
 	if (flag == 1)
 		printf("rra\n");
+	int k = 0;
+	printf("\na\n");
+	while (k < s->a.size)
+	{
+		printf("%d\n", s->a.data[k]);
+		k++;
+	}
+	k = 0;
+	printf("\nb\n");
+
+	while (k < s->b.size)
+	{
+		printf("%d\n", s->b.data[k]);
+		k++;
+	}
 	return;
 }
 
-void	rrb(int *stack_a, int *stack_b, int *ca, int *cb, int flag)
+void	rrb(stacks *s, int flag)
 {
 	int	temp;
 	int	i;
@@ -58,26 +73,41 @@ void	rrb(int *stack_a, int *stack_b, int *ca, int *cb, int flag)
 
 	i = 0;
 	j = 0;
-	if (*cb < 2)
+	if (s->b.size < 2)
 		return;
-	while (i < *cb)
+	while (i < s->b.size)
 		i++;
-	temp = stack_b[i - 1];
+	temp = s->b.data[i - 1];
 	while (0 < i)
 	{
-		stack_b[i] = stack_b[i - 1];
+		s->b.data[i] = s->b.data[i - 1];
 		i--;
 	}
-	stack_b[0] = temp;
+	s->b.data[0] = temp;
 	if (flag == 1)
 		printf("rrb\n");
+	int k = 0;
+	printf("\na\n");
+	while (k < s->a.size)
+	{
+		printf("%d\n", s->a.data[k]);
+		k++;
+	}
+	k = 0;
+	printf("\nb\n");
+
+	while (k < s->b.size)
+	{
+		printf("%d\n", s->b.data[k]);
+		k++;
+	}
 	return;
 }
 
-void	rrr(int *stack_a, int *stack_b, int *ca, int *cb, int flag)
+void	rrr(stacks *s, int flag)
 {
-	rra(stack_a, stack_b, ca, cb, 0);
-	rrb(stack_a, stack_b, ca, cb, 0);
+	rra(s, 0);
+	rrb(s, 0);
 	printf("rrr\n");
 	return;
 }
