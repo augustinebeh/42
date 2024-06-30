@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 23:43:27 by abeh              #+#    #+#             */
-/*   Updated: 2024/06/30 16:01:47 by abeh             ###   ########.fr       */
+/*   Updated: 2024/06/30 19:40:44 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,30 @@ void	ra(stacks *s, int flag)
 
 	if (s->a.size < 2)
 		return;
-	temp = s->a.data[0];
+	temp = s->a.element[0].data;
 	i = 0;
 	while (i < s->a.size - 1)
 	{
-		s->a.data[i] = s->a.data[i + 1];
+		s->a.element[i].data = s->a.element[i + 1].data;
 		i++;
 	}
-	s->a.data[i] = temp;
+	s->a.element[i].data = temp;
 	if (flag == 1)
 		printf("ra\n");
-	printf("%d\n%d\n%d\n", s->a.data[0], s->a.data[1], s->a.data[2]);
+	int k = 0;
+	printf("\na\n");
+	while (k < s->a.size)
+	{
+		printf("%d\n", s->a.element[k].data);
+		k++;
+	}
+	k = 0;
+	printf("\nb\n");
+	while (k < s->b.size)
+	{
+		printf("%d\n", s->b.element[k].data);
+		k++;
+	}
 	return;
 }
 
@@ -55,17 +68,30 @@ void	rb(stacks *s, int flag)
 
 	if (s->b.size < 2)
 		return;
-	temp = s->b.data[0];
+	temp = s->b.element[0].data;
 	i = 0;
 	while (i < s->b.size - 1)
 	{
-		s->b.data[i] = s->b.data[i + 1];
+		s->b.element[i].data = s->b.element[i + 1].data;
 		i++;
 	}
-	s->b.data[i] = temp;
+	s->b.element[i].data = temp;
 	if (flag == 1)
 		printf("ra\n");
-	printf("%d\n%d\n%d\n", s->a.data[0], s->a.data[1], s->a.data[2]);
+	int k = 0;
+	printf("\na\n");
+	while (k < s->a.size)
+	{
+		printf("%d\n", s->a.element[k].data);
+		k++;
+	}
+	k = 0;
+	printf("\nb\n");
+	while (k < s->b.size)
+	{
+		printf("%d\n", s->b.element[k].data);
+		k++;
+	}
 	return;
 }
 

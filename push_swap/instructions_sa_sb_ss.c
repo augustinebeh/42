@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 23:43:28 by abeh              #+#    #+#             */
-/*   Updated: 2024/06/30 16:41:22 by abeh             ###   ########.fr       */
+/*   Updated: 2024/06/30 19:56:49 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,23 +25,20 @@
 */
 #include "push_swap.h"
 
-// problem i am facing now is that when ss is called
-// all 3 instructions will be printed.
-// find a way to resolve this issue
 void	sa(stacks *s, int flag)
 {
 	int	temp;
 
-	temp = s->a.data[0];
-	s->a.data[0] = s->a.data[1];
-	s->a.data[1] = temp;
+	temp = s->a.element[0].data;
+	s->a.element[0].data = s->a.element[1].data;
+	s->a.element[1].data = temp;
 	if (flag == 1)
 		printf("\nsa\n");
 	int k = 0;
 	printf("\na\n");
 	while (k < s->a.size)
 	{
-		printf("%d\n", s->a.data[k]);
+		printf("%d\n", s->a.element[k].data);
 		k++;
 	}
 	k = 0;
@@ -49,7 +46,7 @@ void	sa(stacks *s, int flag)
 
 	while (k < s->b.size)
 	{
-		printf("%d\n", s->b.data[k]);
+		printf("%d\n", s->b.element[k].data);
 		k++;
 	}
 	return;
@@ -60,16 +57,16 @@ void	sb(stacks *s, int flag)
 {
 	int	temp;
 
-	temp = s->b.data[0];
-	s->b.data[0] = s->b.data[1];
-	s->b.data[1] = temp;
+	temp = s->b.element[0].data;
+	s->b.element[0].data = s->b.element[1].data;
+	s->b.element[1].data = temp;
 	if (flag == 1)
 		printf("\nsb\n");
 	int k = 0;
 	printf("\na\n");
 	while (k < s->a.size)
 	{
-		printf("%d\n", s->a.data[k]);
+		printf("%d\n", s->a.element[k].data);
 		k++;
 	}
 	k = 0;
@@ -77,7 +74,7 @@ void	sb(stacks *s, int flag)
 
 	while (k < s->b.size)
 	{
-		printf("%d\n", s->b.data[k]);
+		printf("%d\n", s->b.element[k].data);
 		k++;
 	}
 	return;
