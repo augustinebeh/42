@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 23:43:24 by abeh              #+#    #+#             */
-/*   Updated: 2024/06/30 22:43:38 by abeh             ###   ########.fr       */
+/*   Updated: 2024/06/30 23:04:52 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 
 void	pa(stacks *s)
 {
-	int	temp;
+	elements	temp;
 	int	i;
 	int	j;
 
@@ -33,20 +33,20 @@ void	pa(stacks *s)
 		return ;
 	s->a.size = s->a.size + 1;
 	s->b.size = s->b.size - 1;
-	temp = s->b.element[i].data;
+	temp = s->b.element[i];
 	while (i < s->b.size)
 	{
-		s->b.element[i].data = s->b.element[i].data;
+		s->b.element[i] = s->b.element[i];
 		i++;
 	}
 	while (j < s->a.size)
 		j++;
 	while (j > 0)
 	{
-		s->a.element[j].data = s->a.element[j - 1].data;
+		s->a.element[j] = s->a.element[j - 1];
 		j--;
 	}
-	s->a.element[j].data = temp;
+	s->a.element[j] = temp;
 
 	int k = 0;
 	printf("pa\n");
@@ -72,23 +72,23 @@ void	pb(stacks *s)
 	int	j;
 
 	i = 0;
-	j = 0;
+	j = s->b.size;
 	if (s->a.size < 1)
 		return ;
 	s->b.size = s->b.size + 1;
 	s->a.size = s->a.size - 1;
-	temp = s->a.element[i];
+	temp = s->a.element[0];
 	while (i < s->a.size)
 	{
 		s->a.element[i] = s->a.element[i + 1];
 		i++;
 	}
-	while (j < s->b.size - 1)
+	while (j > 0)
 	{
-		s->b.element[j] = s->b.element[j + 1];
-		j++;
+		s->b.element[j] = s->b.element[j - 1];
+		j--;
 	}
-	s->b.element[j] = temp;
+	s->b.element[0] = temp;
 	int k = 0;
 	printf("pb\n");
 	printf("\na\n");

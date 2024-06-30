@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 23:43:27 by abeh              #+#    #+#             */
-/*   Updated: 2024/06/30 19:40:44 by abeh             ###   ########.fr       */
+/*   Updated: 2024/06/30 23:36:41 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,19 +29,19 @@
 
 void	ra(stacks *s, int flag)
 {
-	int	temp;
+	elements	temp;
 	int	i;
 
 	if (s->a.size < 2)
 		return;
-	temp = s->a.element[0].data;
+	temp = s->a.element[0];
 	i = 0;
 	while (i < s->a.size - 1)
 	{
-		s->a.element[i].data = s->a.element[i + 1].data;
+		s->a.element[i] = s->a.element[i + 1];
 		i++;
 	}
-	s->a.element[i].data = temp;
+	s->a.element[i] = temp;
 	if (flag == 1)
 		printf("ra\n");
 	int k = 0;
@@ -63,19 +63,19 @@ void	ra(stacks *s, int flag)
 
 void	rb(stacks *s, int flag)
 {
-	int	temp;
+	elements	temp;
 	int	i;
 
 	if (s->b.size < 2)
 		return;
-	temp = s->b.element[0].data;
+	temp = s->b.element[0];
 	i = 0;
 	while (i < s->b.size - 1)
 	{
-		s->b.element[i].data = s->b.element[i + 1].data;
+		s->b.element[i] = s->b.element[i + 1];
 		i++;
 	}
-	s->b.element[i].data = temp;
+	s->b.element[i] = temp;
 	if (flag == 1)
 		printf("ra\n");
 	int k = 0;

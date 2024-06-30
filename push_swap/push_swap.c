@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 23:54:38 by abeh              #+#    #+#             */
-/*   Updated: 2024/06/30 22:47:33 by abeh             ###   ########.fr       */
+/*   Updated: 2024/06/30 23:38:46 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,16 @@ int	main(int ac, char **av)
 	if (ac == 5)
 		swap_algo_four(&s);
 	pb(&s);
+	pb(&s);
+	sa(&s,1);
+	sb(&s,1);
+	ss(&s,1);
+	ra(&s,1);
+	rb(&s,1);
+	rr(&s,1);
+	rra(&s,1);
+	rrb(&s,1);
+	rrr(&s,1);
 	// return 0;
 	int i = 0;
 	printf("___________\n");
