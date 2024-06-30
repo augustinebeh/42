@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 23:54:38 by abeh              #+#    #+#             */
-/*   Updated: 2024/07/01 00:11:15 by abeh             ###   ########.fr       */
+/*   Updated: 2024/07/01 02:22:55 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,61 +41,57 @@ int	main(int ac, char **av)
 	init_stack(&s, ac, av);
 	if (has_duplicates(&s))
 		return (printf("Error DUPES!\n"));
+	if (if_sorted(s.a))
+   	return 0;
 	if (ac <= 4)
 		swap_algo_three(&s);
-	pb(&s);
-	pb(&s);
-	sa(&s);
-	sb(&s);
-	ss(&s);
-	ra(&s);
-	rb(&s);
-	rr(&s);
-	rra(&s);
-	rrb(&s);
-	rrr(&s);
-	// return 0;
-	int i = 0;
-	printf("___________\n");
-	printf("__A__|__B__\n");
+	else
+		mainalgo(&s);
 
-	while (i < s.a.size && i < s.b.size)
-	{
-		if (s.a.element[i].data < 10 && s.a.element[i].data >= 0)
-			printf("%d %d     |  %d %d\n", s.a.element[i].data, s.a.element[i].index, s.b.element[i].data, s.b.element[i].index);
-		else if ((s.a.element[i].data < 100 && s.a.element[i].data >= 10) || (s.a.element[i].data < 0 && s.a.element[i].data > -10))
-			printf("%d %d    |  %d %d\n", s.a.element[i].data, s.a.element[i].index, s.b.element[i].data, s.b.element[i].index);
-		else if ((s.a.element[i].data < 1000 && s.a.element[i].data >= 100) || (s.a.element[i].data < 10 && s.a.element[i].data > -100))
-			printf("%d %d   |  %d %d\n", s.a.element[i].data, s.a.element[i].index, s.b.element[i].data, s.b.element[i].index);
-		else if ((s.a.element[i].data < 10000 && s.a.element[i].data >= 1000) || (s.a.element[i].data < 100 && s.a.element[i].data > -1000))
-			printf("%d %d  |  %d %d\n", s.a.element[i].data, s.a.element[i].index, s.b.element[i].data, s.b.element[i].index);
-		else if ((s.a.element[i].data < 100000 && s.a.element[i].data >= 10000) || (s.a.element[i].data < 1000 && s.a.element[i].data > -10000))
-			printf("%d %d |  %d %d\n", s.a.element[i].data, s.a.element[i].index, s.b.element[i].data, s.b.element[i].index);
-		else
-			printf("%d %d |  %d %d\n", s.a.element[i].data, s.a.element[i].index, s.b.element[i].data, s.b.element[i].index);
-		i++;
-	}
-	 while (i < s.a.size)
-    {
-		if (s.a.element[i].data < 10 && s.a.element[i].data >= 0)
-			printf("%d %d     |\n", s.a.element[i].data, s.a.element[i].index);
-		else if ((s.a.element[i].data < 100 && s.a.element[i].data >= 10) || (s.a.element[i].data < 0 && s.a.element[i].data > -10))
-			printf("%d %d    |\n", s.a.element[i].data, s.a.element[i].index);
-		else if ((s.a.element[i].data < 1000 && s.a.element[i].data >= 100) || (s.a.element[i].data < 10 && s.a.element[i].data > -100))
-			printf("%d %d   |\n", s.a.element[i].data, s.a.element[i].index);
-		else if ((s.a.element[i].data < 10000 && s.a.element[i].data >= 1000) || (s.a.element[i].data < 100 && s.a.element[i].data > -1000))
-			printf("%d %d  |\n", s.a.element[i].data, s.a.element[i].index);
-		else if ((s.a.element[i].data < 10000 && s.a.element[i].data >= 1000) || (s.a.element[i].data < 100 && s.a.element[i].data > -1000))
-			printf("%d %d |\n", s.a.element[i].data, s.a.element[i].index);
-		else
-			printf("%d %d |\n", s.a.element[i].data, s.a.element[i].index);
-		i++;
-	}
-	while (i < s.b.size)
-	{
-		printf("     |  %d %d\n", s.b.element[i].data, s.b.element[i].index);
-		i++;
-	}
+
+
+	// int i = 0;
+	// printf("size of a = %d\n", s.a.size);
+	// printf("___________\n");
+	// printf("__A__|__B__\n");
+
+	// while (i < s.a.size && i < s.b.size)
+	// {
+	// 	if (s.a.element[i].data < 10 && s.a.element[i].data >= 0)
+	// 		printf("%d %d     |  %d %d\n", s.a.element[i].data, s.a.element[i].index, s.b.element[i].data, s.b.element[i].index);
+	// 	else if ((s.a.element[i].data < 100 && s.a.element[i].data >= 10) || (s.a.element[i].data < 0 && s.a.element[i].data > -10))
+	// 		printf("%d %d    |  %d %d\n", s.a.element[i].data, s.a.element[i].index, s.b.element[i].data, s.b.element[i].index);
+	// 	else if ((s.a.element[i].data < 1000 && s.a.element[i].data >= 100) || (s.a.element[i].data < 10 && s.a.element[i].data > -100))
+	// 		printf("%d %d   |  %d %d\n", s.a.element[i].data, s.a.element[i].index, s.b.element[i].data, s.b.element[i].index);
+	// 	else if ((s.a.element[i].data < 10000 && s.a.element[i].data >= 1000) || (s.a.element[i].data < 100 && s.a.element[i].data > -1000))
+	// 		printf("%d %d  |  %d %d\n", s.a.element[i].data, s.a.element[i].index, s.b.element[i].data, s.b.element[i].index);
+	// 	else if ((s.a.element[i].data < 100000 && s.a.element[i].data >= 10000) || (s.a.element[i].data < 1000 && s.a.element[i].data > -10000))
+	// 		printf("%d %d |  %d %d\n", s.a.element[i].data, s.a.element[i].index, s.b.element[i].data, s.b.element[i].index);
+	// 	else
+	// 		printf("%d %d |  %d %d\n", s.a.element[i].data, s.a.element[i].index, s.b.element[i].data, s.b.element[i].index);
+	// 	i++;
+	// }
+	//  while (i < s.a.size)
+   //  {
+	// 	if (s.a.element[i].data < 10 && s.a.element[i].data >= 0)
+	// 		printf("%d %d     |\n", s.a.element[i].data, s.a.element[i].index);
+	// 	else if ((s.a.element[i].data < 100 && s.a.element[i].data >= 10) || (s.a.element[i].data < 0 && s.a.element[i].data > -10))
+	// 		printf("%d %d    |\n", s.a.element[i].data, s.a.element[i].index);
+	// 	else if ((s.a.element[i].data < 1000 && s.a.element[i].data >= 100) || (s.a.element[i].data < 10 && s.a.element[i].data > -100))
+	// 		printf("%d %d   |\n", s.a.element[i].data, s.a.element[i].index);
+	// 	else if ((s.a.element[i].data < 10000 && s.a.element[i].data >= 1000) || (s.a.element[i].data < 100 && s.a.element[i].data > -1000))
+	// 		printf("%d %d  |\n", s.a.element[i].data, s.a.element[i].index);
+	// 	else if ((s.a.element[i].data < 10000 && s.a.element[i].data >= 1000) || (s.a.element[i].data < 100 && s.a.element[i].data > -1000))
+	// 		printf("%d %d |\n", s.a.element[i].data, s.a.element[i].index);
+	// 	else
+	// 		printf("%d %d |\n", s.a.element[i].data, s.a.element[i].index);
+	// 	i++;
+	// }
+	// while (i < s.b.size)
+	// {
+	// 	printf("     |  %d %d\n", s.b.element[i].data, s.b.element[i].index);
+	// 	i++;
+	// }
 }
 
 

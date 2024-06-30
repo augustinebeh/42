@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 23:43:26 by abeh              #+#    #+#             */
-/*   Updated: 2024/06/30 23:43:22 by abeh             ###   ########.fr       */
+/*   Updated: 2024/07/01 00:17:30 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,22 +46,22 @@ void	rra(stacks *s)
 	}
 	s->a.element[0].data = temp;
 	printf("rra\n");
-	int k = 0;
-	printf("\na\n");
-	while (k < s->a.size)
-	{
-		printf("%d\n", s->a.element[k].data);
-		k++;
-	}
-	k = 0;
-	printf("\nb\n");
+	// int k = 0;
+	// printf("\na\n");
+	// while (k < s->a.size)
+	// {
+	// 	printf("%d\n", s->a.element[k].data);
+	// 	k++;
+	// }
+	// k = 0;
+	// printf("\nb\n");
 
-	while (k < s->b.size)
-	{
-		printf("%d\n", s->b.element[k].data);
-		k++;
-	}
-	return;
+	// while (k < s->b.size)
+	// {
+	// 	printf("%d\n", s->b.element[k].data);
+	// 	k++;
+	// }
+	// return;
 }
 
 void	rrb(stacks *s)
@@ -82,22 +82,22 @@ void	rrb(stacks *s)
 	}
 	s->b.element[0].data = temp;
 	printf("rrb\n");
-	int k = 0;
-	printf("\na\n");
-	while (k < s->a.size)
-	{
-		printf("%d\n", s->a.element[k].data);
-		k++;
-	}
-	k = 0;
-	printf("\nb\n");
+	// int k = 0;
+	// printf("\na\n");
+	// while (k < s->a.size)
+	// {
+	// 	printf("%d\n", s->a.element[k].data);
+	// 	k++;
+	// }
+	// k = 0;
+	// printf("\nb\n");
 
-	while (k < s->b.size)
-	{
-		printf("%d\n", s->b.element[k].data);
-		k++;
-	}
-	return;
+	// while (k < s->b.size)
+	// {
+	// 	printf("%d\n", s->b.element[k].data);
+	// 	k++;
+	// }
+	// return;
 }
 
 void	rrr(stacks *s)

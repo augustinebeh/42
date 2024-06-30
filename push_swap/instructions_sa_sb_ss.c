@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 23:43:28 by abeh              #+#    #+#             */
-/*   Updated: 2024/06/30 23:44:37 by abeh             ###   ########.fr       */
+/*   Updated: 2024/07/01 00:18:05 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,23 +32,23 @@ void	sa(stacks *s)
 	temp = s->a.element[0].data;
 	s->a.element[0].data = s->a.element[1].data;
 	s->a.element[1].data = temp;
-	printf("\nsa\n");
-	int k = 0;
-	printf("\na\n");
-	while (k < s->a.size)
-	{
-		printf("%d\n", s->a.element[k].data);
-		k++;
-	}
-	k = 0;
-	printf("\nb\n");
+	printf("sa\n");
+	// int k = 0;
+	// printf("\na\n");
+	// while (k < s->a.size)
+	// {
+	// 	printf("%d\n", s->a.element[k].data);
+	// 	k++;
+	// }
+	// k = 0;
+	// printf("\nb\n");
 
-	while (k < s->b.size)
-	{
-		printf("%d\n", s->b.element[k].data);
-		k++;
-	}
-	return;
+	// while (k < s->b.size)
+	// {
+	// 	printf("%d\n", s->b.element[k].data);
+	// 	k++;
+	// }
+	// return;
 
 }
 
@@ -59,23 +59,23 @@ void	sb(stacks *s)
 	temp = s->b.element[0].data;
 	s->b.element[0].data = s->b.element[1].data;
 	s->b.element[1].data = temp;
-	printf("\nsb\n");
-	int k = 0;
-	printf("\na\n");
-	while (k < s->a.size)
-	{
-		printf("%d\n", s->a.element[k].data);
-		k++;
-	}
-	k = 0;
-	printf("\nb\n");
+	printf("sb\n");
+	// int k = 0;
+	// printf("\na\n");
+	// while (k < s->a.size)
+	// {
+	// 	printf("%d\n", s->a.element[k].data);
+	// 	k++;
+	// }
+	// k = 0;
+	// printf("\nb\n");
 
-	while (k < s->b.size)
-	{
-		printf("%d\n", s->b.element[k].data);
-		k++;
-	}
-	return;
+	// while (k < s->b.size)
+	// {
+	// 	printf("%d\n", s->b.element[k].data);
+	// 	k++;
+	// }
+	// return;
 }
 
 void	ss(stacks *s)
