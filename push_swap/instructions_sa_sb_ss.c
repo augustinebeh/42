@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 23:43:28 by abeh              #+#    #+#             */
-/*   Updated: 2024/07/01 00:18:05 by abeh             ###   ########.fr       */
+/*   Updated: 2024/07/01 21:26:04 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,55 +27,56 @@
 
 void	sa(stacks *s)
 {
-	int	temp;
+	if (s->a.size > 1)
+	{
+		elements	temp;
 
-	temp = s->a.element[0].data;
-	s->a.element[0].data = s->a.element[1].data;
-	s->a.element[1].data = temp;
-	printf("sa\n");
-	// int k = 0;
-	// printf("\na\n");
-	// while (k < s->a.size)
-	// {
-	// 	printf("%d\n", s->a.element[k].data);
-	// 	k++;
-	// }
-	// k = 0;
-	// printf("\nb\n");
-
-	// while (k < s->b.size)
-	// {
-	// 	printf("%d\n", s->b.element[k].data);
-	// 	k++;
-	// }
-	// return;
-
+		temp = s->a.element[0];
+		s->a.element[0] = s->a.element[1];
+		s->a.element[1] = temp;
+		printf("sa\n");
+		int k = 0;
+		printf("\na\n");
+		while (k < s->a.size)
+		{
+			printf("%d %d\n", s->a.element[k].data, s->a.element[k].index);
+			k++;
+		}
+		k = 0;
+		printf("\nb\n");
+		while (k < s->b.size)
+		{
+			printf("%d %d\n", s->b.element[k].data, s->b.element[k].index);
+			k++;
+		}
+	}
 }
 
 void	sb(stacks *s)
 {
-	int	temp;
+	if (s->b.size > 1)
+	{
+		elements	temp;
 
-	temp = s->b.element[0].data;
-	s->b.element[0].data = s->b.element[1].data;
-	s->b.element[1].data = temp;
-	printf("sb\n");
-	// int k = 0;
-	// printf("\na\n");
-	// while (k < s->a.size)
-	// {
-	// 	printf("%d\n", s->a.element[k].data);
-	// 	k++;
-	// }
-	// k = 0;
-	// printf("\nb\n");
-
-	// while (k < s->b.size)
-	// {
-	// 	printf("%d\n", s->b.element[k].data);
-	// 	k++;
-	// }
-	// return;
+		temp = s->b.element[0];
+		s->b.element[0] = s->b.element[1];
+		s->b.element[1] = temp;
+		printf("sb\n");
+		int k = 0;
+		printf("\na\n");
+		while (k < s->a.size)
+		{
+			printf("%d %d\n", s->a.element[k].data, s->a.element[k].index);
+			k++;
+		}
+		k = 0;
+		printf("\nb\n");
+		while (k < s->b.size)
+		{
+			printf("%d %d\n", s->b.element[k].data, s->b.element[k].index);
+			k++;
+		}
+	}
 }
 
 void	ss(stacks *s)

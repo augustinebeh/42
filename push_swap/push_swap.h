@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 06:45:45 by abeh              #+#    #+#             */
-/*   Updated: 2024/07/01 00:14:36 by abeh             ###   ########.fr       */
+/*   Updated: 2024/07/01 21:09:41 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ typedef struct stacks
 
 int				highest_int(stack a);
 int				lowest_int(stack a);
-int				if_sorted(stack a);
+int				is_sorted(stacks *s);
 int				has_duplicates(stacks *s);
 int				is_valid_int(const char *str);
 
@@ -48,7 +48,9 @@ void			index_elements(elements *array, int size);
 void			insertion_sort(elements *array, int size);
 
 void			swap_algo_three(stacks *s);
-void			mainalgo(stacks *s);
+void 			swap_algo_five(stacks *s);
+
+void			major_algo(stacks *s);
 
 void			pa(stacks *s);
 void			pb(stacks *s);

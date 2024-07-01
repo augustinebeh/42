@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 23:43:26 by abeh              #+#    #+#             */
-/*   Updated: 2024/07/01 00:17:30 by abeh             ###   ########.fr       */
+/*   Updated: 2024/07/01 15:27:04 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 
 void	rra(stacks *s)
 {
-	int	temp;
+	elements	temp;
 	int	i;
 
 	i = 0;
@@ -38,13 +38,13 @@ void	rra(stacks *s)
 		return;
 	while (i < s->a.size)
 		i++;
-	temp = s->a.element[i - 1].data;
+	temp = s->a.element[i - 1];
 	while (0 < i)
 	{
-		s->a.element[i].data = s->a.element[i - 1].data;
+		s->a.element[i] = s->a.element[i - 1];
 		i--;
 	}
-	s->a.element[0].data = temp;
+	s->a.element[0] = temp;
 	printf("rra\n");
 	// int k = 0;
 	// printf("\na\n");
@@ -66,7 +66,7 @@ void	rra(stacks *s)
 
 void	rrb(stacks *s)
 {
-	int	temp;
+	elements	temp;
 	int	i;
 
 	i = 0;
@@ -74,13 +74,13 @@ void	rrb(stacks *s)
 		return;
 	while (i < s->b.size)
 		i++;
-	temp = s->b.element[i - 1].data;
+	temp = s->b.element[i - 1];
 	while (0 < i)
 	{
-		s->b.element[i].data = s->b.element[i - 1].data;
+		s->b.element[i] = s->b.element[i - 1];
 		i--;
 	}
-	s->b.element[0].data = temp;
+	s->b.element[0] = temp;
 	printf("rrb\n");
 	// int k = 0;
 	// printf("\na\n");

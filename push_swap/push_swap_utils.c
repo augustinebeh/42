@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 07:36:20 by abeh              #+#    #+#             */
-/*   Updated: 2024/07/01 00:33:04 by abeh             ###   ########.fr       */
+/*   Updated: 2024/07/01 21:12:43 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,18 +72,16 @@ int	lowest_int(stack a)
 	return (min);
 }
 
-int	if_sorted(stack a)
+int	is_sorted(stacks *s)
 {
-	int	sorted;
+	int	i;
 
-	sorted = 1;
-	for (int i = 0; i < a.size - 1; i++)
+	i = 0;
+	while (i < s->a.size - 1)
 	{
-		if (a.element[i].data > a.element[i + 1].data)
-		{
-			sorted = 0;
-			break ;
-		}
+		if (s->a.element[i].data > s->a.element[i + 1].data)
+			return 0;
+		i++;
 	}
-	return (sorted);
+	return 1;
 }

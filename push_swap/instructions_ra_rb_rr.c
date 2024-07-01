@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 23:43:27 by abeh              #+#    #+#             */
-/*   Updated: 2024/07/01 00:17:21 by abeh             ###   ########.fr       */
+/*   Updated: 2024/07/01 20:57:47 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	rb(stacks *s)
 		i++;
 	}
 	s->b.element[i] = temp;
-	printf("ra\n");
+	printf("rb\n");
 	// int k = 0;
 	// printf("\na\n");
 	// while (k < s->a.size)

@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 23:54:38 by abeh              #+#    #+#             */
-/*   Updated: 2024/07/01 02:22:55 by abeh             ###   ########.fr       */
+/*   Updated: 2024/07/01 21:26:19 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,26 @@ int	main(int ac, char **av)
 	init_stack(&s, ac, av);
 	if (has_duplicates(&s))
 		return (printf("Error DUPES!\n"));
-	if (if_sorted(s.a))
+	if (is_sorted(&s))
    	return 0;
 	if (ac <= 4)
 		swap_algo_three(&s);
-	else
-		mainalgo(&s);
+	if (ac <= 6)
+		swap_algo_five(&s);
+	// else
+		pb(&s);
+		pb(&s);
+		pb(&s);
+		pb(&s);
+		pb(&s);
+		sa(&s);
+		sb(&s);
+
+		// major_algo(&s);
+	free(s.a.element);
+	free(s.b.element);
+
+	return (0);
 
 
 

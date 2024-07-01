@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 19:04:58 by abeh              #+#    #+#             */
-/*   Updated: 2024/06/30 21:59:52 by abeh             ###   ########.fr       */
+/*   Updated: 2024/07/01 17:17:59 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,27 @@
 
 void insertion_sort(elements *array, int size)
 {
-    int i, j;
-    for (i = 1; i < size; i++)
+    int i = 1;
+    while (i < size)
     {
         elements key = array[i];
-        j = i - 1;
+        int j = i - 1;
         while (j >= 0 && array[j].data > key.data)
         {
             array[j + 1] = array[j];
             j--;
         }
         array[j + 1] = key;
+        i++;
     }
 }
 
 void index_elements(elements *array, int size)
 {
-    int i = 0;
+    int i;
+    int j;
+
+    i = 0;
     elements temp[size];
     while (i < size)
     {
@@ -40,7 +44,6 @@ void index_elements(elements *array, int size)
     insertion_sort(temp, size);
 
     i = 0;
-    int j = 0;
     while (i < size)
     {
         j = 0;
