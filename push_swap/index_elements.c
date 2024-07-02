@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 19:04:58 by abeh              #+#    #+#             */
-/*   Updated: 2024/07/02 09:39:50 by abeh             ###   ########.fr       */
+/*   Updated: 2024/07/03 06:10:47 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	index_elements(t_elements *array, int size)
 		{
 			if (array[i].data == temp[j].data)
 			{
-				array[i].index = j;
+				array[i].index = j + 1;
 				break ;
 			}
 			j++;

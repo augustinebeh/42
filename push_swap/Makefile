@@ -6,7 +6,7 @@
 #    By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/17 06:45:50 by abeh              #+#    #+#              #
-#    Updated: 2024/07/03 06:05:20 by abeh             ###   ########.fr        #
+#    Updated: 2024/07/03 06:07:12 by abeh             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ all:	 ${NAME}
 ${NAME}: ${OBJS}
 
 
-${NEW}:
+${CHECK}: ${CHECK_OBJS}
 	@ar rcs $(NAME) $(OBJS)
 
 .c.o:

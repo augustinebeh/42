@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 04:35:46 by abeh              #+#    #+#             */
-/*   Updated: 2024/07/03 05:07:39 by abeh             ###   ########.fr       */
+/*   Updated: 2024/07/03 06:13:47 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,15 @@
 
 void	swap_algo_three(t_stacks *s)
 {
-	int	max;
-
 	if (is_sorted(s))
-		return ;
-	max = highest_int(s->a);
-	if (s->a.element[0].data == max)
+		return;
+	if (s->a.element[0].index == 3)
 		ra(s);
-	else if (s->a.element[1].data == max)
+	else if (s->a.element[1].index == 3)
 		rra(s);
-	if (s->a.element[0].data > s->a.element[1].data)
+	if (s->a.element[0].index > s->a.element[1].index)
 		sa(s);
-	return ;
+	return;
 }
 
 void	swap_algo_five(t_stacks *s)
