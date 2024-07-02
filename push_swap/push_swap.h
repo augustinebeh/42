@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 06:45:45 by abeh              #+#    #+#             */
-/*   Updated: 2024/07/01 21:09:41 by abeh             ###   ########.fr       */
+/*   Updated: 2024/07/02 08:33:27 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct elements
 {
 	int			data;
 	int			index;
+   int      bits[9];
 }				elements;
 
 typedef struct stack
@@ -46,6 +47,8 @@ int				is_valid_int(const char *str);
 
 void			index_elements(elements *array, int size);
 void			insertion_sort(elements *array, int size);
+void 				append_bits(elements *array,int size);
+
 
 void			swap_algo_three(stacks *s);
 void 			swap_algo_five(stacks *s);

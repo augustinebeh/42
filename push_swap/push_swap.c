@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 23:54:38 by abeh              #+#    #+#             */
-/*   Updated: 2024/07/01 21:26:19 by abeh             ###   ########.fr       */
+/*   Updated: 2024/07/02 08:12:10 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	init_stack(stacks *s, int ac, char **av)
 	{
 		if (!is_valid_int(av[i + 1]))
 		{
-			printf("Error, input '%s' is not a valid integer\n", av[i + 1]);
+			printf("Error\n");
 			free(s->a.element);
 			free(s->b.element);
 			exit(1);
@@ -30,6 +30,7 @@ void	init_stack(stacks *s, int ac, char **av)
 		i++;
 	}
 	index_elements(s->a.element, ac - 1);
+	append_bits(s->a.element, ac - 1);
 	s->a.size = ac - 1;
 	s->b.size = 0;
 }
@@ -40,25 +41,19 @@ int	main(int ac, char **av)
 
 	init_stack(&s, ac, av);
 	if (has_duplicates(&s))
-		return (printf("Error DUPES!\n"));
-	if (is_sorted(&s))
+		return (printf("Error\n"));
+	else if (is_sorted(&s))
    	return 0;
-	if (ac <= 4)
+	else if (ac <= 4)
 		swap_algo_three(&s);
-	if (ac <= 6)
+	else if (ac <= 6)
 		swap_algo_five(&s);
-	// else
-		pb(&s);
-		pb(&s);
-		pb(&s);
-		pb(&s);
-		pb(&s);
-		sa(&s);
-		sb(&s);
-
-		// major_algo(&s);
-	free(s.a.element);
-	free(s.b.element);
+	else
+		major_algo(&s);
+	if (s.a.element)
+		free(s.a.element);
+	if (s.b.element)
+		free(s.b.element);
 
 	return (0);
 

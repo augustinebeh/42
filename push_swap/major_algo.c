@@ -6,33 +6,36 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 23:56:55 by abeh              #+#    #+#             */
-/*   Updated: 2024/07/01 21:08:01 by abeh             ###   ########.fr       */
+/*   Updated: 2024/07/02 09:01:04 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int power(int x, int y)
+void major_algo(stacks *s)
 {
-   while (y > 0)
-   {
-      x = x * x;
-      y--;
-   }
-   return x;
-}
+    int i;
+    int j;
+    int k;
+    int size = s->a.size;
 
-void major_algo(stacks *s) {
-    while (is_sorted(s) == 0) {
-        while (s->a.size > 1 && s->a.element[s->a.size - 1].data < s->a.element[s->a.size - 2].data) {
-            sa(s);
+    i = 0;
+    while (1)
+    {
+        j = 0;
+        while (size > j)
+        {
+            if (s->a.element[0].bits[i] == 0)
+                pb(s);
+            else
+                ra(s);
+            j++;
         }
-        if (s->a.size > 1 && s->a.element[s->a.size - 1].data > s->a.element[s->a.size - 2].data) {
-            pb(s);
-            while (s->b.size > 1 && s->b.element[s->b.size - 1].data < s->b.element[s->b.size - 2].data) {
-                sb(s);
-            }
+        k = s->b.size;
+        while (k-- > 0)
             pa(s);
-        }
+        if (is_sorted(s) && s->b.size == 0)
+            return;
+        i++;
     }
 }

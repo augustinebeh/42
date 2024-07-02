@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 23:43:24 by abeh              #+#    #+#             */
-/*   Updated: 2024/07/01 21:21:23 by abeh             ###   ########.fr       */
+/*   Updated: 2024/07/02 08:11:06 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,20 +46,20 @@ void	pa(stacks *s)
     }
     s->a.element[0] = temp;
 	printf("pa\n");
-	int k = 0;
-	printf("\na\n");
-	while (k < s->a.size)
-	{
-		printf("%d %d\n", s->a.element[k].data, s->a.element[k].index);
-		k++;
-	}
-	k = 0;
-	printf("\nb\n");
-	while (k < s->b.size)
-	{
-		printf("%d %d\n", s->b.element[k].data, s->b.element[k].index);
-		k++;
-	}
+	// int k = 0;
+	// printf("\na\n");
+	// while (k < s->a.size)
+	// {
+	// 	printf("%d %d\n", s->a.element[k].data, s->a.element[k].index);
+	// 	k++;
+	// }
+	// k = 0;
+	// printf("\nb\n");
+	// while (k < s->b.size)
+	// {
+	// 	printf("%d %d\n", s->b.element[k].data, s->b.element[k].index);
+	// 	k++;
+	// }
 }
 
 void pb(stacks *s)
@@ -86,20 +86,20 @@ void pb(stacks *s)
     s->b.element[0] = temp;
 		// printf("b[0] = %d\n",s->b.element[0].data);
 	printf("pb\n");
-	int k = 0;
-	printf("\na\n");
-	while (k < s->a.size)
-	{
-		printf("%d %d\n", s->a.element[k].data, s->a.element[k].index);
-		k++;
-	}
-	k = 0;
-	printf("\nb\n");
+	// int k = 0;
+	// printf("\na\n");
+	// while (k < s->a.size)
+	// {
+	// 	printf("%d %d\n", s->a.element[k].data, s->a.element[k].index);
+	// 	k++;
+	// }
+	// k = 0;
+	// printf("\nb\n");
 
-	while (k < s->b.size)
-	{
-		// printf("k = %d\n", k);
-		printf("%d %d\n", s->b.element[k].data, s->b.element[k].index);
-		k++;
-	}
+	// while (k < s->b.size)
+	// {
+	// 	// printf("k = %d\n", k);
+	// 	printf("%d %d\n", s->b.element[k].data, s->b.element[k].index);
+	// 	k++;
+	// }
 }

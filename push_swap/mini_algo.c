@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 04:35:46 by abeh              #+#    #+#             */
-/*   Updated: 2024/07/01 21:10:20 by abeh             ###   ########.fr       */
+/*   Updated: 2024/07/02 07:18:07 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void swap_algo_three(stacks *s)
         rra(s);
     if (s->a.element[0].data > s->a.element[1].data)
         sa(s);
+    return;
 }
 
 void swap_algo_five(stacks *s)

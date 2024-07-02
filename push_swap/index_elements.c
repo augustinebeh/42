@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 19:04:58 by abeh              #+#    #+#             */
-/*   Updated: 2024/07/01 17:17:59 by abeh             ###   ########.fr       */
+/*   Updated: 2024/07/02 08:33:47 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ void index_elements(elements *array, int size)
         i++;
     }
     insertion_sort(temp, size);
-
     i = 0;
     while (i < size)
     {
@@ -54,6 +53,22 @@ void index_elements(elements *array, int size)
                 array[i].index = j + 1;
                 break;
             }
+            j++;
+        }
+        i++;
+    }
+}
+
+void append_bits(elements *array, int size)
+{
+    int i = 0;
+
+    while (i < size)
+    {
+        int j = 0;
+        while (j < 9)
+        {
+            array[i].bits[j] = ((array[i].index >> j) & 1);
             j++;
         }
         i++;
