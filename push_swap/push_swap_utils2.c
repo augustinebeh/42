@@ -1,42 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   major_algo.c                                       :+:      :+:    :+:   */
+/*   push_swap_utils2.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/30 23:56:55 by abeh              #+#    #+#             */
-/*   Updated: 2024/07/02 09:38:45 by abeh             ###   ########.fr       */
+/*   Created: 2024/07/02 10:12:20 by abeh              #+#    #+#             */
+/*   Updated: 2024/07/02 15:13:19 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	major_algo(t_stacks *s)
+int	ft_atoi(const char *c)
 {
 	int	i;
-	int	j;
-	int	k;
-	int	size;
+	int	sign;
+	int	result;
 
-	size = s->a.size;
 	i = 0;
-	while (1)
+	sign = 1;
+	result = 0;
+	while (c[i] == ' ' || (c[i] >= 9 && c[i] <= 13))
+		i++;
+	if (c[i] == '-' || c[i] == '+')
 	{
-		j = 0;
-		while (size > j)
-		{
-			if (s->a.element[0].bits[i] == 0)
-				pb(s);
-			else
-				ra(s);
-			j++;
-		}
-		k = s->b.size;
-		while (k-- > 0)
-			pa(s);
-		if (is_sorted(s) && s->b.size == 0)
-			return ;
+		if (c[i] == '-')
+			sign = sign * -1;
 		i++;
 	}
+	while (c[i] >= '0' && c[i] <= '9')
+	{
+		result = result * 10 + (c[i] - '0');
+		i++;
+	}
+	result = result * sign;
+	return (result);
 }

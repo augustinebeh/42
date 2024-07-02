@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 06:45:45 by abeh              #+#    #+#             */
-/*   Updated: 2024/07/02 08:33:27 by abeh             ###   ########.fr       */
+/*   Updated: 2024/07/02 15:13:28 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,54 +20,54 @@
 # include <string.h>
 # include <unistd.h>
 
-typedef struct elements
+typedef struct t_elements
 {
 	int			data;
 	int			index;
-   int      bits[9];
-}				elements;
+	int			bits[9];
+}				t_elements;
 
-typedef struct stack
+typedef struct t_stack
 {
-	elements	*element;
+	t_elements	*element;
 	int			size;
-}				stack;
+}				t_stack;
 
-typedef struct stacks
+typedef struct t_stacks
 {
-	stack		a;
-	stack		b;
-}				stacks;
+	t_stack		a;
+	t_stack		b;
+}				t_stacks;
 
-int				highest_int(stack a);
-int				lowest_int(stack a);
-int				is_sorted(stacks *s);
-int				has_duplicates(stacks *s);
+int				highest_int(t_stack a);
+int				lowest_int(t_stack a);
+int				is_sorted(t_stacks *s);
+int				has_duplicates(t_stacks *s);
 int				is_valid_int(const char *str);
+int	ft_atoi(const char *c);
 
-void			index_elements(elements *array, int size);
-void			insertion_sort(elements *array, int size);
-void 				append_bits(elements *array,int size);
+void			index_elements(t_elements *array, int size);
+void			insertion_sort(t_elements *array, int size);
+void			append_bits(t_elements *array, int size);
 
+void			swap_algo_three(t_stacks *s);
+void			swap_algo_five(t_stacks *s);
 
-void			swap_algo_three(stacks *s);
-void 			swap_algo_five(stacks *s);
+void			major_algo(t_stacks *s);
 
-void			major_algo(stacks *s);
+void			pa(t_stacks *s);
+void			pb(t_stacks *s);
 
-void			pa(stacks *s);
-void			pb(stacks *s);
+void			sa(t_stacks *s);
+void			sb(t_stacks *s);
+void			ss(t_stacks *s);
 
-void			sa(stacks *s);
-void			sb(stacks *s);
-void			ss(stacks *s);
+void			ra(t_stacks *s);
+void			rb(t_stacks *s);
+void			rr(t_stacks *s);
 
-void			ra(stacks *s);
-void			rb(stacks *s);
-void			rr(stacks *s);
-
-void			rra(stacks *s);
-void			rrb(stacks *s);
-void			rrr(stacks *s);
+void			rra(t_stacks *s);
+void			rrb(t_stacks *s);
+void			rrr(t_stacks *s);
 
 #endif

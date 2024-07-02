@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 07:36:20 by abeh              #+#    #+#             */
-/*   Updated: 2024/07/01 21:12:43 by abeh             ###   ########.fr       */
+/*   Updated: 2024/07/02 09:38:33 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,21 @@
 
 int	is_valid_int(const char *str)
 {
-	int	i = 0;
+	int	i;
+
+	i = 0;
 	if (str[0] == '-' || str[0] == '+')
 		i++;
-	while (str[i]!= '\0')
+	while (str[i] != '\0')
 	{
 		if (!(str[i] >= '0' && str[i] <= '9'))
-			return 0;
+			return (0);
 		i++;
 	}
-	return 1;
+	return (1);
 }
 
-int	has_duplicates(stacks *s)
+int	has_duplicates(t_stacks *s)
 {
 	int	i;
 	int	j;
@@ -46,33 +48,39 @@ int	has_duplicates(stacks *s)
 	return (0);
 }
 
-int	highest_int(stack a)
+int	highest_int(t_stack a)
 {
 	int	max;
+	int	i;
 
+	i = 0;
 	max = a.element[0].data;
-	for (int i = 1; i < a.size; i++)
+	while (i < a.size)
 	{
 		if (a.element[i].data > max)
 			max = a.element[i].data;
+		i++;
 	}
 	return (max);
 }
 
-int	lowest_int(stack a)
+int	lowest_int(t_stack a)
 {
 	int	min;
+	int	i;
 
+	i = 0;
 	min = a.element[0].data;
-	for (int i = 1; i < a.size; i++)
+	while (i < a.size)
 	{
 		if (a.element[i].data < min)
 			min = a.element[i].data;
+		i++;
 	}
 	return (min);
 }
 
-int	is_sorted(stacks *s)
+int	is_sorted(t_stacks *s)
 {
 	int	i;
 
@@ -80,8 +88,8 @@ int	is_sorted(stacks *s)
 	while (i < s->a.size - 1)
 	{
 		if (s->a.element[i].data > s->a.element[i + 1].data)
-			return 0;
+			return (0);
 		i++;
 	}
-	return 1;
+	return (1);
 }
