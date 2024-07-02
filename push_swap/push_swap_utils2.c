@@ -6,17 +6,17 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 10:12:20 by abeh              #+#    #+#             */
-/*   Updated: 2024/07/02 15:13:19 by abeh             ###   ########.fr       */
+/*   Updated: 2024/07/03 05:48:29 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_atoi(const char *c)
+long	ft_atoi(const char *c)
 {
 	int	i;
 	int	sign;
-	int	result;
+	long	result;
 
 	i = 0;
 	sign = 1;
