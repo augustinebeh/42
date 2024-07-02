@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 23:43:26 by abeh              #+#    #+#             */
-/*   Updated: 2024/07/02 09:39:07 by abeh             ###   ########.fr       */
+/*   Updated: 2024/07/03 05:06:20 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ void	rra(t_stacks *s)
 		return ;
 	while (i < s->a.size)
 		i++;
-	temp = s->a.element[i - 1];
+	temp = s->a.element[s->a.size - 1];
+	i--;
 	while (0 < i)
 	{
 		s->a.element[i] = s->a.element[i - 1];
@@ -74,7 +75,8 @@ void	rrb(t_stacks *s)
 		return ;
 	while (i < s->b.size)
 		i++;
-	temp = s->b.element[i - 1];
+	temp = s->b.element[s->b.size - 1];
+	i--;
 	while (0 < i)
 	{
 		s->b.element[i] = s->b.element[i - 1];

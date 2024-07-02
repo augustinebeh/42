@@ -44,7 +44,7 @@ int				lowest_int(t_stack a);
 int				is_sorted(t_stacks *s);
 int				has_duplicates(t_stacks *s);
 int				is_valid_int(const char *str);
-int	ft_atoi(const char *c);
+int				ft_atoi(const char *c);
 
 void			index_elements(t_elements *array, int size);
 void			insertion_sort(t_elements *array, int size);
