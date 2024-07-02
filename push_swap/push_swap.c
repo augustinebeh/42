@@ -6,30 +6,47 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 23:54:38 by abeh              #+#    #+#             */
-/*   Updated: 2024/07/02 15:13:01 by abeh             ###   ########.fr       */
+/*   Updated: 2024/07/03 05:20:03 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	init_stack(t_stacks *s, int ac, char **av)
+void	check_errors_and_allocate(t_stacks *s, int ac, char **av)
 {
 	int	i;
 
 	s->a.element = malloc(sizeof(t_elements) * (ac - 1));
 	s->b.element = malloc(sizeof(t_elements) * (ac - 1));
+	if (!s->a.element || !s->b.element)
+	{
+		free(s->a.element);
+		free(s->b.element);
+		exit(1);
+	}
 	i = 0;
 	while (i < ac - 1)
 	{
-		s->a.element[i].data = ft_atoi(av[i + 1]);
-		if (!is_valid_int(av[i + 1]) || s->a.element[i].data > INT_MAX)
+		if (!is_valid_int(av[i + 1]) || ft_atoi(av[i + 1]) > INT_MAX)
 		{
 			printf("Error\n");
 			free(s->a.element);
 			free(s->b.element);
 			exit(1);
 		}
+		i++;
+	}
+}
 
+void	init_stack(t_stacks *s, int ac, char **av)
+{
+	int	i;
+
+	check_errors_and_allocate(s, ac, av);
+	i = 0;
+	while (i < ac - 1)
+	{
+		s->a.element[i].data = ft_atoi(av[i + 1]);
 		i++;
 	}
 	index_elements(s->a.element, ac - 1);
