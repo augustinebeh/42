@@ -6,11 +6,12 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 23:54:38 by abeh              #+#    #+#             */
-/*   Updated: 2024/07/03 05:49:01 by abeh             ###   ########.fr       */
+/*   Updated: 2024/07/04 07:25:19 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "ft_printf/ft_printf.h"
 
 void	check_errors_and_allocate(t_stacks *s, int ac, char **av)
 {
@@ -29,7 +30,7 @@ void	check_errors_and_allocate(t_stacks *s, int ac, char **av)
 	{
 		if (!is_valid_int(av[i + 1]) || ft_atoi(av[i + 1]) > INT_MAX)
 		{
-			printf("Error\n");
+			ft_printf("Error\n");
 			free(s->a.element);
 			free(s->b.element);
 			exit(1);
@@ -53,17 +54,28 @@ void	init_stack(t_stacks *s, int ac, char **av)
 	append_bits(s->a.element, ac - 1);
 	s->a.size = ac - 1;
 	s->b.size = 0;
+	if (has_duplicates(s))
+	{
+		ft_printf("Error\n");
+		free(s->a.element);
+		free(s->b.element);
+		exit(1);
+	}
 }
 
 int	main(int ac, char **av)
 {
 	t_stacks	s;
 
-	init_stack(&s, ac, av);
-	if (has_duplicates(&s))
-		return (printf("Error\n"));
-	else if (is_sorted(&s))
+	if (ac == 1)
 		return (0);
+	init_stack(&s, ac, av);
+	if (is_sorted(&s))
+	{
+		free(s.a.element);
+		free(s.b.element);
+		return (0);
+	}
 	else if (ac <= 4)
 		swap_algo_three(&s);
 	else if (ac <= 6)

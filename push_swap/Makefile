@@ -6,7 +6,7 @@
 #    By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/17 06:45:50 by abeh              #+#    #+#              #
-#    Updated: 2024/07/03 06:07:12 by abeh             ###   ########.fr        #
+#    Updated: 2024/07/04 07:19:36 by abeh             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,11 +30,19 @@ SRCS =  	instructions_pa_pb.c \
 
 OBJS = ${SRCS:.c=.o}
 
+SUBDIR = ft_printf
+LIBNAME = libftprintf.a
+
 RM = rm -rf
 
 all:	 ${NAME}
 
-${NAME}: ${OBJS}
+${LIBNAME} :
+	${MAKE} -C ${SUBDIR}
+	cp ${SUBDIR}/${LIBNAME} .
+
+${NAME}: ${OBJS} ${LIBNAME}
+	${CC} ${CFLAGS} ${OBJS} -L. -lftprintf -o ${NAME}
 
 
 ${CHECK}: ${CHECK_OBJS}
@@ -44,9 +52,12 @@ ${CHECK}: ${CHECK_OBJS}
 			$(CC) $(CFLAGS) -c $< -o $@
 clean:
 	@${RM} ${OBJS}
+	$(MAKE) -C ft_printf clean
 
 fclean: clean
 	@${RM} ${OBJS} ${NAME}
+	@${RM} ${LIBNAME}
+	$(MAKE) -C ft_printf fclean
 
 re: fclean all
 

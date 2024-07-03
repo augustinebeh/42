@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 07:36:20 by abeh              #+#    #+#             */
-/*   Updated: 2024/07/02 09:38:33 by abeh             ###   ########.fr       */
+/*   Updated: 2024/07/04 07:25:32 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,11 @@ int	highest_int(t_stack a)
 	int	i;
 
 	i = 0;
-	max = a.element[0].data;
+	max = a.element[0].index;
 	while (i < a.size)
 	{
-		if (a.element[i].data > max)
-			max = a.element[i].data;
+		if (a.element[i].index > max)
+			max = a.element[i].index;
 		i++;
 	}
 	return (max);

@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 23:43:24 by abeh              #+#    #+#             */
-/*   Updated: 2024/07/02 09:39:26 by abeh             ###   ########.fr       */
+/*   Updated: 2024/07/04 06:28:15 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
  */
 
 #include "push_swap.h"
+#include "ft_printf/ft_printf.h"
 
 void	pa(t_stacks *s)
 {
@@ -45,20 +46,20 @@ void	pa(t_stacks *s)
 		j--;
 	}
 	s->a.element[0] = temp;
-	printf("pa\n");
+	ft_printf("pa\n");
 }
 // int k = 0;
-// printf("\na\n");
+// ft_printf("\na\n");
 // while (k < s->a.size)
 // {
-// 	printf("%d %d\n", s->a.element[k].data, s->a.element[k].index);
+// 	ft_printf("%d %d\n", s->a.element[k].data, s->a.element[k].index);
 // 	k++;
 // }
 // k = 0;
-// printf("\nb\n");
+// ft_printf("\nb\n");
 // while (k < s->b.size)
 // {
-// 	printf("%d %d\n", s->b.element[k].data, s->b.element[k].index);
+// 	ft_printf("%d %d\n", s->b.element[k].data, s->b.element[k].index);
 // 	k++;
 // }
 
@@ -86,22 +87,22 @@ void	pb(t_stacks *s)
 		j--;
 	}
 	s->b.element[0] = temp;
-	printf("pb\n");
+	ft_printf("pb\n");
 }
 
 // int k = 0;
-// printf("\na\n");
+// ft_printf("\na\n");
 // while (k < s->a.size)
 // {
-// 	printf("%d %d\n", s->a.element[k].data, s->a.element[k].index);
+// 	ft_printf("%d %d\n", s->a.element[k].data, s->a.element[k].index);
 // 	k++;
 // }
 // k = 0;
-// printf("\nb\n");
+// ft_printf("\nb\n");
 
 // while (k < s->b.size)
 // {
-// 	// printf("k = %d\n", k);
-// 	printf("%d %d\n", s->b.element[k].data, s->b.element[k].index);
+// 	// ft_printf("k = %d\n", k);
+// 	ft_printf("%d %d\n", s->b.element[k].data, s->b.element[k].index);
 // 	k++;
 // }

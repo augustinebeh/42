@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 23:43:28 by abeh              #+#    #+#             */
-/*   Updated: 2024/07/02 09:38:57 by abeh             ###   ########.fr       */
+/*   Updated: 2024/07/04 06:28:38 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
  * -----------------------------------------
 */
 #include "push_swap.h"
+#include "ft_printf/ft_printf.h"
 
 void	sa(t_stacks *s)
 {
@@ -34,28 +35,28 @@ void	sa(t_stacks *s)
 		temp = s->a.element[0];
 		s->a.element[0] = s->a.element[1];
 		s->a.element[1] = temp;
-		printf("sa\n");
+		ft_printf("sa\n");
 	}
 }
 // int k = 0;
-// printf("\na\n");
+// ft_printf("\na\n");
 // while (k < s->a.size)
 // {
-// 	printf("%d %d\n", s->a.element[k].data, s->a.element[k].index);
+// 	ft_printf("%d %d\n", s->a.element[k].data, s->a.element[k].index);
 // 	int o = 0;
 // 	while (o < 9)
 // 	{
-// 		printf("%d", s->a.element[k].bits[o]);
+// 		ft_printf("%d", s->a.element[k].bits[o]);
 // 		o++;
 // 	}
-// 	printf("\n");
+// 	ft_printf("\n");
 // 	k++;
 // }
 // k = 0;
-// printf("\nb\n");
+// ft_printf("\nb\n");
 // while (k < s->b.size)
 // {
-// 	printf("%d %d\n", s->b.element[k].data, s->b.element[k].index);
+// 	ft_printf("%d %d\n", s->b.element[k].data, s->b.element[k].index);
 // 	k++;
 // }
 
@@ -68,21 +69,21 @@ void	sb(t_stacks *s)
 		temp = s->b.element[0];
 		s->b.element[0] = s->b.element[1];
 		s->b.element[1] = temp;
-		printf("sb\n");
+		ft_printf("sb\n");
 	}
 }
 // int k = 0;
-// printf("\na\n");
+// ft_printf("\na\n");
 // while (k < s->a.size)
 // {
-// 	printf("%d %d\n", s->a.element[k].data, s->a.element[k].index);
+// 	ft_printf("%d %d\n", s->a.element[k].data, s->a.element[k].index);
 // 	k++;
 // }
 // k = 0;
-// printf("\nb\n");
+// ft_printf("\nb\n");
 // while (k < s->b.size)
 // {
-// 	printf("%d %d\n", s->b.element[k].data, s->b.element[k].index);
+// 	ft_printf("%d %d\n", s->b.element[k].data, s->b.element[k].index);
 // 	k++;
 // }
 
@@ -90,5 +91,5 @@ void	ss(t_stacks *s)
 {
 	sa(s);
 	sb(s);
-	printf("ss\n");
+	ft_printf("ss\n");
 }

@@ -6,23 +6,27 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 04:35:46 by abeh              #+#    #+#             */
-/*   Updated: 2024/07/03 06:13:47 by abeh             ###   ########.fr       */
+/*   Updated: 2024/07/04 07:25:44 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "ft_printf/ft_printf.h"
 
 void	swap_algo_three(t_stacks *s)
 {
+	int	max;
+
 	if (is_sorted(s))
-		return;
-	if (s->a.element[0].index == 3)
+		return ;
+	max = highest_int(s->a);
+	if (s->a.element[0].index == max)
 		ra(s);
-	else if (s->a.element[1].index == 3)
+	else if (s->a.element[1].index == max)
 		rra(s);
 	if (s->a.element[0].index > s->a.element[1].index)
 		sa(s);
-	return;
+	return ;
 }
 
 void	swap_algo_five(t_stacks *s)
