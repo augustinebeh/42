@@ -6,16 +6,17 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 23:54:38 by abeh              #+#    #+#             */
-/*   Updated: 2024/07/04 07:25:19 by abeh             ###   ########.fr       */
+/*   Updated: 2024/07/04 09:25:11 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
 #include "ft_printf/ft_printf.h"
+#include "push_swap.h"
 
 void	check_errors_and_allocate(t_stacks *s, int ac, char **av)
 {
-	int	i;
+	int		i;
+	long	o;
 
 	s->a.element = malloc(sizeof(t_elements) * (ac - 1));
 	s->b.element = malloc(sizeof(t_elements) * (ac - 1));
@@ -28,7 +29,8 @@ void	check_errors_and_allocate(t_stacks *s, int ac, char **av)
 	i = 0;
 	while (i < ac - 1)
 	{
-		if (!is_valid_int(av[i + 1]) || ft_atoi(av[i + 1]) > INT_MAX)
+		o = ft_atoi(av[i + 1]);
+		if (!is_valid_int(av[i + 1]) || o > INT_MAX || o < INT_MIN)
 		{
 			ft_printf("Error\n");
 			free(s->a.element);
