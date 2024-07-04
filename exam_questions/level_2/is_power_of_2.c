@@ -10,22 +10,26 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include <stdio.h>
+#include <unistd.h>
 
-int is_power_of_2(unsigned int n)
+int	is_power_of_2(unsigned int n)
 {
-    if (n == 0)
-        return 0;
-   int i = n & (n-1);
-    return i;
+	int	i;
+
+	if (n == 0)
+		return (0);
+	i = n & (n - 1);
+	return (i);
 }
 
-int main(void)
+int	main(void)
 {
-   unsigned int n = 15;
-   unsigned int i = is_power_of_2(n);
-   printf("output: %d",i);
-   return 0;
+	unsigned int	n;
+	unsigned int	i;
 
+	n = 15;
+	i = is_power_of_2(n);
+	printf("output: %d", i);
+	return (0);
 }

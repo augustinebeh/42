@@ -47,13 +47,13 @@ int	main(int ac, char **av)
 			av[1][i + 1] = av[1][i + 1] - 32;
 		i++;
 	}
-   i = 0;
-   remove_underscores(av[1]);
-   while (av[1][i])
-   {
-      write(1,&av[1][i],1);
-      i++;
-   }
-   write (1, "\n",1);
-   return 0;
+	i = 0;
+	remove_underscores(av[1]);
+	while (av[1][i])
+	{
+		write(1, &av[1][i], 1);
+		i++;
+	}
+	write(1, "\n", 1);
+	return (0);
 }

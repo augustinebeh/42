@@ -12,29 +12,30 @@
 
 #include <unistd.h>
 
-int ft_atoi(char *s)
+int	ft_atoi(char *s)
 {
-   int i;
-   int sign;
-   int num;
-   int result;
-   i = 0;
-   sign = 1;
-   num = 0;
-   result = 0;
-   while (s[i] == ' ' || s[i] == '\t' || s[i] == '\n')
-      i++;
-   if (s[i] == '-' || s[i] == '+')
-   {
-      if (s[i] == '-')
-         sign = -1;
-      i++;
-   }
-   while (s[i] >= '0' && s[i] <= '9')
-   {
-      num = s[i] - '0';
-      result = result * 10 + num;
-      i++;
-   }
-   return (result * sign);
+	int	i;
+	int	sign;
+	int	num;
+	int	result;
+
+	i = 0;
+	sign = 1;
+	num = 0;
+	result = 0;
+	while (s[i] == ' ' || s[i] == '\t' || s[i] == '\n')
+		i++;
+	if (s[i] == '-' || s[i] == '+')
+	{
+		if (s[i] == '-')
+			sign = -1;
+		i++;
+	}
+	while (s[i] >= '0' && s[i] <= '9')
+	{
+		num = s[i] - '0';
+		result = result * 10 + num;
+		i++;
+	}
+	return (result * sign);
 }
