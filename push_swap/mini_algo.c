@@ -6,11 +6,10 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 04:35:46 by abeh              #+#    #+#             */
-/*   Updated: 2024/07/04 08:33:56 by abeh             ###   ########.fr       */
+/*   Updated: 2024/07/05 17:00:01 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf/ft_printf.h"
 #include "push_swap.h"
 
 void	swap_algo_three(t_stacks *s)

@@ -6,21 +6,11 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 23:43:24 by abeh              #+#    #+#             */
-/*   Updated: 2024/07/04 06:28:15 by abeh             ###   ########.fr       */
+/*   Updated: 2024/07/05 17:00:30 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/**
- * --------------------------------
- * PA
- * moves the first int of B to A
- * PB
- * moves the first int from A to B
- * --------------------------------
- */
-
 #include "push_swap.h"
-#include "ft_printf/ft_printf.h"
 
 void	pa(t_stacks *s)
 {

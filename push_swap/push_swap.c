@@ -6,11 +6,10 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 23:54:38 by abeh              #+#    #+#             */
-/*   Updated: 2024/07/04 09:25:11 by abeh             ###   ########.fr       */
+/*   Updated: 2024/07/05 16:59:55 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf/ft_printf.h"
 #include "push_swap.h"
 
 void	check_errors_and_allocate(t_stacks *s, int ac, char **av)

@@ -6,27 +6,11 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 23:43:27 by abeh              #+#    #+#             */
-/*   Updated: 2024/07/04 06:28:33 by abeh             ###   ########.fr       */
+/*   Updated: 2024/07/05 17:00:16 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/**
- * RA, RB, RR
- *--------------------------------------
- * RA
-
-	* Shifts all the elements of the stack a up by one position.
-	The first element becomes the last.
- * RB
-
-	* Shifts all the elements of the stack a up by one position.
-	The first element becomes the last.
- * RR
- * Calls RA & RB simultaneously
- *--------------------------------------
- */
 #include "push_swap.h"
-#include "ft_printf/ft_printf.h"
 
 void	ra(t_stacks *s)
 {

@@ -6,25 +6,11 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 23:43:28 by abeh              #+#    #+#             */
-/*   Updated: 2024/07/04 06:28:38 by abeh             ###   ########.fr       */
+/*   Updated: 2024/07/05 17:00:24 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/**
- * SA | SB | SS
- * -----------------------------------------
- * takes in  2 arrays of numbers.
- * one in stack 1 and one in stack 2
- * SA
- * swap the first 2 integers of stack A
- * SB
- * swap the first 2 integers of stack B
- * SS
- * Calls SA & SB simultaneously
- * -----------------------------------------
-*/
 #include "push_swap.h"
-#include "ft_printf/ft_printf.h"
 
 void	sa(t_stacks *s)
 {

@@ -6,28 +6,11 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 23:43:26 by abeh              #+#    #+#             */
-/*   Updated: 2024/07/04 06:28:35 by abeh             ###   ########.fr       */
+/*   Updated: 2024/07/05 17:00:21 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "ft_printf/ft_printf.h"
-
-/**
- * RRA, RRB, RRR
- *--------------------------------------
- * RRA
-
-	* Shifts all the ints of the stack A down by 1 position.
-	The last int becomes the 1st.
- * RRB
-
-	* Shifts all the ints of the stack B down by 1 position.
-	The last int becomes the 1st.
- * RRR
- * Calls RA & RB simultaneously
- *--------------------------------------
- */
 
 void	rra(t_stacks *s)
 {
