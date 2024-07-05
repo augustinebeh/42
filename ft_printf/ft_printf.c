@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 23:09:08 by abeh              #+#    #+#             */
-/*   Updated: 2024/07/03 06:00:31 by abeh             ###   ########.fr       */
+/*   Updated: 2024/07/05 16:31:50 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,33 +66,6 @@ static int	ft_type(va_list args, const char type, int *error)
 		*error = -1;
 	return (counter);
 }
-// static int	n_o_a(const char *str)
-// {
-// 	int	count;
-// 	int	i;
-
-// 	count = 0;
-// 	i = 0;
-// 	while (str[i])
-// 	{
-// 		if (str[i] == '%')
-// 		{
-// 			if (str[i + 1] == 'c' || str[i + 1] == 's' || str[i + 1] == 'p'
-// 				|| str[i + 1] == 'd' || str[i + 1] == 'i' || str[i + 1] == 'u'
-// 				|| str[i + 1] == 'x' || str[i + 1] == 'X')
-// 				count++;
-// 			else if (str[i + 1] == '%')
-// 				i++;
-// 			else
-// 			{
-// 				printf("Error: unknown conversion type\n");
-// 				return (0);
-// 			}
-// 		}
-// 		i++;
-// 	}
-// 	return (count);
-// }
 
 // int	main(void)
 // {
@@ -113,9 +86,7 @@ static int	ft_type(va_list args, const char type, int *error)
 // 	i = i + printf(" The pointer address of printf ||\n");
 // 	i = i + printf("                          NULL || %p\n", NULL);
 // 	i = i + printf("                 Address of x  ||%p\n", (void *)&x);
-// 	i += printf("identical conversions: %c%s%d%i%p%u%x%X\n",'a', "bb", 1, INT_MIN, NULL, 2222222222, 123, 321);
 // 	printf("  The return (value of printf is : %d \n", i);
-
 
 // 	ft_printf("\n===============================================\n");
 // 	ft_printf("             FT_PRINTF   OUTPUTS");
@@ -128,7 +99,6 @@ static int	ft_type(va_list args, const char type, int *error)
 // 	j = j + ft_printf(" The pointer address of printf ||\n");
 // 	j = j + ft_printf("                          NULL || %p\n", NULL);
 // 	j = j + ft_printf("                  Address of x ||%p\n", (void *)&x);
-// 	j += ft_printf("identical conversions: %c%s%d%i%p%u%x%X\n",'a', "bb", 1, INT_MIN, NULL, 2222222222, 123, 321);
 // 	ft_printf("  The return (value of printf is : %d \n", j);
 // 	return (0);
 // }
