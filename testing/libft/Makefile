@@ -10,6 +10,18 @@
 #                                                                              #
 # **************************************************************************** #
 
+NAME = libft.a
+
+CC = cc
+
+CC_FLAGS = -Wall -Wextra -Werror
+
+INCLUDES = libft.h
+
+OBJS = $(SRCS:.c=.o)
+
+OBJSB = $(SRCSBONUS:.c=.o)
+
 SRCS = ft_memset.c			\
 		ft_memmove.c 		\
 		ft_isalpha.c 		\
@@ -43,7 +55,7 @@ SRCS = ft_memset.c			\
 		ft_strdup.c			\
 		ft_substr.c			\
 		ft_split.c			\
-		ft_itoa.c			
+		ft_itoa.c
 
 SRCSBONUS =	ft_lstnew.c		\
 		ft_lstadd_front.c	\
@@ -55,40 +67,32 @@ SRCSBONUS =	ft_lstnew.c		\
 		ft_lstiter.c		\
 		ft_lstmap.c		\
 
-NAME = libft.a
-
-OBJS = $(SRCS:.c=.o)
-
-OBJSB = $(SRCSBONUS:.c=.o)
-
-INCLUDES = libft.h
-
-CC = cc
-
-CC_FLAGS = -Wall -Wextra -Werror
-
 %.o: %.c
 	$(CC) $(CC_FLAGS) -c $? -o $@
 
 $(NAME): $(OBJS)
 	@ar rcs $(NAME) $(OBJS)
-	
-	@echo "\nLibft Created!\n"
+	@echo "ar rcs ${NAME} *.o"
+	@echo "Libft is ready to use!"
 
 all: $(NAME)
 
 clean:
-	rm -rf $(OBJS) $(OBJSB)
+	@rm -rf $(OBJS) $(OBJSB)
+	@echo "rm -rf *.o"
+	@echo "Libft's object files are deleted!"
 
 fclean: clean
-	@rm -f $(NAME)
-	@echo "\n Libft Cleaned!\n"
+	@rm -rf $(NAME)
+	@echo "rm -rf $(NAME)"
+	@echo "Libft.a removed!"
 
 re: fclean
 	make $(NAME)
 
 bonus: $(OBJS) $(OBJSB)
 	@ar rcs $(NAME) $(OBJS) $(OBJSB)
-	@echo "\nLibft Bonus Created!\n"
+	@echo "ar rcs ${NAME} *.o"
+	@echo "Libft_bonus is ready to use!"
 
 .PHONY: clean fclean re all bonus
