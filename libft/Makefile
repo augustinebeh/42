@@ -80,7 +80,7 @@ ${NAME}: ${OBJS}
 all: ${NAME}
 
 clean:
-	@{RM} ${OBJS} ${OBJSB}
+	@${RM} ${OBJS} ${OBJSB}
 	@echo "Libft's object files are deleted!"
 
 fclean: clean
