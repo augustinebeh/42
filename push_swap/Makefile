@@ -6,7 +6,7 @@
 #    By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/17 06:45:50 by abeh              #+#    #+#              #
-#    Updated: 2024/07/04 07:19:36 by abeh             ###   ########.fr        #
+#    Updated: 2024/07/06 04:42:20 by abeh             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,35 +30,35 @@ SRCS =  	instructions_pa_pb.c \
 
 OBJS = ${SRCS:.c=.o}
 
-SUBDIR = ft_printf
-LIBNAME = libftprintf.a
+LIBFTPRINTF = ft_printf/libftprintf.a
+LIBFT = ft_printf/libft.a
 
 RM = rm -rf
 
-all:	 ${NAME}
+all: ${NAME}
 
-${LIBNAME} :
-	${MAKE} -C ${SUBDIR}
-	cp ${SUBDIR}/${LIBNAME} .
+${NAME}: ${OBJS} ${LIBFTPRINTF} ${LIBFT}
+	${CC} ${CFLAGS} ${OBJS} ${LIBFTPRINTF} ${LIBFT} -o ${NAME}
 
-${NAME}: ${OBJS} ${LIBNAME}
-	${CC} ${CFLAGS} ${OBJS} -L. -lftprintf -o ${NAME}
+${LIBFTPRINTF}:
+	make -C ft_printf
 
+${LIBFT}:
+	make -C ft_printf/libft
 
-${CHECK}: ${CHECK_OBJS}
-	@ar rcs $(NAME) $(OBJS)
+%.o: %.c
+	${CC} ${CFLAGS} -c $< -o $@
 
-.c.o:
-			$(CC) $(CFLAGS) -c $< -o $@
 clean:
 	@${RM} ${OBJS}
-	$(MAKE) -C ft_printf clean
+	@$(MAKE) -C ft_printf clean
+	@echo "clean ${NAME}"
 
-fclean: clean
-	@${RM} ${OBJS} ${NAME}
-	@${RM} ${LIBNAME}
-	$(MAKE) -C ft_printf fclean
+fclean:
+	@${RM} ${OBJS} ${NAME} ${LIBFTPRINTF} ${LIBFT}
+	@$(MAKE) -C ft_printf fclean
+	@echo "fclean ${NAME}"
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: clean fclean re all

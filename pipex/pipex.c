@@ -6,11 +6,16 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 04:52:55 by abeh              #+#    #+#             */
-/*   Updated: 2024/07/05 05:04:10 by abeh             ###   ########.fr       */
+/*   Updated: 2024/07/05 18:24:44 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <fcntl.h>
-#include <unistd.h>
+#include "pipex.h"
 
+int main()
+{
+   int i;
+
+   i = ft_strlen("asb");
+   ft_printf("i = %d\n", i);
+}

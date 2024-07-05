@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 06:45:45 by abeh              #+#    #+#             */
-/*   Updated: 2024/07/05 16:59:42 by abeh             ###   ########.fr       */
+/*   Updated: 2024/07/06 04:43:54 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include "ft_printf/ft_printf.h"
+# include "ft_printf/libft/libft.h"
 # include <limits.h>
 # include <stddef.h>
 # include <stdio.h>
@@ -45,7 +46,7 @@ int				lowest_int(t_stack a);
 int				is_sorted(t_stacks *s);
 int				has_duplicates(t_stacks *s);
 int				is_valid_int(const char *str);
-long			ft_atoi(const char *c);
+long			ft_atol(const char *c);
 
 void			index_elements(t_elements *array, int size);
 void			insertion_sort(t_elements *array, int size);

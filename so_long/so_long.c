@@ -6,7 +6,18 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 16:56:21 by abeh              #+#    #+#             */
-/*   Updated: 2024/07/05 16:56:22 by abeh             ###   ########.fr       */
+/*   Updated: 2024/07/06 03:57:39 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "so_long.h"
+#include "ft_printf/libft/libft.h"
+
+
+int main()
+{
+   int i;
+
+   i = ft_strlen("asb");
+   ft_printf("i = %d\n", i);
+}

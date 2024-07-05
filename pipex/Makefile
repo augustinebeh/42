@@ -6,7 +6,7 @@
 #    By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/05 04:52:58 by abeh              #+#    #+#              #
-#    Updated: 2024/07/05 16:36:42 by abeh             ###   ########.fr        #
+#    Updated: 2024/07/06 04:39:34 by abeh             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,22 +20,35 @@ SRCS = pipex.c
 
 OBJS = ${SRCS:.c=.o}
 
+LIBFTPRINTF = ft_printf/libftprintf.a
+LIBFT = ft_printf/libft.a
+
 RM = rm -rf
 
 all: ${NAME}
 
-${NAME}: ${OBJS}
-	${CC} ${CFLAGS} ${OBJS} -o ${NAME}
-	@echo "Pipex is ready to use!"
+${NAME}: ${OBJS} ${LIBFTPRINTF} ${LIBFT}
+	${CC} ${CFLAGS} ${OBJS} ${LIBFTPRINTF} ${LIBFT} -o ${NAME}
+
+${LIBFTPRINTF}:
+	make -C ft_printf
+
+${LIBFT}:
+	make -C ft_printf/libft
+
+%.o: %.c
+	${CC} ${CFLAGS} -c $< -o $@
 
 clean:
-	@{RM} ${OBJS} ${OBJSB}
-	@echo "Pipex's object files are deleted!"
+	@${RM} ${OBJS}
+	@$(MAKE) -C ft_printf clean
+	@echo "clean ${NAME}"
 
-fclean: clean
-	@${RM} ${NAME}
-	@echo "${NAME} is deleted!"
+fclean:
+	@${RM} ${OBJS} ${NAME} ${LIBFTPRINTF} ${LIBFT}
+	@$(MAKE) -C ft_printf fclean
+	@echo "fclean ${NAME}"
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: clean fclean re all

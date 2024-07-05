@@ -6,13 +6,13 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 10:12:20 by abeh              #+#    #+#             */
-/*   Updated: 2024/07/03 05:48:29 by abeh             ###   ########.fr       */
+/*   Updated: 2024/07/06 04:43:29 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-long	ft_atoi(const char *c)
+long	ft_atol(const char *c)
 {
 	int		i;
 	int		sign;

@@ -27,25 +27,34 @@ SRCS = 	ft_printf.c 			\
 
 OBJS = ${SRCS:.c=.o}
 
+SUBDIR = libft
+LIBNAME = libft.a
+
 RM	= rm -rf
+
+all: 		${LIBNAME} ${NAME}
+
+${LIBNAME} :
+	${MAKE} bonus -C ${SUBDIR}
+	cp ${SUBDIR}/${LIBNAME} .
+	${RM} ${SUBDIR}/*.o
+
+${NAME}: ${OBJS} ${LIBNAME}
+	ar rcs ${NAME} ${OBJS} ${LIBNAME}
+	@echo "ar rcs ${NAME} ${LIBNAME} *.o"
 
 %.o: %.c
 	${CC} ${CFLAGS} -c $< -o $@
 
-${NAME}: 	${OBJS}
-	@ar rcs ${NAME} ${OBJS}
-	@echo "ar rcs ${NAME} *.o"
-	@echo "${NAME} is ready to use!"
-
-all: 		${NAME}
-
 clean:
-	@rm -rf ${OBJS}
-	@echo "Libftprintf's object files are deleted!"
+	@${RM} ${OBJS}
+	@$(MAKE) -C ${SUBDIR} clean
+	@echo "clean ${NAME}"
 
-fclean: clean
-	@rm -rf ${NAME}
-	@echo "${NAME} is deleted!"
+fclean:
+	@${RM} ${OBJS} ${NAME} ${LIBNAME}
+	@$(MAKE) -C ${SUBDIR} fclean
+	@echo "fclean ${NAME}"
 
 re: 		fclean all
 

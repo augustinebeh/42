@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 23:54:38 by abeh              #+#    #+#             */
-/*   Updated: 2024/07/05 16:59:55 by abeh             ###   ########.fr       */
+/*   Updated: 2024/07/06 04:44:19 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	check_errors_and_allocate(t_stacks *s, int ac, char **av)
 	i = 0;
 	while (i < ac - 1)
 	{
-		o = ft_atoi(av[i + 1]);
+		o = ft_atol(av[i + 1]);
 		if (!is_valid_int(av[i + 1]) || o > INT_MAX || o < INT_MIN)
 		{
 			ft_printf("Error\n");
@@ -48,7 +48,7 @@ void	init_stack(t_stacks *s, int ac, char **av)
 	i = 0;
 	while (i < ac - 1)
 	{
-		s->a.element[i].data = ft_atoi(av[i + 1]);
+		s->a.element[i].data = ft_atol(av[i + 1]);
 		i++;
 	}
 	index_elements(s->a.element, ac - 1);
