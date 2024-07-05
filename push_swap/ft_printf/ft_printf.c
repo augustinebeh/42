@@ -6,7 +6,7 @@
 /*   By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 23:09:08 by abeh              #+#    #+#             */
-/*   Updated: 2024/07/04 07:24:56 by abeh             ###   ########.fr       */
+/*   Updated: 2024/07/05 16:29:45 by abeh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,3 +66,4 @@ static int	ft_type(va_list args, const char type, int *error)
 		*error = -1;
 	return (counter);
 }
+
