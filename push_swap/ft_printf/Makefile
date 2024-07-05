@@ -25,29 +25,30 @@ SRCS = 	ft_printf.c 			\
 		ft_print_unsigned.c 		\
 		ft_print_hex.c
 
-OBJS = $(SRCS:.c=.o)
+OBJS = ${SRCS:.c=.o}
 
-RM	= rm -f
+RM	= rm -rf
 
+%.o: %.c
+	${CC} ${CFLAGS} -c $< -o $@
 
-all: 		$(NAME)
+${NAME}: 	${OBJS}
+	@ar rcs ${NAME} ${OBJS}
+	@echo "ar rcs ${NAME} *.o"
+	@echo "${NAME} is ready to use!"
 
-$(NAME): 	$(OBJS)
-			@ar rcs $(NAME) $(OBJS)
-
-
-.c.o:
-			$(CC) $(CFLAGS) -c $< -o $@
-
+all: 		${NAME}
 
 clean:
-			@$(RM) $(OBJS)
-			@echo "\n	all .o files  removed!\n"
+	@rm -rf ${OBJS}
+	@echo "rm -rf *.o"
+	@echo "Libftprintf's object files are deleted!"
 
-fclean:
-			@$(RM) $(OBJS) $(NAME)
-			@echo "\nall .o files  removed!"
-			@echo "libftprintf.a removed!\n"
+fclean: clean
+	@rm -rf ${NAME}
+	@echo "rm -rf ${NAME}"
+	@echo "Libftprintf.a is deleted!"
 
 re: 		fclean all
 
+.PHONY: clean fclean re all

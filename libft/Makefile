@@ -18,9 +18,9 @@ CC_FLAGS = -Wall -Wextra -Werror
 
 INCLUDES = libft.h
 
-OBJS = $(SRCS:.c=.o)
+OBJS = ${SRCS:.c=.o}
 
-OBJSB = $(SRCSBONUS:.c=.o)
+OBJSB = ${SRCSBONUS:.c=.o}
 
 SRCS = ft_memset.c			\
 		ft_memmove.c 		\
@@ -67,31 +67,33 @@ SRCSBONUS =	ft_lstnew.c		\
 		ft_lstiter.c		\
 		ft_lstmap.c		\
 
+RM = rm -rf
+
 %.o: %.c
-	$(CC) $(CC_FLAGS) -c $? -o $@
+	${CC} ${CC_FLAGS} -c $< -o $@
 
-$(NAME): $(OBJS)
-	@ar rcs $(NAME) $(OBJS)
+${NAME}: ${OBJS}
+	@ar rcs ${NAME} ${OBJS}
 	@echo "ar rcs ${NAME} *.o"
-	@echo "Libft is ready to use!"
+	@echo "${NAME} is ready to use!"
 
-all: $(NAME)
+all: ${NAME}
 
 clean:
-	@rm -rf $(OBJS) $(OBJSB)
+	@rm -rf ${OBJS} ${OBJSB}
 	@echo "rm -rf *.o"
 	@echo "Libft's object files are deleted!"
 
 fclean: clean
-	@rm -rf $(NAME)
-	@echo "rm -rf $(NAME)"
-	@echo "Libft.a removed!"
+	@rm -rf ${NAME}
+	@echo "rm -rf ${NAME}"
+	@echo "Libft.a is deleted!"
 
 re: fclean
-	make $(NAME)
+	make ${NAME}
 
-bonus: $(OBJS) $(OBJSB)
-	@ar rcs $(NAME) $(OBJS) $(OBJSB)
+bonus: ${OBJS} ${OBJSB}
+	@ar rcs ${NAME} ${OBJS} ${OBJSB}
 	@echo "ar rcs ${NAME} *.o"
 	@echo "Libft_bonus is ready to use!"
 
