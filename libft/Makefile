@@ -80,14 +80,12 @@ ${NAME}: ${OBJS}
 all: ${NAME}
 
 clean:
-	@rm -rf ${OBJS} ${OBJSB}
-	@echo "rm -rf *.o"
+	@{RM} ${OBJS} ${OBJSB}
 	@echo "Libft's object files are deleted!"
 
 fclean: clean
-	@rm -rf ${NAME}
-	@echo "rm -rf ${NAME}"
-	@echo "Libft.a is deleted!"
+	@${RM} ${NAME}
+	@echo "${NAME} is deleted!"
 
 re: fclean
 	make ${NAME}

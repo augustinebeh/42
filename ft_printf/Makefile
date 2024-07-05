@@ -41,13 +41,11 @@ all: 		${NAME}
 
 clean:
 	@rm -rf ${OBJS}
-	@echo "rm -rf *.o"
 	@echo "Libftprintf's object files are deleted!"
 
 fclean: clean
 	@rm -rf ${NAME}
-	@echo "rm -rf ${NAME}"
-	@echo "Libftprintf.a is deleted!"
+	@echo "${NAME} is deleted!"
 
 re: 		fclean all
 

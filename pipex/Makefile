@@ -6,7 +6,7 @@
 #    By: abeh <abeh@student.42singapore.sg>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/05 04:52:58 by abeh              #+#    #+#              #
-#    Updated: 2024/07/05 04:59:20 by abeh             ###   ########.fr        #
+#    Updated: 2024/07/05 16:36:42 by abeh             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,10 +29,12 @@ ${NAME}: ${OBJS}
 	@echo "Pipex is ready to use!"
 
 clean:
-	${RM} ${OBJS} *.txt
+	@{RM} ${OBJS} ${OBJSB}
+	@echo "Pipex's object files are deleted!"
 
 fclean: clean
-	${RM} ${NAME}
+	@${RM} ${NAME}
+	@echo "${NAME} is deleted!"
 
 re: fclean all
 
