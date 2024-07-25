@@ -8,5 +8,5 @@
 ## Milestone 2
     push_swap       |   submitted   |    84/100   |
     Exam Rank 02    |  In progress  |             |
-    pipex           |               |             |
+    pipex           |  In progress  |             |
 
